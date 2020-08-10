@@ -1,0 +1,10 @@
+@import "base.scss";
+
+.radioGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.radioButton {
+  margin-bottom: $gap-sm;
+}

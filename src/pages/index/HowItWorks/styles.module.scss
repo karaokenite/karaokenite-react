@@ -1,0 +1,23 @@
+@import "base.scss";
+
+.howItWorks {
+  background-color: $color-dark;
+  color: $color-white;
+  padding-top: 3.5rem;
+}
+
+.heading {
+  margin-bottom: $gap-md;
+}
+
+.stepRoom {
+  color: $color-yellow;
+}
+
+.stepFriends {
+  color: $color-magenta;
+}
+
+.stepGoodTime {
+  color: $color-pink;
+}

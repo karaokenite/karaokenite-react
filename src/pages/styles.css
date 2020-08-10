@@ -1,0 +1,39 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "Linotte";
+  src: url("https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2FLinotte%20Light.otf?v=1591822739554");
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "Linotte";
+  src: url("https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2FLinotte%20Regular.otf?v=1591822742735");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Linotte";
+  src: url("https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2FLinotte%20Semi%20Bold.otf?v=1591822746292");
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "Linotte";
+  src: url("https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2FLinotte%20Bold.otf?v=1591822725254");
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "Linotte";
+  src: url("https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2FLinotte%20Heavy.otf?v=1591822730897");
+  font-weight: 700;
+}

@@ -1,0 +1,14 @@
+@import "base.scss";
+
+.header {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position: relative;
+}
+
+.topRight {
+  justify-content: flex-end;
+  width: 100%;
+}

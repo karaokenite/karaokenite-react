@@ -1,0 +1,60 @@
+@import "base.scss";
+
+.hero {
+  background: linear-gradient(175deg, $color-dark 0%, $color-blue-dark 85%);
+  padding-bottom: 2.5rem;
+  position: relative;
+}
+
+.sectionContent {
+  padding: 5rem;
+}
+
+.logo {
+  left: -1.5rem;
+  top: -1rem;
+  position: relative;
+  width: 100%;
+}
+
+.description {
+  text-shadow: 0 0 5px $color-blue-dark, 0 0 7px $color-blue-dark;
+}
+
+.createRoom {
+  margin-top: $gap-lg;
+}
+
+@include viewport-medium {
+  .description {
+    text-align: left;
+  }
+
+  .logo {
+    width: 120%;
+  }
+
+  .createRoom {
+    margin-top: -$gap-md;
+  }
+}
+
+@include viewport-large {
+  .hero {
+    padding-bottom: 5rem;
+  }
+
+  .logo,
+  .description {
+    margin-left: -5rem;
+  }
+
+  .createRoom {
+    margin-right: -5rem;
+    padding-left: 3rem;
+  }
+
+  .logo {
+    width: 145%;
+  }
+}

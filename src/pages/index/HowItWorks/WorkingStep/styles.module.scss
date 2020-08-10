@@ -1,0 +1,32 @@
+@import "base.scss";
+
+.workingStep {
+  padding: $gap-lg;
+}
+
+.image {
+  width: 10rem;
+}
+
+.heading {
+  font-weight: $font-weight-normal;
+  margin: $gap-xl 0 $gap-md;
+  text-transform: uppercase;
+}
+
+.text {
+  color: $color-white;
+}
+
+@include viewport-medium {
+  .textCell {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .heading {
+    margin-top: 0;
+  }
+}

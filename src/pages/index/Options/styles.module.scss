@@ -1,0 +1,73 @@
+@import "base.scss";
+
+.options {
+  background-color: $color-pink;
+  position: relative;
+}
+
+.slantTop {
+  margin-top: -5rem;
+
+  &::after {
+    margin-top: 2.5rem;
+  }
+}
+
+.laptopCell {
+  margin-top: 4rem;
+}
+
+.or {
+  color: $color-pink-dark;
+  margin-top: $gap-md;
+  padding: $gap-lg;
+  text-transform: uppercase;
+}
+
+.vrCell {
+  margin-top: -0.5rem;
+}
+
+.slantBottom {
+  bottom: -5rem;
+
+  &::after {
+    margin-top: 2.5rem;
+  }
+}
+
+@include viewport-medium {
+  .sectionContent {
+    padding-top: 2.5rem;
+  }
+
+  .or {
+    align-items: center;
+    display: flex;
+    margin: 0;
+    justify-content: center;
+  }
+
+  .vrCell {
+    margin-top: 4rem;
+  }
+}
+
+@include viewport-large {
+  .options {
+    background: linear-gradient(0deg, $color-dark 0%, $color-blue-dark 85%);
+  }
+
+  .optionBackgroundLarge {
+    background: $color-pink;
+    width: 150%;
+    margin-left: -25%;
+    height: 100%;
+    position: absolute;
+    transform: rotate(-3deg);
+  }
+
+  .sectionContent {
+    padding-top: $gap-xl;
+  }
+}

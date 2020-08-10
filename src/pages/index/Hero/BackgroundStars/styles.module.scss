@@ -1,0 +1,82 @@
+@import "base.scss";
+
+.backgroundStars {
+  overflow: hidden;
+  height: 100%;
+  position: absolute;
+  user-select: none;
+  width: 100%;
+}
+
+.image {
+  position: absolute;
+}
+
+.mic {
+  bottom: 9rem;
+  left: 12rem;
+}
+
+.star1 {
+  bottom: 0;
+  left: -6rem;
+}
+
+.star2 {
+  bottom: 50%;
+  left: -13rem;
+}
+
+.star3 {
+  bottom: 4rem;
+  left: 20rem;
+}
+
+.star4 {
+  top: -2.5rem;
+  left: 10%;
+  max-width: 100%;
+}
+
+.star5 {
+  bottom: 5rem;
+  left: 51rem;
+}
+
+@include viewport-medium {
+  .mic {
+    bottom: 9rem;
+    left: 36.5%;
+  }
+
+  .star1 {
+    bottom: 2rem;
+    left: 15%;
+  }
+
+  .star2 {
+    bottom: 55%;
+    left: 7.5%;
+  }
+
+  .star3 {
+    bottom: 4rem;
+    left: 45%;
+  }
+
+  .star4 {
+    left: 17.5%;
+    top: -7.5rem;
+  }
+
+  .star5 {
+    left: 75%;
+  }
+}
+
+@include viewport-large {
+  .star4 {
+    left: 22.5%;
+    top: -12.5rem;
+  }
+}

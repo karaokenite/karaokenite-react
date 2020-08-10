@@ -1,0 +1,15 @@
+@import "base.scss";
+
+$cellSizes: (2, 3);
+
+.cell {
+  grid-column-end: span 6;
+}
+
+@each $cellSize in $cellSizes {
+  .cell#{$cellSize} {
+    @include viewport-medium {
+      grid-column-end: span #{$cellSize};
+    }
+  }
+}

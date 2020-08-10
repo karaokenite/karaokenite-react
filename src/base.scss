@@ -1,0 +1,50 @@
+$breakpoint-medium: 49rem;
+$breakpoint-large: 63rem;
+
+$color-black: black;
+$color-blue-dark: #1c0e8c;
+$color-dark: #050422;
+$color-gray-light: #dad8de;
+$color-magenta: #c202fb;
+$color-pink: #fe3466;
+$color-pink-dark: #b61f44;
+$color-white: white;
+$color-yellow: #c8ef00;
+$color-yellow-light: #d6ffa6;
+
+$font-family-text: "Linotte", sans-serif;
+
+$font-size-xs: 1rem;
+$font-size-sm: 1.2rem;
+$font-size-md: 1.5rem;
+$font-size-lg: 1.75rem;
+$font-size-xl: 2.5rem;
+
+$font-weight-normal: 500;
+$font-weight-bold: 600;
+
+$gap-sm: 0.5rem;
+$gap-md: 1.25rem;
+$gap-lg: 2.5rem;
+$gap-xl: 3.5rem;
+
+$time-fast: 0.2s;
+
+$width-border: 2px;
+$width-border-medium: 3px;
+$width-border-large: 4px;
+
+$width-border-radius: 8px;
+$width-border-radius-large: 20px;
+
+@mixin viewport-medium {
+  @media only screen and (min-width: $breakpoint-medium) {
+    @content;
+  }
+}
+
+@mixin viewport-large {
+  @media only screen and (min-width: $breakpoint-large) {
+    @content;
+  }
+}

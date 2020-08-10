@@ -1,0 +1,24 @@
+@import "base.scss";
+
+.topRight {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  text-transform: uppercase;
+}
+
+.about {
+  font-weight: $font-weight-bold;
+  margin-bottom: 1rem;
+  text-decoration: none;
+
+  &.dark {
+    color: $color-dark;
+    text-shadow: $color-white 0 0 3px, $color-white 0 0 5px;
+  }
+
+  &.light {
+    color: $color-white;
+    text-shadow: $color-dark 0 0 3px, $color-dark 0 0 5px;
+  }
+}

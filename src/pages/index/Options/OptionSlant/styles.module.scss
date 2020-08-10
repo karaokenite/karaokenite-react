@@ -1,0 +1,26 @@
+@import "base.scss";
+
+.optionSlant {
+  height: 10rem;
+  overflow: hidden;
+  position: absolute;
+  width: 100%;
+
+  &::after {
+    background: $color-pink;
+    content: " ";
+    display: block;
+    height: 5rem;
+    margin-left: -25%;
+    position: absolute;
+    transform: rotate(-3deg);
+    width: 150%;
+  }
+}
+
+@include viewport-large {
+  .optionSlant,
+  .optionSlant::after {
+    display: none;
+  }
+}

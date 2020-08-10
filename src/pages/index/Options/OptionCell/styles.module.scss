@@ -1,0 +1,17 @@
+@import "base.scss";
+
+.optionCell {
+  display: flex;
+  flex-direction: column;
+}
+
+.image {
+  margin: 0 auto $gap-lg;
+  width: 50%;
+}
+
+@include viewport-medium {
+  .image {
+    width: 75%;
+  }
+}

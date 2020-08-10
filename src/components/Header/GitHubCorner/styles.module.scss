@@ -1,0 +1,48 @@
+@import "base.scss";
+
+.logo {
+  .dark & {
+    color: $color-white;
+    fill: $color-dark;
+  }
+
+  .light & {
+    color: $color-dark;
+    fill: $color-white;
+  }
+}
+
+@keyframes octocat-wave {
+  0%,
+  100% {
+    transform: rotate(0);
+  }
+
+  20%,
+  60% {
+    transform: rotate(-25deg);
+  }
+
+  40%,
+  80% {
+    transform: rotate(10deg);
+  }
+}
+
+.githubCorner:hover .octoArm {
+  animation: octocat-wave 560ms ease-in-out;
+}
+
+.octoArm {
+  transform-origin: 130px 106px;
+}
+
+@media (max-width: 500px) {
+  .githubCorner:hover .octoArm {
+    animation: none;
+  }
+
+  .githubCorner .octoArm {
+    animation: octocat-wave 560ms ease-in-out;
+  }
+}

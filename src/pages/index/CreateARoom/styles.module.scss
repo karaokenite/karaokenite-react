@@ -1,0 +1,63 @@
+@import "base.scss";
+
+.createARoom {
+  background: $color-dark;
+  margin-top: -1px;
+  padding: 0 $gap-md 0;
+}
+
+.sign {
+  border-radius: $width-border-radius;
+  border: $width-border-large solid $color-dark;
+  font-weight: $font-weight-normal;
+  padding-bottom: $gap-xl;
+  position: relative;
+
+  &::before {
+    background: $color-yellow-light;
+    border-radius: $width-border-radius-large;
+    content: " ";
+    display: block;
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    transform: skew(0deg, 1.5deg);
+  }
+}
+
+.text {
+  margin: $gap-xl $gap-lg;
+  position: relative;
+}
+
+.backToTop {
+  background: $color-white;
+  border-radius: $width-border-radius;
+  border: $width-border-medium solid $color-dark;
+  color: $color-black;
+  display: inline-block;
+  font-family: $font-family-text;
+  font-size: $font-size-md;
+  font-weight: $font-weight-bold;
+  margin-bottom: $gap-md;
+  padding: 0.75rem 1rem;
+  position: relative;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: $time-fast background-color;
+
+  &:hover {
+    background-color: $color-gray-light;
+  }
+}
+
+@include viewport-medium {
+  .sign {
+    padding-bottom: $gap-lg;
+  }
+
+  .text {
+    margin: $gap-xl auto $gap-md;
+    max-width: 42rem;
+  }
+}

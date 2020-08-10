@@ -1,0 +1,13 @@
+@import "base.scss";
+
+.grid {
+  column-gap: $gap-sm;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+@include viewport-medium {
+  .grid {
+    column-gap: $gap-lg;
+  }
+}

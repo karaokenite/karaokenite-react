@@ -1,0 +1,20 @@
+@import "base.scss";
+
+.roomHeading {
+  font-weight: $font-weight-normal;
+  text-transform: uppercase;
+}
+
+.input {
+  margin-top: $gap-md;
+  width: 100%;
+}
+
+.radioGroup {
+  margin-top: $gap-md;
+}
+
+.submit {
+  margin-top: $gap-md;
+  width: 100%;
+}
