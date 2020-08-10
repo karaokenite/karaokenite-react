@@ -26,7 +26,7 @@ export const CreateARoom: React.FC = () => {
           Create a Room
         </Anchor>
       </div>
-      <Footer />
+      <Footer className={styles.footer} />
     </section>
   );
 };

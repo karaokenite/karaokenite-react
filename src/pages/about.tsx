@@ -1,6 +1,8 @@
 import React from "react";
 
+import { Footer } from "@components/Footer";
 import { Header } from "@components/Header";
+import { HeaderLogo } from "@components/HeaderLogo";
 import { BaseHead } from "@components/meta/BaseHead";
 import { Anchor } from "@components/typography/Anchor";
 import { Heading } from "@components/typography/Heading";
@@ -41,7 +43,9 @@ export default function About() {
   return (
     <div>
       <BaseHead title="About" />
-      <Header theme="dark" />
+      <Header theme="dark">
+        <HeaderLogo />
+      </Header>
 
       <main className={styles.main}>
         <Heading as="h1" className={styles.heading} fontSize="xl">
@@ -126,6 +130,8 @@ export default function About() {
           purchase licenses and add more songs to our collection.
         </Text>
       </main>
+
+      <Footer />
     </div>
   );
 }

@@ -1,0 +1,35 @@
+@import "base.scss";
+
+.headerLogo {
+  padding-left: 3rem;
+  width: 100%;
+}
+
+.heading {
+  display: inline-block;
+  margin-top: -0.5rem;
+  position: relative;
+}
+
+.link {
+  color: $color-black;
+  font-weight: $font-weight-bolder;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.beta {
+  background: $color-pink;
+  border-radius: 2px;
+  color: white;
+  // font-size: 1rem;
+  font-size: $font-size-xs;
+  // font-weight: 500;
+  height: 22px;
+  left: calc(100% + 0.25rem);
+  line-height: 25px;
+  padding: 0.01rem 0.4rem;
+  position: absolute;
+  top: -50%;
+  transform: rotate(-10deg);
+}
