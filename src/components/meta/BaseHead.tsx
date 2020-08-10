@@ -8,7 +8,7 @@ export type BaseHeadProps = {
 export const BaseHead: React.FC<BaseHeadProps> = ({ title }) => {
   return (
     <Head>
-      <title>{title ? `${title} | ` : ""}Karaoke Nite (Beta)</title>
+      <title>{title ? `${title} ` : ""}Karaoke Nite (Beta)</title>
       <link rel="icon" href="/favicon.png" />
       <meta name="description" content="Karaoke VR with Friends" />
     </Head>

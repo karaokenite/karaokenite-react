@@ -6,7 +6,7 @@ import { Hero } from "./index/Hero";
 import { HowItWorks } from "./index/HowItWorks";
 import { CreateARoom } from "./index/CreateARoom";
 import { Options } from "./index/Options";
-import styles from "./styles.module.scss";
+import styles from "./index.module.scss";
 
 export default function Index() {
   return (

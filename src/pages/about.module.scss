@@ -1,0 +1,19 @@
+@import "base.scss";
+
+.main {
+  margin: auto;
+  max-width: 40rem;
+}
+
+.heading {
+  margin-bottom: $gap-md;
+  margin-top: $gap-lg;
+}
+
+.p {
+  margin-bottom: $gap-md;
+}
+
+.teamMembers {
+  text-align: center;
+}

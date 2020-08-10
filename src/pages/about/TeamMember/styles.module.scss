@@ -1,0 +1,17 @@
+@import "base.scss";
+
+.teamMember {
+  display: inline-block;
+  margin: $gap-sm;
+  text-align: center;
+}
+
+.image {
+  border: $width-border-large solid $color-dark;
+  border-radius: 100%;
+  width: 150px;
+}
+
+.anchor {
+  display: block;
+}
