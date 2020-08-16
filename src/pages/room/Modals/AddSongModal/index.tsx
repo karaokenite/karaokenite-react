@@ -10,7 +10,7 @@ import { SongSelector } from "./SongSelector";
 import styles from "./styles.module.scss";
 
 export const AddSongModal: React.FC<RoomModalProps> = ({ isOpen, onClose }) => {
-  const [selected, setSelected] = useState<string>();
+  const [selected, setSelected] = useState<number>();
   const { songs } = useRoomContext();
   const chooseSong = () => {
     if (!selected) {
@@ -18,6 +18,7 @@ export const AddSongModal: React.FC<RoomModalProps> = ({ isOpen, onClose }) => {
     }
 
     songs.set([...songs.get(), selected]);
+    setSelected(undefined);
   };
 
   return (
@@ -29,8 +30,8 @@ export const AddSongModal: React.FC<RoomModalProps> = ({ isOpen, onClose }) => {
               <SongSelector
                 data={song}
                 key={song.title}
-                onSelect={() => setSelected(song.title)}
-                selected={song.title === selected}
+                onSelect={() => setSelected(song.index)}
+                selected={song.index === selected}
               />
             ))}
           </div>

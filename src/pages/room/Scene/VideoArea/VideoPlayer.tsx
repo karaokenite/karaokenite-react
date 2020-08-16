@@ -43,14 +43,9 @@ export const VideoPlayer: React.FC = () => {
 
   useEffectOnVideo(
     (video) => {
-      const currentSongIndexValue = currentSongIndex.get();
-      if (currentSongIndexValue === undefined) {
-        return;
-      }
-
       video.setAttribute(
         "src",
-        allSongs[songs.get()[currentSongIndexValue]].audio
+        allSongs[songs.get()[currentSongIndex.get()]].audio
       );
       video.play();
     },
