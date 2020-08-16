@@ -1,10 +1,6 @@
 import React, { useState } from "react";
 
-import { ModalComponent } from "./types";
-
-export const useModals = <Modals extends Record<string, ModalComponent>>(
-  modals: Modals
-) => {
+export function useModals<Modals>(modals: Modals) {
   const [modal, setModal] = useState<keyof Modals>();
 
   const node = Object.entries(modals).map(([key, Component]) => {
@@ -13,9 +9,10 @@ export const useModals = <Modals extends Record<string, ModalComponent>>(
         isOpen={key === modal}
         key={key}
         onClose={() => setModal(undefined)}
+        setModal={setModal}
       />
     );
   });
 
   return [node, setModal] as const;
-};
+}

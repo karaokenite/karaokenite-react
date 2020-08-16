@@ -20,7 +20,7 @@ export const CopyText: React.FC<CopyTextProps> = ({ className, text }) => {
 
   return (
     <div className={cx(styles.copyText, className)}>
-      <Input className={styles.input} value={text} />
+      <Input className={styles.input} readOnly value={text} />
       {copied && (
         <span aria-live="polite" className={styles.copyNotice}>
           <HiddenText as="div">Copied text</HiddenText>

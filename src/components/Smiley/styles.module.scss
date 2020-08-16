@@ -5,8 +5,4 @@
   display: inline-block;
   height: 42px;
   width: 42px;
-
-  &:not(:last-of-type) {
-    margin-left: -28px;
-  }
 }

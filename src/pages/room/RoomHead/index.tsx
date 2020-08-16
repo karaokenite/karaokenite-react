@@ -5,20 +5,12 @@ import { Header } from "@components/Header";
 import { HeaderLogo } from "@components/HeaderLogo";
 import { useModals } from "@components/Modals/useModals";
 
-import { AddSongModal } from "./AddSongModal";
-import { InviteFriendsModal } from "./InviteFriendsModal";
-// import { InRoomModal } from "./InRoomModal";
 import { PeopleIndicator } from "./PeopleIndicator";
 import styles from "./styles.module.scss";
-
-const modals = {
-  addSong: AddSongModal,
-  inviteFriends: InviteFriendsModal,
-  inRoom: InviteFriendsModal, // InRoomModal,
-};
+import { headModals } from "./modals";
 
 export const RoomHead: React.FC = () => {
-  const [modalNodes, setModal] = useModals(modals);
+  const [modalNodes, setModal] = useModals(headModals);
 
   return (
     <>
