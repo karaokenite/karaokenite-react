@@ -2,7 +2,10 @@
 
 .peopleIndicator {
   align-items: center;
+  background: none;
+  border: none;
   color: $color-white;
+  cursor: pointer;
   display: flex;
   font-weight: $font-weight-bold;
 }
@@ -13,5 +16,5 @@
   justify-content: flex-end;
   margin-left: $gap-sm;
   user-select: none;
-  min-width: 50px;
+  min-width: 42px;
 }

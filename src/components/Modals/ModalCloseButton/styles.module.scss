@@ -1,0 +1,19 @@
+@import "base.scss";
+
+.modalCloseButton {
+  align-items: center;
+  background: $color-dark;
+  border-radius: 100%;
+  border: $width-border-light solid $color-gray-light;
+  color: $color-gray-light;
+  cursor: pointer;
+  display: flex;
+  font-size: $font-size-md;
+  font-weight: $font-weight-bolder;
+  height: $gap-lg;
+  justify-content: center;
+  position: absolute;
+  right: -#{$gap-lg / 2.5};
+  top: -#{$gap-lg / 2.5};
+  width: $gap-lg;
+}

@@ -10,7 +10,7 @@ import styles from "./index.module.scss";
 
 export default function Index() {
   return (
-    <div className={styles.index}>
+    <div className={styles.index} id="root">
       <BaseHead />
 
       <main>

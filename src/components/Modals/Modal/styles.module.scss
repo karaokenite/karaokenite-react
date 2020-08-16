@@ -1,0 +1,28 @@
+@import "base.scss";
+
+.modal {
+  background: $color-white;
+  border-radius: $width-border-radius;
+  bottom: #{$gap-xl * 2};
+  left: $gap-xl;
+  outline: none;
+  overflow: initial;
+  padding: $gap-lg $gap-lg $gap-md;
+  position: absolute;
+  right: $gap-xl;
+  top: #{$gap-xl * 2};
+
+  @include viewport-large {
+    left: 10%;
+    width: 80%;
+  }
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: transparentize($color-black, 0.1);
+}

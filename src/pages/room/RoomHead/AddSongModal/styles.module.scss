@@ -1,0 +1,43 @@
+@import "base.scss";
+
+.contents {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.aroundSongList {
+  height: 100%;
+  overflow: hidden;
+}
+
+.songList {
+  display: grid;
+  grid-column-gap: 2%;
+  grid-row-gap: $gap-lg;
+  grid-template-columns: repeat(2, 49%);
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: relative;
+  width: 100%;
+
+  @include viewport-small {
+    grid-column-gap: 1%;
+    grid-template-columns: repeat(4, 24%);
+  }
+
+  @include viewport-medium {
+    grid-template-columns: repeat(5, 19%);
+  }
+}
+
+.controls {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: $gap-md;
+}
+
+.control:not(:first-of-type) {
+  margin-left: $gap-md;
+}

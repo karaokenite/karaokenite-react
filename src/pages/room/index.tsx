@@ -1,6 +1,8 @@
 import { useRouter } from "next/router";
-import React from "react";
+import React, { useEffect } from "react";
+import ReactModal from "react-modal";
 
+import { modalsElementId, rootElementId } from "@components/constants";
 import { BaseHead } from "@components/meta/BaseHead";
 
 import { RoomBottom } from "./RoomBottom";
@@ -13,10 +15,17 @@ export default function Room() {
   const roomContextValue = useRoomContextValue(router.query);
   const title = `${roomContextValue.roomName.get() || "Room"} |`;
 
+  useEffect(() => {
+    ReactModal.setAppElement(`#${rootElementId}`);
+  }, []);
+
   return (
     <RoomContext.Provider value={roomContextValue}>
-      <BaseHead title={title} />
-      <Scene />
+      <div id={rootElementId}>
+        <BaseHead title={title} />
+        <Scene />
+      </div>
+      <div id={modalsElementId} />
       <RoomHead />
       <RoomBottom />
     </RoomContext.Provider>

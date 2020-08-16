@@ -7,6 +7,7 @@ export type RoomContextValueTypes = {
     host: boolean;
     otherPeople: RoomPerson[];
     roomName: string;
+    songs: string[];
     username: string;
 }
 

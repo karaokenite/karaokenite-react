@@ -1,24 +1,25 @@
 import cx from "classnames";
-import React, { useContext } from "react";
+import React from "react";
 
 import { Text } from "@components/typography/Text";
 
-import { RoomContext } from "../../RoomContext";
+import { useRoomContext } from "../../RoomContext";
 import { Smiley } from "./Smiley";
 import styles from "./styles.module.scss";
 
 export type PeopleIndicatorProps = {
   className?: string;
+  onClick: () => void;
 };
 
 export const PeopleIndicator: React.FC<PeopleIndicatorProps> = ({
   className,
 }) => {
-  const { otherPeople } = useContext(RoomContext);
+  const { otherPeople } = useRoomContext();
   const count = otherPeople.get().length + 1;
 
   return (
-    <div className={cx(styles.peopleIndicator, className)}>
+    <button className={cx(styles.peopleIndicator, className)}>
       <Text as="span" fontSize="md">
         {count}
       </Text>
@@ -31,6 +32,6 @@ export const PeopleIndicator: React.FC<PeopleIndicatorProps> = ({
           ))}
         <Smiley index={0} />
       </div>
-    </div>
+    </button>
   );
 };

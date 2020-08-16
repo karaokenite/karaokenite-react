@@ -45,7 +45,7 @@ export default function About() {
     <div>
       <BaseHead title="About" />
       <Header>
-        <HeaderLogo />
+        <HeaderLogo theme="dark" />
         <TopRight theme="dark" />
       </Header>
 

@@ -1,3 +1,4 @@
+$breakpoint-small: 35rem;
 $breakpoint-medium: 49rem;
 $breakpoint-large: 63rem;
 
@@ -40,6 +41,12 @@ $width-border-large: 4px;
 $width-border-radius-small: 3px;
 $width-border-radius: 8px;
 $width-border-radius-large: 20px;
+
+@mixin viewport-small {
+  @media only screen and (min-width: $breakpoint-small) {
+    @content;
+  }
+}
 
 @mixin viewport-medium {
   @media only screen and (min-width: $breakpoint-medium) {

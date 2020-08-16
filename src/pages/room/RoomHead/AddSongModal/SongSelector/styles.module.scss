@@ -1,0 +1,40 @@
+@import "base.scss";
+
+.songSelector {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  min-height: 10rem;
+  text-align: left;
+  position: relative;
+  outline: 0;
+
+  &.selected::before {
+    content: "";
+    position: absolute;
+    top: -15px;
+    right: -10px;
+    width: 44px;
+    height: 44px;
+    border-radius: 100%;
+    background: $color-yellow
+      url(https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2Fcheck.svg?v=1595801420385)
+      center no-repeat;
+  }
+}
+
+.visual {
+  border: $width-border-large solid transparent;
+  height: auto;
+  width: 100%;
+
+  .selected & {
+    border-color: $color-yellow;
+  }
+}
+
+.title {
+  font-weight: $font-weight-bold;
+}

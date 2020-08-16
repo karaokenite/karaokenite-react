@@ -1,5 +1,5 @@
 import { ParsedUrlQuery } from 'querystring';
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 
 import { RoomContextValue, RoomPerson } from './types';
 
@@ -20,6 +20,9 @@ export const useRoomContextValue = (query: ParsedUrlQuery): RoomContextValue => 
         host: useGetterAndSetter(!!query.host),
         otherPeople: useGetterAndSetter<RoomPerson[]>([]),
         roomName: useGetterAndSetter(query.room as string),
+        songs: useGetterAndSetter<string[]>([]),
         username: useGetterAndSetter(query.username as string)
     }
 };
+
+export const useRoomContext = () => useContext(RoomContext);
