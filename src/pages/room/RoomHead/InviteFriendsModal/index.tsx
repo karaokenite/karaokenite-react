@@ -1,16 +1,16 @@
 import React from "react";
 
 import { CopyText } from "@components/CopyText";
-import { ModalComponentProps } from "@components/Modals/types";
 import { Modal } from "@components/Modals/Modal";
 import { ShareLinks } from "@components/ShareLinks";
 import { Heading } from "@components/typography/Heading";
 import { Text } from "@components/typography/Text";
 
 import { useRoomContext } from "../../RoomContext";
+import { HeadModalProps } from "../modals";
 import styles from "./styles.module.scss";
 
-export const InviteFriendsModal: React.FC<ModalComponentProps> = ({
+export const InviteFriendsModal: React.FC<HeadModalProps> = ({
   isOpen,
   onClose,
 }) => {

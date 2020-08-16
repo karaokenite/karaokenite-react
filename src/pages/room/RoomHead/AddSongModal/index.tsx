@@ -1,18 +1,15 @@
 import React, { useState } from "react";
 
-import { ModalComponentProps } from "@components/Modals/types";
 import { Modal } from "@components/Modals/Modal";
 import { Button } from "@components/Button";
 import { allSongs } from "@data/songs";
 
 import { useRoomContext } from "../../RoomContext";
+import { HeadModalProps } from "../modals";
 import { SongSelector } from "./SongSelector";
 import styles from "./styles.module.scss";
 
-export const AddSongModal: React.FC<ModalComponentProps> = ({
-  isOpen,
-  onClose,
-}) => {
+export const AddSongModal: React.FC<HeadModalProps> = ({ isOpen, onClose }) => {
   const [selected, setSelected] = useState<string>();
   const { songs } = useRoomContext();
   const chooseSong = () => {

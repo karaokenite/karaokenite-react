@@ -3,13 +3,14 @@ import React, { useRef } from "react";
 import ReactModal from "react-modal";
 
 import { ModalCloseButton } from "../ModalCloseButton";
-import { ModalComponentProps } from "../types";
 
 import styles from "./styles.module.scss";
 import { modalsElementId } from "@components/constants";
 
-export type ModalProps = ModalComponentProps & {
+export type ModalProps = {
   className?: string;
+  isOpen: boolean;
+  onClose: () => void;
 };
 
 export const Modal: React.FC<ModalProps> = ({

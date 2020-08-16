@@ -1,8 +1,9 @@
 import React from "react";
 
-export type ModalComponentProps = {
+export type UseModalComponentProps<ModalKey> = {
     isOpen: boolean;
     onClose: () => void;
+    setModal: (modal: ModalKey) => void;
 };
 
-export type ModalComponent = React.ComponentType<ModalComponentProps>;
+export type UseModalComponent<ModalKey> = React.ComponentType<UseModalComponentProps<ModalKey>>;

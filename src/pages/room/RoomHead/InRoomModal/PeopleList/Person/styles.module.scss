@@ -1,0 +1,10 @@
+@import "base.scss";
+
+.person {
+  align-items: center;
+  display: flex;
+}
+
+.text {
+  margin-left: $gap-sm;
+}

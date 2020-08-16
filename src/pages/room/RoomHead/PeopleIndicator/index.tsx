@@ -4,7 +4,7 @@ import React from "react";
 import { Text } from "@components/typography/Text";
 
 import { useRoomContext } from "../../RoomContext";
-import { Smiley } from "./Smiley";
+import { Smiley } from "../../../../components/Smiley";
 import styles from "./styles.module.scss";
 
 export type PeopleIndicatorProps = {
@@ -14,12 +14,13 @@ export type PeopleIndicatorProps = {
 
 export const PeopleIndicator: React.FC<PeopleIndicatorProps> = ({
   className,
+  onClick,
 }) => {
   const { otherPeople } = useRoomContext();
   const count = otherPeople.get().length + 1;
 
   return (
-    <button className={cx(styles.peopleIndicator, className)}>
+    <button className={cx(styles.peopleIndicator, className)} onClick={onClick}>
       <Text as="span" fontSize="md">
         {count}
       </Text>
@@ -28,7 +29,11 @@ export const PeopleIndicator: React.FC<PeopleIndicatorProps> = ({
           .get()
           .reverse()
           .map((_, index) => (
-            <Smiley key={index} index={index + 1} />
+            <Smiley
+              className={styles.laterSmiley}
+              key={index}
+              index={index + 1}
+            />
           ))}
         <Smiley index={0} />
       </div>
