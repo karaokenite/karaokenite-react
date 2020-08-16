@@ -4,6 +4,7 @@
   background: $color-white;
   border-radius: $width-border-radius-medium;
   outline: none;
+  max-width: calc(100% - #{$gap-xl * 2});
   overflow: initial;
   padding: $gap-md;
   position: relative;

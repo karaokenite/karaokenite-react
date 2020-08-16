@@ -7,10 +7,10 @@ import { Heading } from "@components/typography/Heading";
 import { Text } from "@components/typography/Text";
 
 import { useRoomContext } from "../../RoomContext";
-import { HeadModalProps } from "../modals";
+import { RoomModalProps } from "..";
 import styles from "./styles.module.scss";
 
-export const InviteFriendsModal: React.FC<HeadModalProps> = ({
+export const InviteFriendsModal: React.FC<RoomModalProps> = ({
   isOpen,
   onClose,
 }) => {

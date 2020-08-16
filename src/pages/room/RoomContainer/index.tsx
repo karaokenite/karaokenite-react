@@ -3,6 +3,7 @@ import ReactModal from "react-modal";
 
 import { rootElementId, modalsElementId } from "@components/constants";
 import { BaseHead } from "@components/meta/BaseHead";
+import { useModals } from "@components/Modals/useModals";
 
 import { RoomBottom } from "../RoomBottom";
 import {
@@ -12,6 +13,7 @@ import {
 } from "../RoomContext";
 import { RoomHead } from "../RoomHead";
 import { Scene } from "../Scene";
+import { roomModals } from "../Modals";
 
 export type RoomContainerProps = {
   settings: RoomContextSettings;
@@ -19,6 +21,7 @@ export type RoomContainerProps = {
 
 export const RoomContainer: React.FC<RoomContainerProps> = ({ settings }) => {
   const roomContextValue = useRoomContextValue(settings);
+  const [modalNodes, setModal] = useModals(roomModals);
   const title = `${roomContextValue?.roomName.get() || "Room"} |`;
 
   useEffect(() => {
@@ -32,8 +35,9 @@ export const RoomContainer: React.FC<RoomContainerProps> = ({ settings }) => {
         <Scene />
       </div>
       <div id={modalsElementId} />
-      <RoomHead />
-      <RoomBottom />
+      <RoomHead setModal={setModal} />
+      <RoomBottom setModal={setModal} />
+      {modalNodes}
     </RoomContext.Provider>
   );
 };

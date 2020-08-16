@@ -5,11 +5,11 @@ import { Modal } from "@components/Modals/Modal";
 import { Heading } from "@components/typography/Heading";
 import { Text } from "@components/typography/Text";
 
-import { HeadModalProps } from "../modals";
+import { RoomModalProps } from "..";
 import { PeopleList } from "./PeopleList";
 import styles from "./styles.module.scss";
 
-export const InRoomModal: React.FC<HeadModalProps> = ({
+export const InRoomModal: React.FC<RoomModalProps> = ({
   isOpen,
   onClose,
   setModal,

@@ -1,0 +1,17 @@
+@import "base.scss";
+
+.feedbackModal {
+  max-width: 35rem;
+  padding: $gap-md $gap-xl;
+  text-align: center;
+}
+
+.heading {
+  margin-bottom: $gap-md;
+}
+
+.link {
+  display: block;
+  margin: $gap-md auto 0;
+  max-width: 50%;
+}

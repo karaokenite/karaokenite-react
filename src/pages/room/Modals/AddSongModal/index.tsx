@@ -5,11 +5,11 @@ import { Button } from "@components/Button";
 import { allSongs } from "@data/songs";
 
 import { useRoomContext } from "../../RoomContext";
-import { HeadModalProps } from "../modals";
+import { RoomModalProps } from "..";
 import { SongSelector } from "./SongSelector";
 import styles from "./styles.module.scss";
 
-export const AddSongModal: React.FC<HeadModalProps> = ({ isOpen, onClose }) => {
+export const AddSongModal: React.FC<RoomModalProps> = ({ isOpen, onClose }) => {
   const [selected, setSelected] = useState<string>();
   const { songs } = useRoomContext();
   const chooseSong = () => {
