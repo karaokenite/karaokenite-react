@@ -4,11 +4,15 @@ export type RoomPerson = {
 };
 
 export type RoomContextValueTypes = {
+    currentSongIndex: number;
+    environment: string;
     host: boolean;
     otherPeople: RoomPerson[];
+    playing: boolean;
     roomName: string;
-    songs: string[];
+    songs: number[];
     username: string;
+    volume: number;
 }
 
 export type GetterAndSetter<Value> = {

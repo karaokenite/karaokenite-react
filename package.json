@@ -1,10 +1,13 @@
 {
   "dependencies": {
+    "@types/aframe": "^1.0.1",
+    "aframe-react": "^4.4.0",
     "classnames": "^2.2.6",
     "next": "9.5.1",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-modal": "^3.11.2",
+    "react-use": "^15.3.3",
     "sass": "^1.26.10"
   },
   "devDependencies": {
@@ -21,7 +24,7 @@
   "scripts": {
     "build": "next build",
     "dev": "next dev",
-    "start": "next start",
+    "serve": "node server.js",
     "tsc": "tsc"
   },
   "version": "0.1.0"

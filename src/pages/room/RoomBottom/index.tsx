@@ -25,9 +25,6 @@ export const RoomBottom: React.FC<RoomBottomProps> = ({ setModal }) => {
         >
           <img alt="" className={styles.feedbackImage} src={feedback} />
         </Button>
-        <Button className={cx(styles.button, styles.vrButton)} variant="white">
-          VR?
-        </Button>
       </div>
     </div>
   );

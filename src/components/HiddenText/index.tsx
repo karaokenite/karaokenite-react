@@ -3,19 +3,14 @@ import React from "react";
 
 import styles from "./styles.module.scss";
 
-export type HiddenTextProps = React.HTMLAttributes<Element> & {
-  as: keyof JSX.IntrinsicElements;
-};
-
-export const HiddenText: React.FC<HiddenTextProps> = ({
-  as: As,
+export const HiddenText: React.FC<React.HTMLAttributes<HTMLElement>> = ({
   children,
   className,
   ...props
 }) => {
   return (
-    <As className={cx(styles.hiddenText, className)} {...props}>
+    <span className={cx(styles.hiddenText, className)} {...props}>
       {children}
-    </As>
+    </span>
   );
 };
