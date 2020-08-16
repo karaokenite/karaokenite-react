@@ -54,14 +54,14 @@ export default function About() {
           We are Karaoke Nite
         </Heading>
         <Text as="p" className={styles.p} fontSize="xs">
-          These are some heavy times for our planet; we were dealt a devastating
-          one-two combo from a global pandemic and an unforgettable incident
+          2020 has been one hell of a year already for our planet home; we were 
+          dealt a devastating one-two combo from a global pandemic and an unforgettable incident
           that resulted in mourning and unrest around all corners of the world.
         </Text>
         <Text as="p" className={styles.p} fontSize="xs">
           It was during this time when we set out to build something that will
-          connect old friends and new, family who are afar, and bring some
-          laughter and joy to everyone's homes.
+          connect old friends and new, family from afar, and bring a little
+          laughter and joy back to everyone's homes.
         </Text>
         <Text as="p" className={styles.p} fontSize="xs">
           Welcome to Karaoke Nite and we hope you enjoy using it as much as we
@@ -83,18 +83,18 @@ export default function About() {
         <Text as="p" className={styles.p} fontSize="xs">
           This is currently a Beta version of the app. We have a ton of features
           and goodies coming soon so stay tuned. In the meantime, please help us
-          make this better by answering this short{" "}
+          make this better by answering this quick{" "}
           <Anchor
             fontSize="xs"
             href="https://karaokenite.typeform.com/to/SaHxnvyT"
           >
-            Typeform survey
+            feedback survey
           </Anchor>
           !
         </Text>
         <Text as="p" className={styles.p} fontSize="xs">
           Karaoke Nite is also open source. If you are a programmer, designer,
-          3d modeller, or game artist, you can find the project on our{" "}
+          3d modeler, or game artist, you can find the project on our{" "}
           <Anchor fontSize="xs" href="https://www.patreon.com/karaokenite">
             GitHub
           </Anchor>
@@ -125,11 +125,11 @@ export default function About() {
           Legal
         </Heading>
         <Text as="p" className={styles.p} fontSize="xs">
-          The Beta was soft launched on 8/8/2020 with 20 karaoke soundtracks
+          The Beta was soft launched on 8/11/2020 with 50 karaoke soundtracks
           featured in the app. All soundtracks have been lawfully purchased
           (proof of purchase can be requested). If people enjoy the app and want
           to see it continue to grow, we will work with a copyright lawyer to
-          purchase licenses and add more songs to our collection.
+          purchase more licenses and add music videos to our collection.
         </Text>
       </main>
 
