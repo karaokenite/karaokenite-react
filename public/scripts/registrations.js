@@ -1,5 +1,3 @@
-// ⏯ Play & Pause buttons ⏯
-
 AFRAME.registerComponent("play-pause", {
   init: function () {
     var myVideo = document.querySelector("#html-video");
@@ -18,15 +16,13 @@ AFRAME.registerComponent("play-pause", {
   },
 });
 
-// ⏩ Next button ⏩
-
 AFRAME.registerComponent("next", {
   init: function () {
     this.el.addEventListener("click", function () {
       i++;
 
       /* Start from beginning if needed */
-      if (i == playlist.length) i = 0;
+      if (i === playlist.length) i = 0;
 
       var videoSync = document.querySelector("[video-sync]");
       videoSync.setAttribute("video-sync", "src", playlist[i]);
@@ -41,7 +37,7 @@ AFRAME.registerComponent("previous", {
       i--;
 
       /* Start from beginning if needed */
-      if (i == -1) i = 0;
+      if (i === -1) i = 0;
 
       var videoSync = document.querySelector("[video-sync]");
       videoSync.setAttribute("video-sync", "src", playlist[i]);

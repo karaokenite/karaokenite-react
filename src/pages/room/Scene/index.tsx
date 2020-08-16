@@ -1,23 +1,16 @@
-import { Scene as AScene, Entity as AEntity } from "aframe-react";
+import { Scene as AScene } from "aframe-react";
 import Head from "next/head";
 import React from "react";
 
+import { Assets } from "./Assets";
 import styles from "./styles.module.scss";
-import { useRoomContext } from "../RoomContext";
-import { useEnvironmentSwitchOnSpace } from "./useEnvironmentSwitchOnSpace";
+import { VideoArea } from "./VideoArea";
+import { Environment } from "./Environment";
 
 export const Scene: React.FC = () => {
-  const { environment } = useRoomContext();
-
-  useEnvironmentSwitchOnSpace(environment);
-
   return (
     <>
       <Head>
-        {/* <script src="/scripts/video-sync.js"></script> */}
-        {/* <script src="/scripts/host.js"></script> */}
-        {/* <script src="/scripts/dynamic-room.js"></script> */}
-        {/* <script src="/scripts/scene.js"></script> */}
         <script src="/scripts/registrations.js"></script>
       </Head>
       <div className={styles.scene}>
@@ -26,7 +19,11 @@ export const Scene: React.FC = () => {
         <div id="roomName" />
 
         <AScene dynamic-room>
-          <AEntity environment={`preset: ${environment.get()}`}></AEntity>
+          <Assets />
+          <Environment />
+          <VideoArea />
+
+          <a-entity id="mouseCursor" cursor="rayOrigin: mouse"></a-entity>
         </AScene>
       </div>
     </>
