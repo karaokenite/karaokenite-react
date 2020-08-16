@@ -1,0 +1,11 @@
+@import "base.scss";
+
+.inviteFriendsModal {
+  padding: $gap-lg $gap-xl;
+  text-align: center;
+}
+
+.explanation,
+.urlArea {
+  margin: $gap-md 0;
+}

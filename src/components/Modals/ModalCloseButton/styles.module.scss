@@ -4,8 +4,8 @@
   align-items: center;
   background: $color-dark;
   border-radius: 100%;
-  border: $width-border-light solid $color-gray-light;
-  color: $color-gray-light;
+  border: $width-border-light solid $color-white;
+  color: $color-white;
   cursor: pointer;
   display: flex;
   font-size: $font-size-md;
@@ -15,5 +15,6 @@
   position: absolute;
   right: -#{$gap-lg / 2.5};
   top: -#{$gap-lg / 2.5};
+  user-select: none;
   width: $gap-lg;
 }

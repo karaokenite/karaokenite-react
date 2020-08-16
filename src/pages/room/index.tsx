@@ -1,33 +1,22 @@
 import { useRouter } from "next/router";
-import React, { useEffect } from "react";
-import ReactModal from "react-modal";
+import React from "react";
 
-import { modalsElementId, rootElementId } from "@components/constants";
-import { BaseHead } from "@components/meta/BaseHead";
-
-import { RoomBottom } from "./RoomBottom";
-import { RoomContext, useRoomContextValue } from "./RoomContext";
-import { RoomHead } from "./RoomHead";
-import { Scene } from "./Scene";
+import { RoomContainer } from "./RoomContainer";
+import { RoomGate } from "./RoomGate";
 
 export default function Room() {
-  const router = useRouter();
-  const roomContextValue = useRoomContextValue(router.query);
-  const title = `${roomContextValue.roomName.get() || "Room"} |`;
-
-  useEffect(() => {
-    ReactModal.setAppElement(`#${rootElementId}`);
-  }, []);
+  const { query } = useRouter();
+  if (!query.room || !query.username) {
+    return <RoomGate />;
+  }
 
   return (
-    <RoomContext.Provider value={roomContextValue}>
-      <div id={rootElementId}>
-        <BaseHead title={title} />
-        <Scene />
-      </div>
-      <div id={modalsElementId} />
-      <RoomHead />
-      <RoomBottom />
-    </RoomContext.Provider>
+    <RoomContainer
+      settings={{
+        host: !!query.host,
+        room: query.room as string,
+        username: query.username as string,
+      }}
+    />
   );
 }

@@ -24,7 +24,7 @@ export const AddSongModal: React.FC<ModalComponentProps> = ({
   };
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose}>
+    <Modal className={styles.addSongModal} isOpen={isOpen} onClose={onClose}>
       <div className={styles.contents}>
         <div className={styles.aroundSongList}>
           <div className={styles.songList}>

@@ -8,17 +8,18 @@ export type ModalCloseButtonProps = {
   onClick: () => void;
 };
 
-export const ModalCloseButton: React.FC<ModalCloseButtonProps> = ({
-  className,
-  onClick,
-}) => {
+export const ModalCloseButton = React.forwardRef<
+  HTMLButtonElement,
+  ModalCloseButtonProps
+>(({ className, onClick }, ref) => {
   return (
     <button
       aria-label="Close modal"
       className={cx(styles.modalCloseButton, className)}
       onClick={onClick}
+      ref={ref}
     >
       <span aria-hidden>×</span>
     </button>
   );
-};
+});

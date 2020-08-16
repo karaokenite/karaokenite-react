@@ -1,0 +1,11 @@
+@import "base.scss";
+
+.hiddenText {
+  bottom: 100%;
+  display: block;
+  height: 0;
+  overflow: hidden;
+  position: absolute;
+  right: 100%;
+  width: 0;
+}

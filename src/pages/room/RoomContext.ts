@@ -1,5 +1,4 @@
-import { ParsedUrlQuery } from 'querystring';
-import React, { useState, useContext } from 'react';
+import React, { useContext, useState } from 'react';
 
 import { RoomContextValue, RoomPerson } from './types';
 
@@ -14,14 +13,22 @@ const useGetterAndSetter = <Value>(value: Value) => {
     }
 }
 
-export const useRoomContextValue = (query: ParsedUrlQuery): RoomContextValue => {
+export type RoomContextSettings = {
+    host?: boolean;
+    room: string;
+    username: string;
+}
+
+export const useRoomContextValue = ({ host, room, username }: RoomContextSettings): RoomContextValue => {
+    // https://nextjs.org/docs/advanced-features/automatic-static-optimization#how-it-works
+
     // TODO: It'd be nice to return a new Error if room or username aren't strings...
     return {
-        host: useGetterAndSetter(!!query.host),
+        host: useGetterAndSetter(!!host),
         otherPeople: useGetterAndSetter<RoomPerson[]>([]),
-        roomName: useGetterAndSetter(query.room as string),
+        roomName: useGetterAndSetter(room),
         songs: useGetterAndSetter<string[]>([]),
-        username: useGetterAndSetter(query.username as string)
+        username: useGetterAndSetter(username),
     }
 };
 

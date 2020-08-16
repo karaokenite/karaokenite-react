@@ -7,7 +7,7 @@
 }
 
 .sign {
-  border-radius: $width-border-radius;
+  border-radius: $width-border-radius-medium;
   border: $width-border-large solid $color-dark;
   font-weight: $font-weight-normal;
   padding-bottom: $gap-lg;
@@ -32,7 +32,7 @@
 
 .backToTop {
   background: $color-white;
-  border-radius: $width-border-radius;
+  border-radius: $width-border-radius-medium;
   border: $width-border-medium solid $color-dark;
   color: $color-black;
   display: inline-block;

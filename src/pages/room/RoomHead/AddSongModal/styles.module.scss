@@ -1,5 +1,11 @@
 @import "base.scss";
 
+.addSongModal {
+  height: 70%;
+  max-width: 75rem;
+  width: 80%;
+}
+
 .contents {
   display: flex;
   flex-direction: column;

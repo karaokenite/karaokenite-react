@@ -7,7 +7,7 @@
 
 .text {
   background: transparentize($color: $color-dark, $amount: 0.2);
-  border-radius: $width-border-radius;
+  border-radius: $width-border-radius-medium;
   color: $color-gray-lightest;
   display: inline-block;
   margin: 0 auto;

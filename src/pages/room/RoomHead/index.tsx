@@ -6,13 +6,15 @@ import { HeaderLogo } from "@components/HeaderLogo";
 import { useModals } from "@components/Modals/useModals";
 
 import { AddSongModal } from "./AddSongModal";
+import { InviteFriendsModal } from "./InviteFriendsModal";
+// import { InRoomModal } from "./InRoomModal";
 import { PeopleIndicator } from "./PeopleIndicator";
 import styles from "./styles.module.scss";
 
 const modals = {
   addSong: AddSongModal,
-  // inviteFriends: InviteFriendsModal,
-  // inRoom: InRoomModal,
+  inviteFriends: InviteFriendsModal,
+  inRoom: InviteFriendsModal, // InRoomModal,
 };
 
 export const RoomHead: React.FC = () => {
