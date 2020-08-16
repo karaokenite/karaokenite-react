@@ -14,7 +14,7 @@ export const CreateRoom: React.FC<CreateRoomProps> = ({ className }) => {
   return (
     <form className={cx(styles.createRoom, className)}>
       <Heading as="h2" className={styles.roomHeading} fontSize="lg">
-        Create a Private Room
+        Join a Private Room
       </Heading>
       <Input
         className={styles.input}
