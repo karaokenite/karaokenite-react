@@ -1,68 +1,88 @@
 import React from "react";
 
+import { useRoomContext } from "../RoomContext";
+
+const mouseEnter =
+  "property: scale; to: 0.27 0.27 1; dur: 300; startEvents: mouseenter";
+
+const mouseLeave =
+  "property: scale; to: 0.2 0.2 1; dur: 300; startEvents: mouseleave";
+
 export const VideoArea: React.FC = () => {
+  const { currentSong, songs, playing, volume } = useRoomContext();
+
   return (
     <>
-      {/* Play / Pause buttons */}
       <a-image
+        animation__mouseenter={mouseEnter}
+        animation__mouseleave={mouseLeave}
         id="videoControls"
-        src="#play"
+        onClick={() => {
+          playing.set(!playing.get());
+        }}
+        play-pause
         position="-0.4 1 -1"
         scale="0.2 0.2 1"
-        play-pause
-        animation__mouseenter="property: scale; to: 0.27 0.27 1; dur: 300; startEvents: mouseenter"
-        animation__mouseleave="property: scale; to: 0.2 0.2 1; dur: 300; startEvents: mouseleave"
-      ></a-image>
+        src={playing ? "#pause" : "#play"}
+      />
 
-      {/* Next button */}
       <a-image
-        id="videoControls2"
-        src="#next"
+        animation__mouseenter={mouseEnter}
+        animation__mouseleave={mouseLeave}
+        id="next-button"
+        next
+        onClick={() => {
+          const songsValue = songs.get();
+          if (songsValue.length === 0) {
+            return;
+          }
+
+          currentSong.set(((currentSong.get() ?? 0) + 1) % songsValue.length);
+        }}
         position="-0.1 1 -1"
         scale="0.2 0.2 1"
-        next
-        animation__mouseenter="property: scale; to: 0.27 0.27 1; dur: 300; startEvents: mouseenter"
-        animation__mouseleave="property: scale; to: 0.2 0.2 1; dur: 300; startEvents: mouseleave"
-      ></a-image>
+        src="#next"
+      />
 
-      {/* Previous button */}
       <a-image
+        animation__mouseenter={mouseEnter}
+        animation__mouseleave={mouseLeave}
         id="previous-button"
-        src="#previous"
+        onClick={() =>
+          currentSong.set(Math.max((currentSong.get() ?? 0) - 1, 0))
+        }
         position="-0.7 1 -1"
-        scale="0.2 0.2 1"
         previous
-        animation__mouseenter="property: scale; to: 0.27 0.27 1; dur: 300; startEvents: mouseenter"
-        animation__mouseleave="property: scale; to: 0.2 0.2 1; dur: 300; startEvents: mouseleave"
-      ></a-image>
+        scale="0.2 0.2 1"
+        src="#previous"
+      />
 
-      {/* Volume Low button */}
       <a-image
+        animation__mouseenter={mouseEnter}
+        animation__mouseleave={mouseLeave}
         id="volume-low-button"
-        src="#volume-low"
+        onClick={() => volume.set(0.5)}
         position="0.4 1 -1"
         scale="0.2 0.2 1"
+        src="#volume-low"
         volume-low
-        animation__mouseenter="property: scale; to: 0.27 0.27 1; dur: 300; startEvents: mouseenter"
-        animation__mouseleave="property: scale; to: 0.2 0.2 1; dur: 300; startEvents: mouseleave"
-      ></a-image>
+      />
 
-      {/* Volume High button */}
       <a-image
+        animation__mouseenter={mouseEnter}
+        animation__mouseleave={mouseLeave}
         id="volume-high-button"
-        src="#volume-high"
+        onClick={() => volume.set(1)}
         position="0.7 1 -1"
         scale="0.2 0.2 1"
+        src="#volume-high"
         volume-high
-        animation__mouseenter="property: scale; to: 0.27 0.27 1; dur: 300; startEvents: mouseenter"
-        animation__mouseleave="property: scale; to: 0.2 0.2 1; dur: 300; startEvents: mouseleave"
-      ></a-image>
+      />
 
-      {/* Welcome text */}
       <a-entity
-        text="value: WELCOME!!!; color: #BBB; font: monoid;"
         position="0.8 2 -0.8"
         scale="1.0 1.0 1.0"
+        text="value: WELCOME!!!; color: #BBB; font: monoid;"
       ></a-entity>
     </>
   );
