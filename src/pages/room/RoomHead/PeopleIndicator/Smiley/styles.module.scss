@@ -6,7 +6,7 @@
   height: 42px;
   width: 42px;
 
-  & {
-    margin-left: -60px;
+  &:not(:last-of-type) {
+    margin-left: -28px;
   }
 }

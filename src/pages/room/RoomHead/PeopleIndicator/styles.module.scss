@@ -8,8 +8,10 @@
 }
 
 .smileys {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
   margin-left: $gap-sm;
-  padding-left: 100px;
   user-select: none;
-  width: 100px;
+  min-width: 50px;
 }
