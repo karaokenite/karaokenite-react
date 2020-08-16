@@ -1,11 +1,14 @@
 {
   "dependencies": {
+    "@types/aframe": "^1.0.1",
     "classnames": "^2.2.6",
+    "express": "^4.17.1",
     "next": "9.5.1",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-modal": "^3.11.2",
-    "sass": "^1.26.10"
+    "sass": "^1.26.10",
+    "socket.io": "^2.3.0"
   },
   "devDependencies": {
     "@svgr/webpack": "^5.4.0",
@@ -21,6 +24,7 @@
   "scripts": {
     "build": "next build",
     "dev": "next dev",
+    "serve": "node server.js",
     "start": "next start",
     "tsc": "tsc"
   },
