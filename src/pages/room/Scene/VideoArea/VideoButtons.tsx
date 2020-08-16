@@ -35,13 +35,8 @@ export const VideoButtons: React.FC = () => {
         next
         events={{
           click: () => {
-            const songsValue = songs.get();
-            if (songsValue.length === 0) {
-              return;
-            }
-
             currentSongIndex.set(
-              ((currentSongIndex.get() ?? 0) + 1) % songsValue.length
+              (currentSongIndex.get() + 1) % songs.get().length
             );
           },
         }}
@@ -55,9 +50,11 @@ export const VideoButtons: React.FC = () => {
         animation__mouseenter={mouseEnter}
         animation__mouseleave={mouseLeave}
         id="previous-button"
-        onClick={() =>
-          currentSongIndex.set(Math.max((currentSongIndex.get() ?? 0) - 1, 0))
-        }
+        events={{
+          click: () => {
+            currentSongIndex.set(Math.max(currentSongIndex.get() - 1, 0));
+          },
+        }}
         position="-0.7 1 -1"
         primitive="a-image"
         previous
