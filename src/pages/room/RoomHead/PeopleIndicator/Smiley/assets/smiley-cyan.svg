@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="50px" height="50px" viewBox="0 0 50 50" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 61.2 (89653) - https://sketch.com -->
+    <title>Smiley - Cyan</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Smiley---Cyan" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <circle id="Oval" stroke="#050422" stroke-width="2" fill="#BCFFFD" cx="25" cy="25" r="24"></circle>
+        <g id="Group-2" transform="translate(4.000000, 21.000000)" fill="#51E8E4">
+            <circle id="Oval" cx="6" cy="6" r="6"></circle>
+            <circle id="Oval" cx="36" cy="6" r="6"></circle>
+        </g>
+        <circle id="Oval" fill="#050422" cx="16" cy="18" r="3"></circle>
+        <polyline id="Path-17" stroke="#050422" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" points="34.3112371 14 29.8615528 18.1856645 35 22.0273268"></polyline>
+        <path d="M17,28.6119457 C19.0612848,31.8284437 21.8883276,33.1435704 25.4811285,32.557326 C29.0739294,31.9710815 31.2489412,29.7853062 32.0061639,26" id="Path-44" stroke="#050422" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+    </g>
+</svg>

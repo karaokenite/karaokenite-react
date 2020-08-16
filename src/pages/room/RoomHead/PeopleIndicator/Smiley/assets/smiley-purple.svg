@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="50px" height="50px" viewBox="0 0 50 50" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 61.2 (89653) - https://sketch.com -->
+    <title>Smiley - Purple</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Smiley---Purple" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <circle id="Oval" stroke="#050422" stroke-width="2" fill="#DF73FF" cx="25" cy="25" r="24"></circle>
+        <g id="Group-2" transform="translate(6.000000, 20.000000)" fill="#C202FB" opacity="0.772158668">
+            <circle id="Oval" cx="6" cy="7" r="6"></circle>
+            <circle id="Oval" cx="33" cy="6" r="6"></circle>
+        </g>
+        <g id="Group" transform="translate(10.000000, 17.000000)" stroke="#050422" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+            <path d="M0,-2.35367281e-14 C1.58864528,1.5409161 3.25531195,2.31137416 5,2.31137416 C6.74468805,2.31137416 8.41135472,1.5409161 10,-2.35367281e-14" id="Line-2"></path>
+            <path d="M20,0 C21.5886453,1.5409161 23.2553119,2.31137416 25,2.31137416 C26.7446881,2.31137416 28.4113547,1.5409161 30,0" id="Line-2" transform="translate(25.000000, 1.155687) scale(-1, 1) translate(-25.000000, -1.155687) "></path>
+        </g>
+        <path d="M17.5449655,30.2259607 C21.0548263,31.1644654 24.4410866,31.4522997 27.7037464,31.0894637 C30.9664062,30.7266278 33.3984907,29.4915689 35,27.3842872" id="Path-42" stroke="#050422" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+    </g>
+</svg>

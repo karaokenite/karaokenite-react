@@ -10,7 +10,7 @@
   border-radius: $width-border-radius;
   border: $width-border-large solid $color-dark;
   font-weight: $font-weight-normal;
-  padding-bottom: $gap-xl;
+  padding-bottom: $gap-lg;
   position: relative;
 
   &::before {
@@ -20,8 +20,8 @@
     display: block;
     height: 100%;
     position: absolute;
-    width: 100%;
     transform: skew(0deg, 1.5deg);
+    width: 100%;
   }
 }
 
@@ -56,12 +56,15 @@
 }
 
 @include viewport-medium {
-  .sign {
-    padding-bottom: $gap-lg;
-  }
-
   .text {
-    margin: $gap-xl auto $gap-md;
-    max-width: 42rem;
+    margin: $gap-xl auto $gap-lg;
+    max-width: 28rem;
+  }
+}
+
+@include viewport-large {
+  .sign::before {
+    left: calc(50% - 30rem);
+    max-width: 60rem;
   }
 }

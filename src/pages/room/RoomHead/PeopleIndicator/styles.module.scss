@@ -1,0 +1,15 @@
+@import "base.scss";
+
+.peopleIndicator {
+  align-items: center;
+  color: $color-white;
+  display: flex;
+  font-weight: $font-weight-bold;
+}
+
+.smileys {
+  margin-left: $gap-sm;
+  padding-left: 100px;
+  user-select: none;
+  width: 100px;
+}

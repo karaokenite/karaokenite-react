@@ -4,7 +4,9 @@ $breakpoint-large: 63rem;
 $color-black: black;
 $color-blue-dark: #1c0e8c;
 $color-dark: #050422;
+$color-gray-dark: #333;
 $color-gray-light: #dad8de;
+$color-gray-lightest: #f7f7f7;
 $color-magenta: #c202fb;
 $color-pink: #fe3466;
 $color-pink-dark: #b61f44;
@@ -31,10 +33,11 @@ $gap-xl: 3.5rem;
 
 $time-fast: 0.2s;
 
-$width-border: 2px;
+$width-border-light: 2px;
 $width-border-medium: 3px;
 $width-border-large: 4px;
 
+$width-border-radius-small: 3px;
 $width-border-radius: 8px;
 $width-border-radius-large: 20px;
 

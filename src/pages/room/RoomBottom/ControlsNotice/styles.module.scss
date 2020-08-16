@@ -1,0 +1,16 @@
+@import "base.scss";
+
+.controlsNotice {
+  align-items: flex-end;
+  display: flex;
+}
+
+.text {
+  background: transparentize($color: $color-dark, $amount: 0.2);
+  border-radius: $width-border-radius;
+  color: $color-gray-lightest;
+  display: inline-block;
+  margin: 0 auto;
+  max-width: 100%;
+  padding: $gap-md;
+}

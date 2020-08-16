@@ -1,6 +1,7 @@
 import React from "react";
 
 import { Header } from "@components/Header";
+import { TopRight } from "@components/Header/TopRight";
 import { Cell } from "@components/layout/Cell";
 import { Grid } from "@components/layout/Grid";
 import { Text } from "@components/typography/Text";
@@ -14,7 +15,9 @@ export const Hero: React.FC = () => {
   return (
     <section className={styles.hero} id="top">
       <BackgroundStars />
-      <Header theme="light" />
+      <Header>
+        <TopRight theme="light" />
+      </Header>
       <SectionContent className={styles.sectionContent}>
         <Grid>
           <Cell size={3}>

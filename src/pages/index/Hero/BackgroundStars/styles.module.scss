@@ -75,8 +75,18 @@
 }
 
 @include viewport-large {
+  .star1 {
+    bottom: 1rem;
+    left: 17%;
+  }
+
   .star4 {
-    left: 22.5%;
+    left: 25%;
     top: -12.5rem;
+  }
+
+  .star5 {
+    left: 79%;
+    bottom: 2rem;
   }
 }

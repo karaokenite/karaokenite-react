@@ -1,0 +1,26 @@
+@import "base.scss";
+
+.button {
+  border-radius: $width-border-radius;
+  border: $width-border-medium solid $color-dark;
+  color: $color-black;
+  cursor: pointer;
+  display: inline-block;
+  font-family: $font-family-text;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-bold;
+  padding: 0.75rem 1rem;
+  position: relative;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: $time-fast background-color;
+  user-select: none;
+}
+
+.yellow {
+  background: $color-yellow;
+}
+
+.white {
+  background: $color-white;
+}

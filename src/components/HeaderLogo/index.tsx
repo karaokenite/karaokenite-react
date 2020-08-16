@@ -7,11 +7,12 @@ import { Heading } from "@components/typography/Heading";
 
 export type HeaderLogoProps = {
   className?: string;
+  theme: string;
 };
 
-export const HeaderLogo: React.FC<HeaderLogoProps> = ({ className }) => {
+export const HeaderLogo: React.FC<HeaderLogoProps> = ({ className, theme }) => {
   return (
-    <div className={cx(styles.headerLogo, className)}>
+    <div className={cx(styles.headerLogo, styles[theme], className)}>
       <Heading as="h1" className={styles.heading} fontSize="md">
         <Link href="/">
           <a className={styles.link}>Karaoke Nite</a>

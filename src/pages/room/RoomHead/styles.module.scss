@@ -1,0 +1,17 @@
+@import "base.scss";
+
+.header {
+  position: absolute;
+  top: 0;
+}
+
+.options {
+  display: flex;
+  justify-content: flex-end;
+  margin: $gap-md;
+  width: 100%;
+}
+
+.option {
+  margin-left: $gap-md;
+}

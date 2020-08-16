@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="50px" height="50px" viewBox="0 0 50 50" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 61.2 (89653) - https://sketch.com -->
+    <title>Smiley - Pink</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Smiley---Pink" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <circle id="Oval" stroke="#050422" stroke-width="2" fill="#FF93AD" cx="25" cy="25" r="24"></circle>
+        <g id="Group-2" transform="translate(7.000000, 21.000000)" fill="#FE3466" opacity="0.740327381">
+            <circle id="Oval" cx="6" cy="6" r="6"></circle>
+            <circle id="Oval" cx="30" cy="6" r="6"></circle>
+        </g>
+        <g id="Group" transform="translate(13.000000, 15.000000)" fill="#050422">
+            <circle id="Oval" cx="3" cy="3" r="3"></circle>
+            <circle id="Oval" cx="21" cy="3" r="3"></circle>
+        </g>
+        <path d="M18,31 C19.7329745,33.6666667 22.0864885,35 25.0605419,35 C28.0345954,35 30.3477481,33.6666667 32,31" id="Path" stroke="#050422" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+    </g>
+</svg>

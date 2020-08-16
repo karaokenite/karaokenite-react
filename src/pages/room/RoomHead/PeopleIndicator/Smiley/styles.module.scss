@@ -1,0 +1,12 @@
+@import "base.scss";
+
+.smiley {
+  border-radius: 100%;
+  display: inline-block;
+  height: 42px;
+  width: 42px;
+
+  & {
+    margin-left: -60px;
+  }
+}

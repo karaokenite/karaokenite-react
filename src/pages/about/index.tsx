@@ -3,13 +3,14 @@ import React from "react";
 import { Footer } from "@components/Footer";
 import { Header } from "@components/Header";
 import { HeaderLogo } from "@components/HeaderLogo";
+import { TopRight } from "@components/Header/TopRight";
 import { BaseHead } from "@components/meta/BaseHead";
 import { Anchor } from "@components/typography/Anchor";
 import { Heading } from "@components/typography/Heading";
 import { Text } from "@components/typography/Text";
 
-import styles from "./about.module.scss";
-import { TeamMember } from "./about/TeamMember";
+import styles from "./styles.module.scss";
+import { TeamMember } from "./TeamMember";
 
 const teamMembers = [
   {
@@ -43,8 +44,9 @@ export default function About() {
   return (
     <div>
       <BaseHead title="About" />
-      <Header theme="dark">
+      <Header>
         <HeaderLogo />
+        <TopRight theme="dark" />
       </Header>
 
       <main className={styles.main}>

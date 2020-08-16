@@ -1,18 +1,12 @@
+import cx from "classnames";
 import React from "react";
 
 import styles from "./styles.module.scss";
-import { TopRight } from "./TopRight";
-import { HeaderTheme } from "./types";
 
 export type HeaderProps = {
-  theme: HeaderTheme;
+  className?: string;
 };
 
-export const Header: React.FC<HeaderProps> = ({ children, theme }) => {
-  return (
-    <header className={styles.header}>
-      {children}
-      <TopRight className={styles.topRight} theme={theme} />
-    </header>
-  );
+export const Header: React.FC<HeaderProps> = ({ children, className }) => {
+  return <header className={cx(styles.header, className)}>{children}</header>;
 };
