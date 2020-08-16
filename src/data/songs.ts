@@ -301,8 +301,15 @@ export const allSongs: SongData[] = [
         title: "Jolene",
         visual: "https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2FDolly_Parton_Jolene.jpg?v=1597434213221"
     }
-]
+].map((song, index) => ({
+    ...song,
+    index
+}))
 
-export const allSongsById = new Map(
+export const allSongsByTitle = new Map(
     allSongs.map(song => ([song.title, song]))
 );
+
+export const defaultSongTitle = "Let's Get it On";
+
+export const defaultSongIndex = allSongsByTitle.get(defaultSongTitle)!.index;

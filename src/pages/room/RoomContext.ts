@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 
 import { environments } from '@data/environments';
+import { defaultSongIndex } from '@data/songs';
 
 import { RoomContextValue, RoomPerson } from './types';
 
@@ -22,17 +23,16 @@ export type RoomContextSettings = {
 }
 
 export const useRoomContextValue = ({ host, room, username }: RoomContextSettings): RoomContextValue => {
-    // https://nextjs.org/docs/advanced-features/automatic-static-optimization#how-it-works
-
-    // TODO: It'd be nice to return a new Error if room or username aren't strings...
     return {
-        currentSong: useGetterAndSetter<number | undefined>(undefined),
+        currentSongIndex: useGetterAndSetter(0),
         environment: useGetterAndSetter(environments[0]),
         host: useGetterAndSetter(!!host),
         otherPeople: useGetterAndSetter<RoomPerson[]>([]),
         playing: useGetterAndSetter<boolean>(false),
         roomName: useGetterAndSetter(room),
-        songs: useGetterAndSetter<string[]>([]),
+        songs: useGetterAndSetter([
+            defaultSongIndex,
+        ]),
         username: useGetterAndSetter(username),
         volume: useGetterAndSetter(1),
     }

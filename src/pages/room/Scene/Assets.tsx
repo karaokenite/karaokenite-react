@@ -3,8 +3,6 @@ import React from "react";
 export const Assets: React.FC = () => {
   return (
     <a-assets>
-      {/* Buttons */}
-
       <img
         crossOrigin="anonymous"
         id="play"
@@ -38,11 +36,7 @@ export const Assets: React.FC = () => {
         src="https://cdn.glitch.com/b316bbdc-0b0c-4c6d-94fb-fffb37f510a9%2Fvolume2.png?v=1589410579945"
       />
 
-      <video
-        crossOrigin="anonymous"
-        id="html-video"
-        src="https://cdn.glitch.com/bf4db82b-cdcf-4019-a281-153f8e3d1e9f%2Fletsgetitonencoded.mp4?v=1588473010045"
-      ></video>
+      <video crossOrigin="anonymous" id="html-video" />
     </a-assets>
   );
 };

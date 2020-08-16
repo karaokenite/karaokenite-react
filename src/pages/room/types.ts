@@ -4,13 +4,13 @@ export type RoomPerson = {
 };
 
 export type RoomContextValueTypes = {
-    currentSong: number | undefined;
+    currentSongIndex: number;
     environment: string;
     host: boolean;
     otherPeople: RoomPerson[];
     playing: boolean;
     roomName: string;
-    songs: string[];
+    songs: number[];
     username: string;
     volume: number;
 }

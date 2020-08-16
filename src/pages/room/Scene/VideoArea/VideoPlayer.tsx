@@ -1,6 +1,8 @@
 import { Entity as AREntity } from "aframe-react";
 import React, { useEffect } from "react";
 
+import { allSongs } from "@data/songs";
+
 import { useRoomContext } from "../../RoomContext";
 
 const getVideo = () =>
@@ -19,10 +21,10 @@ const useEffectOnVideo = (
 };
 
 export const VideoPlayer: React.FC = () => {
-  const { playing, volume } = useRoomContext();
+  const { currentSongIndex, playing, songs, volume } = useRoomContext();
 
   useEffectOnVideo(
-    (video) => {
+    (video: HTMLVideoElement) => {
       if (playing.get()) {
         video.play();
       } else {
@@ -34,10 +36,25 @@ export const VideoPlayer: React.FC = () => {
 
   useEffectOnVideo(
     (video) => {
-      console.log("Applying", volume.get());
       video.volume = volume.get();
     },
     [volume.get()]
+  );
+
+  useEffectOnVideo(
+    (video) => {
+      const currentSongIndexValue = currentSongIndex.get();
+      if (currentSongIndexValue === undefined) {
+        return;
+      }
+
+      video.setAttribute(
+        "src",
+        allSongs[songs.get()[currentSongIndexValue]].audio
+      );
+      video.play();
+    },
+    [currentSongIndex.get()]
   );
 
   return (
