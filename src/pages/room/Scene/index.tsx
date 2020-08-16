@@ -1,4 +1,4 @@
-import { Scene as AScene } from "aframe-react";
+import { Scene as ARScene, Entity as AREntity } from "aframe-react";
 import React from "react";
 
 import { Assets } from "./Assets";
@@ -10,13 +10,13 @@ export const Scene: React.FC = () => {
   return (
     <>
       <div className={styles.scene}>
-        <AScene dynamic-room>
+        <ARScene dynamic-room>
           <Assets />
           <Environment />
           <VideoArea />
 
-          <a-entity id="mouseCursor" cursor="rayOrigin: mouse"></a-entity>
-        </AScene>
+          <AREntity id="mouseCursor" cursor="rayOrigin: mouse"></AREntity>
+        </ARScene>
       </div>
     </>
   );

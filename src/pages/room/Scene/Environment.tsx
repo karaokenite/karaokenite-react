@@ -1,4 +1,4 @@
-import { Entity as AEntity } from "aframe-react";
+import { Entity } from "aframe-react";
 
 import { useRoomContext } from "../RoomContext";
 import { useEnvironmentSwitchOnSpace } from "./useEnvironmentSwitchOnSpace";
@@ -8,5 +8,5 @@ export const Environment: React.FC = () => {
 
   useEnvironmentSwitchOnSpace(environment);
 
-  return <AEntity environment={`preset: ${environment.get()}`}></AEntity>;
+  return <Entity environment={`preset: ${environment.get()}`}></Entity>;
 };

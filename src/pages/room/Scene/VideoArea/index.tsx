@@ -1,6 +1,8 @@
+import { Entity as AREntity } from "aframe-react";
 import React from "react";
 
-import { useRoomContext } from "../RoomContext";
+import { useRoomContext } from "../../RoomContext";
+import { VideoPlayer } from "./VideoPlayer";
 
 const mouseEnter =
   "property: scale; to: 0.27 0.27 1; dur: 300; startEvents: mouseenter";
@@ -13,38 +15,42 @@ export const VideoArea: React.FC = () => {
 
   return (
     <>
-      <a-image
+      <AREntity
         animation__mouseenter={mouseEnter}
         animation__mouseleave={mouseLeave}
-        id="videoControls"
-        onClick={() => {
-          playing.set(!playing.get());
+        id="play-pause-button"
+        events={{
+          click: () => playing.set(!playing.get()),
         }}
         play-pause
         position="-0.4 1 -1"
+        primitive="a-image"
         scale="0.2 0.2 1"
-        src={playing ? "#pause" : "#play"}
+        src={playing.get() ? "#pause" : "#play"}
       />
 
-      <a-image
+      <AREntity
         animation__mouseenter={mouseEnter}
         animation__mouseleave={mouseLeave}
         id="next-button"
         next
-        onClick={() => {
-          const songsValue = songs.get();
-          if (songsValue.length === 0) {
-            return;
-          }
+        events={{
+          click: () => {
+            const songsValue = songs.get();
+            if (songsValue.length === 0) {
+              return;
+            }
 
-          currentSong.set(((currentSong.get() ?? 0) + 1) % songsValue.length);
+            currentSong.set(((currentSong.get() ?? 0) + 1) % songsValue.length);
+          },
         }}
         position="-0.1 1 -1"
+        primitive="a-image"
         scale="0.2 0.2 1"
         src="#next"
       />
 
-      <a-image
+      <AREntity
         animation__mouseenter={mouseEnter}
         animation__mouseleave={mouseLeave}
         id="previous-button"
@@ -52,38 +58,41 @@ export const VideoArea: React.FC = () => {
           currentSong.set(Math.max((currentSong.get() ?? 0) - 1, 0))
         }
         position="-0.7 1 -1"
+        primitive="a-image"
         previous
         scale="0.2 0.2 1"
         src="#previous"
       />
 
-      <a-image
+      <AREntity
         animation__mouseenter={mouseEnter}
         animation__mouseleave={mouseLeave}
         id="volume-low-button"
-        onClick={() => volume.set(0.5)}
+        events={{
+          click: () => volume.set(Math.max(volume.get() - 0.25, 0)),
+        }}
+        primitive="a-image"
         position="0.4 1 -1"
         scale="0.2 0.2 1"
         src="#volume-low"
         volume-low
       />
 
-      <a-image
+      <AREntity
         animation__mouseenter={mouseEnter}
         animation__mouseleave={mouseLeave}
         id="volume-high-button"
-        onClick={() => volume.set(1)}
+        events={{
+          click: () => volume.set(Math.min(volume.get() + 0.25, 1)),
+        }}
+        primitive="a-image"
         position="0.7 1 -1"
         scale="0.2 0.2 1"
         src="#volume-high"
         volume-high
       />
 
-      <a-entity
-        position="0.8 2 -0.8"
-        scale="1.0 1.0 1.0"
-        text="value: WELCOME!!!; color: #BBB; font: monoid;"
-      ></a-entity>
+      <VideoPlayer />
     </>
   );
 };
