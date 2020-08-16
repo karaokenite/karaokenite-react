@@ -10,16 +10,8 @@ First, install everything once using [yarn](https://yarnpkg.com/):
 yarn
 ```
 
-Now, you'll be able to start two terminals:
+Now, you'll be able to start:
 
-1. Running the backing Node server:
-
-   ```shell
-   yarn dev
-   ```
-
-2. Running the Next.js client serer:
-
-   ```shell
-   yarn serve
-   ```
+```shell
+yarn dev
+```
