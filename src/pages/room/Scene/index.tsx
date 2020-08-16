@@ -1,9 +1,16 @@
+import { Scene as AScene, Entity as AEntity } from "aframe-react";
 import Head from "next/head";
 import React from "react";
 
 import styles from "./styles.module.scss";
+import { useRoomContext } from "../RoomContext";
+import { useEnvironmentSwitchOnSpace } from "./useEnvironmentSwitchOnSpace";
 
 export const Scene: React.FC = () => {
+  const { environment } = useRoomContext();
+
+  useEnvironmentSwitchOnSpace(environment);
+
   return (
     <>
       <Head>
@@ -18,9 +25,9 @@ export const Scene: React.FC = () => {
         <div id="counter" />
         <div id="roomName" />
 
-        <a-scene dynamic-room>
-          <a-entity environment="preset: osiris"></a-entity>
-        </a-scene>
+        <AScene dynamic-room>
+          <AEntity environment={`preset: ${environment.get()}`}></AEntity>
+        </AScene>
       </div>
     </>
   );

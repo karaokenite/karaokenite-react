@@ -4,6 +4,7 @@ export type RoomPerson = {
 };
 
 export type RoomContextValueTypes = {
+    environment: string;
     host: boolean;
     otherPeople: RoomPerson[];
     roomName: string;

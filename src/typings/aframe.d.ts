@@ -2,7 +2,7 @@
 // ...but with all sorts of elements allowed. 😬
 
 declare module JSX {
-    interface IntrinsicElements {
-        [i: string]: any;
-    }
+    // interface IntrinsicElements {
+    //     [i: string]: any;
+    // }
 }
