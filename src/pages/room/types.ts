@@ -6,7 +6,6 @@ export type RoomContextValueTypes = Readonly<{
      */
     client: ClientPerson;
 
-    currentSongIndex: number;
     environment: string;
 
     /**
@@ -14,9 +13,19 @@ export type RoomContextValueTypes = Readonly<{
      */
     occupants: ReadonlyMap<PersonId, RoomPerson>;
 
+    /**
+     * Whether the video is currently playing.
+     */
     playing: boolean;
+
     roomName: string;
+
     songs: readonly number[];
+
+    /**
+     * Which song index is being shown/played at the moment.
+     */
+    songIndex: number;
     volume: number;
 }>;
 

@@ -5,22 +5,22 @@ import { rootElementId, modalsElementId } from "@components/constants";
 import { BaseHead } from "@components/meta/BaseHead";
 import { useModals } from "@components/Modals/useModals";
 
-import { RoomBottom } from "../RoomBottom";
+import { RoomBottom } from "./RoomBottom";
 import {
-  useRoomContextValue,
+  createRoomContextValue,
   RoomContext,
   RoomContextSettings,
-} from "../RoomContext";
-import { RoomHead } from "../RoomHead";
-import { Scene } from "../Scene";
-import { roomModals } from "../Modals";
+} from "./RoomContext";
+import { RoomHead } from "./RoomHead";
+import { Scene } from "./Scene";
+import { roomModals } from "./Modals";
 
 export type RoomContainerProps = {
   settings: RoomContextSettings;
 };
 
 export const RoomContainer: React.FC<RoomContainerProps> = ({ settings }) => {
-  const roomContextValue = useRoomContextValue(settings);
+  const roomContextValue = createRoomContextValue(settings);
   const [modalNodes, setModal] = useModals(roomModals);
   const title = `${roomContextValue?.roomName.get() || "Room"} |`;
 

@@ -21,7 +21,7 @@ const useEffectOnVideo = (
 };
 
 export const VideoPlayer: React.FC = () => {
-  const { currentSongIndex, playing, songs, volume } = useRoomContext();
+  const { playing, songIndex, songs, volume } = useRoomContext();
 
   useEffectOnVideo(
     (video: HTMLVideoElement) => {
@@ -43,16 +43,13 @@ export const VideoPlayer: React.FC = () => {
 
   useEffectOnVideo(
     (video) => {
-      video.setAttribute(
-        "src",
-        allSongs[songs.get()[currentSongIndex.get()]].audio
-      );
+      video.setAttribute("src", allSongs[songs.get()[songIndex.get()]].audio);
 
       if (playing.get()) {
         video.play();
       }
     },
-    [currentSongIndex.get()]
+    [songIndex.get()]
   );
 
   return (

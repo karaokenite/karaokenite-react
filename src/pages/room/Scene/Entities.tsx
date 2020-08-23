@@ -4,9 +4,8 @@ import { Raw } from "./Raw";
 
 export const Entities: React.FC = () => {
   return (
-    <>
-      <Raw
-        html={`
+    <Raw
+      html={`
 <a-entity
   animation="property: object3D.position.y; to: 1.45; dir: alternate; dur: 1000; loop: true"
   camera
@@ -22,12 +21,6 @@ export const Entities: React.FC = () => {
   <a-sphere class="head" visible="false" random-color></a-sphere>
 </a-entity>   
 `}
-      />
-      <Raw
-        html={`
-<a-entity id="mouseCursor" cursor="rayOrigin: mouse"></a-entity>
-`}
-      />
-    </>
+    />
   );
 };

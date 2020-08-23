@@ -1,3 +1,5 @@
+import { JukeboxUpdatedData, OccupantsUpdatedData, SetUsernameData } from "./types";
+
 /**
  * Socket events used by Networked Aframe ("NAF").
  */
@@ -38,14 +40,9 @@ export enum AframeEvent {
  */
 export enum KaraokeEvent {
     /**
-     * Someone pressed the play button.
+     * Someone pressed the pause/play button.
      */
-    Paused = "paused",
-
-    /**
-     * Someone pressed the play button.
-     */
-    Playing = "playing",
+    JukeboxUpdated = "playing",
 
     /**
      * The context value for occupants has changed, such as for a rename or leave.

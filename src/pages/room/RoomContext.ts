@@ -1,10 +1,11 @@
+import { map, mapValues } from 'lodash';
 import React, { useContext, useState } from 'react';
 
 import { environments } from '@data/environments';
 import { defaultSongIndex } from '@data/songs';
 import { RoomPerson, PersonId } from '@data/types';
 
-import { RoomContextValue } from './types';
+import { RoomContextValue, RoomContextValueTypes } from './types';
 
 export const RoomContext = React.createContext<RoomContextValue>(null!);
 
@@ -22,9 +23,8 @@ export type RoomContextSettings = {
     room: string;
 };
 
-export const useRoomContextValue = ({ room, username }: RoomContextSettings): RoomContextValue => {
+export const createRoomContextValue = ({ room, username }: RoomContextSettings): RoomContextValue => {
     return {
-        currentSongIndex: useGetterAndSetter(0),
         environment: useGetterAndSetter(environments[0]),
         occupants: useGetterAndSetter<ReadonlyMap<PersonId, RoomPerson>>(new Map()),
         client: useGetterAndSetter({ username }),
@@ -33,8 +33,15 @@ export const useRoomContextValue = ({ room, username }: RoomContextSettings): Ro
         songs: useGetterAndSetter<readonly number[]>([
             defaultSongIndex,
         ]),
+        songIndex: useGetterAndSetter(0),
         volume: useGetterAndSetter(1),
     }
 };
 
 export const useRoomContext = () => useContext(RoomContext);
+
+export const useRoomContextValues = () => {
+    const roomContext = useRoomContext();
+
+    return mapValues(roomContext, value => value.get()) as RoomContextValueTypes;
+}
