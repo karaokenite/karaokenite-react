@@ -11,7 +11,7 @@ const express = require("express"); // web framework external module
 // Set process name
 process.title = "networked-aframe-server";
 
-const port = 3002;
+const port = 3001;
 
 // Setup and configure Express http server.
 const app = express();
@@ -63,7 +63,6 @@ io.on("connection", (socket) => {
   });
 
   socket.on("send", (data) => {
-    console.log("SENDING!", data);
     io.to(data.to).emit("send", data);
   });
 
