@@ -1,4 +1,4 @@
-import { RoomEvent } from "@data/events";
+import { KaraokeEvent } from "@data/events";
 import { PersonId, UpdateOccupantsData } from "@data/types";
 
 import { RoomContextValue } from "../types";
@@ -6,11 +6,11 @@ import { RoomContextValue } from "../types";
 export const roomConnection = (context: RoomContextValue, personId: PersonId, socket: SocketIOClient.Socket) => {
     const { client, occupants } = context;
 
-    socket.emit(RoomEvent.UsernameSet, {
+    socket.emit(KaraokeEvent.UsernameSet, {
         username: client.get().username,
     });
 
-    socket.on(RoomEvent.OccupantsUpdated, (data: UpdateOccupantsData) => {
+    socket.on(KaraokeEvent.OccupantsUpdated, (data: UpdateOccupantsData) => {
         client.set({
             ...client.get(),
             id: personId,
