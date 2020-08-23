@@ -1,4 +1,4 @@
-import { AframeEvent, KaraokeEvent } from "@data/events";
+import { AframeEvent } from "@data/events";
 import { SendData, BroadcastData } from "@data/types";
 
 import { ServerRegistration } from "../types";

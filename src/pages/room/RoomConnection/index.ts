@@ -1,6 +1,5 @@
 import { useCallback, useEffect, useState, useRef } from "react";
 
-import { AframeEvent } from "@data/events";
 import { PersonId } from "@data/types";
 
 import { useRoomContext } from "../RoomContext";

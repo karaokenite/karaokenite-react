@@ -1,6 +1,6 @@
 
-import { KaraokeEvent, AframeEvent } from "@data/events";
-import { PersonId, OccupantsUpdatedData, RoomDataUpdatedData, RoomPerson } from "@data/types";
+import { KaraokeEvent } from "@data/events";
+import { PersonId, OccupantsUpdatedData, RoomDataUpdatedData } from "@data/types";
 
 import { RoomContextValue } from "../types";
 
