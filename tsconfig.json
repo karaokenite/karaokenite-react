@@ -10,6 +10,7 @@
     "module": "esnext",
     "moduleResolution": "node",
     "noEmit": true,
+    "noEmitOnError": false,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "paths": {

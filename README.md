@@ -10,8 +10,12 @@ First, install everything once using [yarn](https://yarnpkg.com/):
 yarn
 ```
 
-Now, you'll be able to start:
+Now, in two separate terminals, you can start the server with `yarn dev:server` and the site with `yarn dev:server`:
 
 ```shell
-yarn dev
+yarn dev:server
+```
+
+```shell
+yarn dev:site
 ```

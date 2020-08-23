@@ -8,6 +8,12 @@
   cursor: pointer;
   display: flex;
   font-weight: $font-weight-bold;
+  opacity: 1;
+  transition: 350ms opacity;
+}
+
+.unconnected {
+  opacity: 0.7;
 }
 
 .smileys {

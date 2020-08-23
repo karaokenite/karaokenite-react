@@ -12,7 +12,7 @@ export type CreateRoomProps = { className?: string };
 
 export const CreateRoom: React.FC<CreateRoomProps> = ({ className }) => {
   return (
-    <form className={cx(styles.createRoom, className)}>
+    <form action="/room" className={cx(styles.createRoom, className)}>
       <Heading as="h2" className={styles.roomHeading} fontSize="lg">
         Join a Private Room
       </Heading>

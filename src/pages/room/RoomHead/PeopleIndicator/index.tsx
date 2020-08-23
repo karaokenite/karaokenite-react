@@ -16,13 +16,20 @@ export const PeopleIndicator: React.FC<PeopleIndicatorProps> = ({
   className,
   onClick,
 }) => {
-  const { otherPeople } = useRoomContext();
+  const { connected, otherPeople } = useRoomContext();
   const count = otherPeople.get().length + 1;
 
   return (
-    <button className={cx(styles.peopleIndicator, className)} onClick={onClick}>
+    <button
+      className={cx(
+        styles.peopleIndicator,
+        !connected.get() && styles.unconnected,
+        className
+      )}
+      onClick={onClick}
+    >
       <Text as="span" fontSize="md">
-        {count}
+        {connected.get() ? count : "•••"}
       </Text>
       <div className={styles.smileys}>
         {otherPeople

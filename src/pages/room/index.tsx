@@ -5,17 +5,19 @@ import { RoomContainer } from "./RoomContainer";
 import { RoomGate } from "./RoomGate";
 
 export default function Room() {
-  const { query } = useRouter();
-  if (!query.room || !query.username) {
+  const {
+    query: { host, room, username },
+  } = useRouter();
+  if (typeof room !== "string" || typeof username !== "string") {
     return <RoomGate />;
   }
 
   return (
     <RoomContainer
       settings={{
-        host: !!query.host,
-        room: query.room as string,
-        username: query.username as string,
+        host: !!host,
+        username,
+        room,
       }}
     />
   );

@@ -1,0 +1,8 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "noUnusedLocals": false,
+    "noUnusedParameters": false
+  },
+  "extends": "./tsconfig.json"
+}

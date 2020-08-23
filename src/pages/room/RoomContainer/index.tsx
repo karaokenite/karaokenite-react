@@ -6,6 +6,7 @@ import { BaseHead } from "@components/meta/BaseHead";
 import { useModals } from "@components/Modals/useModals";
 
 import { RoomBottom } from "../RoomBottom";
+import { useRoomConnection } from "../RoomConnection";
 import {
   useRoomContextValue,
   RoomContext,
@@ -27,6 +28,8 @@ export const RoomContainer: React.FC<RoomContainerProps> = ({ settings }) => {
   useEffect(() => {
     ReactModal.setAppElement(`#${rootElementId}`);
   }, []);
+
+  useRoomConnection(roomContextValue);
 
   return (
     <RoomContext.Provider value={roomContextValue}>

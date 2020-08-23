@@ -19,7 +19,7 @@ export const PeopleList: React.FC<PeopleListProps> = ({ className }) => {
         <Person
           host={person.host}
           index={index}
-          key={person.username}
+          key={person.id}
           username={person.username}
         />
       ))}
