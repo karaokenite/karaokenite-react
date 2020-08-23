@@ -4,9 +4,15 @@ import { useRoomContext } from "../RoomContext";
 import { useEnvironmentSwitchOnSpace } from "./useEnvironmentSwitchOnSpace";
 
 export const Environment: React.FC = () => {
-  const { environment } = useRoomContext();
+  const { roomData } = useRoomContext();
+  const { environment } = roomData.get();
 
-  useEnvironmentSwitchOnSpace(environment);
+  useEnvironmentSwitchOnSpace(environment, (newEnvironment) =>
+    roomData.set({
+      ...roomData.get(),
+      environment: newEnvironment,
+    })
+  );
 
-  return <Entity environment={`preset: ${environment.get()}`}></Entity>;
+  return <Entity environment={`preset: ${environment}`}></Entity>;
 };

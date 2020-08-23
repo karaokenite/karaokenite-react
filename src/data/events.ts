@@ -1,5 +1,3 @@
-import { JukeboxUpdatedData, OccupantsUpdatedData, SetUsernameData } from "./types";
-
 /**
  * Socket events used by Networked Aframe ("NAF").
  */
@@ -13,11 +11,6 @@ export enum AframeEvent {
      * A new person's JoinRoom event was successful.
      */
     ConnectSuccess = "connectSuccess",
-
-    /**
-     * An existing person is leaving a room.
-     */
-    Disconnect = "disconnect",
 
     /**
      * A new person has joined a room.
@@ -40,9 +33,9 @@ export enum AframeEvent {
  */
 export enum KaraokeEvent {
     /**
-     * Someone pressed the pause/play button.
+     * Some portion of room data has been updated.
      */
-    JukeboxUpdated = "playing",
+    RoomDataUpdated = "roomDataUpdated",
 
     /**
      * The context value for occupants has changed, such as for a rename or leave.

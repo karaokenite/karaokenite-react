@@ -21,35 +21,36 @@ const useEffectOnVideo = (
 };
 
 export const VideoPlayer: React.FC = () => {
-  const { playing, songIndex, songs, volume } = useRoomContext();
+  const { songs, roomData } = useRoomContext();
+  const { playing, songIndex, volume } = roomData.get();
 
   useEffectOnVideo(
     (video: HTMLVideoElement) => {
-      if (playing.get()) {
+      if (playing) {
         video.play();
       } else {
         video.pause();
       }
     },
-    [playing.get()]
+    [playing]
   );
 
   useEffectOnVideo(
     (video) => {
-      video.volume = volume.get();
+      video.volume = volume;
     },
-    [volume.get()]
+    [volume]
   );
 
   useEffectOnVideo(
     (video) => {
-      video.setAttribute("src", allSongs[songs.get()[songIndex.get()]].audio);
+      video.setAttribute("src", allSongs[songs.get()[songIndex]].audio);
 
-      if (playing.get()) {
+      if (playing) {
         video.play();
       }
     },
-    [songIndex.get()]
+    [songIndex]
   );
 
   return (

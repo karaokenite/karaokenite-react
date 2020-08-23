@@ -1,6 +1,15 @@
-import { PersonId, RoomName, RoomPerson } from "@data/types";
+import { defaultRoomData } from "@data/rooms";
+import { PersonId, RoomData, RoomName, RoomPerson } from "@data/types";
 
 export type ServerRoom = {
+    /**
+     * General "jukebox" data for the karaoke experience.
+     */
+    data: RoomData;
+
+    /**
+     * Unique ID name of the room.
+     */
     name: RoomName;
 
     /**
@@ -24,6 +33,7 @@ export class RoomsStore {
         }
 
         const newRoom = {
+            data: defaultRoomData,
             name: roomName,
             occupants: new Map([
                 [person.id, person]

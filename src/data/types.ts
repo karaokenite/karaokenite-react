@@ -16,6 +16,31 @@ export type RoomPerson = {
     username?: string;
 }
 
+/**
+ * General "jukebox" data about a room's karaoke experience.
+ */
+export type RoomData = {
+    /**
+     * Which environment scene is being shown in the background.
+     */
+    environment: string;
+
+    /**
+     * Whether the current song is playing.
+     */
+    playing: boolean;
+
+    /**
+     * Which song is shown/played.
+     */
+    songIndex: number;
+
+    /**
+     * How loud the song's audio is.
+     */
+    volume: number;
+}
+
 // NAF native events
 
 export type BroadcastData = {
@@ -36,22 +61,7 @@ export type SendData = {
 
 // Karaoke Nite events
 
-export type JukeboxUpdatedData = {
-    /**
-     * Whether the song is currently playing.
-     */
-    playing: boolean;
-
-    /**
-     * Which song is currently being shown/played.
-     */
-    songIndex: number;
-
-    /**
-     * How loud the video is now.
-     */
-    volume: number;
-}
+export type RoomDataUpdatedData = Partial<RoomData>;
 
 export type OccupantsUpdatedData = {
     occupants: RoomPerson[];
@@ -65,7 +75,7 @@ export type SetUsernameData = {
 
 
 export type EventDataTypes = {
-    [KaraokeEvent.JukeboxUpdated]: JukeboxUpdatedData;
+    [KaraokeEvent.RoomDataUpdated]: RoomDataUpdatedData;
     [KaraokeEvent.OccupantsUpdated]: OccupantsUpdatedData;
     [KaraokeEvent.UsernameSet]: SetUsernameData;
 }

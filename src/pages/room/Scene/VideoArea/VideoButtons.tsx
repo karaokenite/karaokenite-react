@@ -5,81 +5,65 @@ import { KaraokeEvent } from "@data/events";
 import { useEmitContext } from "../../RoomConnection/emit";
 import { useRoomContext } from "../../RoomContext";
 import { VideoButton } from "./VideoButton";
+import { RoomData } from "@data/types";
 
 export const VideoButtons: React.FC = () => {
-  const { songIndex, songs, playing, volume } = useRoomContext();
   const emit = useEmitContext();
+  const { roomData, songs } = useRoomContext();
+  const { playing, songIndex, volume } = roomData.get();
+
+  const createOnClick = (newData: Partial<RoomData>) => {
+    return () => {
+      roomData.set({ ...roomData.get(), ...newData });
+      emit(KaraokeEvent.RoomDataUpdated, newData);
+    };
+  };
 
   return (
     <>
       <VideoButton
         id="play-pause-button"
-        events={{
-          click: () => {
-            const newPlaying = !playing.get();
-
-            playing.set(newPlaying);
-            emit(KaraokeEvent.JukeboxUpdated, { playing: newPlaying });
-          },
-        }}
+        onClick={createOnClick({
+          playing: !playing,
+        })}
         position="-0.4 1 -1"
-        src={playing.get() ? "#pause" : "#play"}
+        src={playing ? "#pause" : "#play"}
       />
 
       <VideoButton
         id="next-button"
-        events={{
-          click: () => {
-            const newSongIndex = (songIndex.get() + 1) % songs.get().length;
-
-            songIndex.set(newSongIndex);
-            emit(KaraokeEvent.JukeboxUpdated, { songIndex: newSongIndex });
-          },
-        }}
+        onClick={createOnClick({
+          songIndex: (songIndex + 1) % songs.get().length,
+        })}
         position="-0.1 1 -1"
         src="#next"
       />
 
       <VideoButton
         id="previous-button"
-        events={{
-          click: () => {
-            const newSongIndex = Math.max(songIndex.get() - 1, 0);
-
-            songIndex.set(newSongIndex);
-            emit(KaraokeEvent.JukeboxUpdated, { songIndex: newSongIndex });
-          },
-        }}
+        onClick={createOnClick({
+          songIndex: Math.max(songIndex - 1, 0),
+        })}
         position="-0.7 1 -1"
         src="#previous"
       />
 
       <VideoButton
         id="volume-low-button"
-        events={{
-          click: () => {
-            const newVolume = Math.max(volume.get() - 0.25, 0);
-
-            volume.set(newVolume);
-            emit(KaraokeEvent.JukeboxUpdated, { volume: newVolume });
-          },
-        }}
-        opacity={volume.get() === 0 ? 0.5 : 1}
+        onClick={createOnClick({
+          volume: Math.max(volume - 0.25, 0),
+        })}
+        opacity={volume === 0 ? 0.5 : 1}
         position="0.4 1 -1"
         src="#volume-low"
       />
 
       <VideoButton
         id="volume-high-button"
-        events={{
-          click: () => {
-            const newVolume = Math.min(volume.get() + 0.25, 1);
-
-            volume.set(newVolume);
-            emit(KaraokeEvent.JukeboxUpdated, { volume: newVolume });
-          },
-        }}
-        opacity={volume.get() === 1 ? 0.5 : 1}
+        onClick={createOnClick({
+          volume: Math.min(volume + 0.25, 1),
+        })}
+        opacity={volume === 1 ? 0.5 : 1}
         position="0.7 1 -1"
         src="#volume-high"
       />
