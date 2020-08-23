@@ -47,7 +47,10 @@ export const VideoPlayer: React.FC = () => {
         "src",
         allSongs[songs.get()[currentSongIndex.get()]].audio
       );
-      video.play();
+
+      if (playing.get()) {
+        video.play();
+      }
     },
     [currentSongIndex.get()]
   );

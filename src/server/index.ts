@@ -4,47 +4,76 @@ import socketio from 'socket.io';
 
 import { RoomEvent } from "@data/events";
 import { socketPort } from "@data/ports";
-import { RoomJoinData, PersonId } from "@data/types";
+import { BroadcastData, JoinRoomData, PersonId, SendData, SetUsernameData } from "@data/types";
 
 import { log } from "./logging";
-import { RoomsMap, ServerRoom } from "./RoomsMap";
+import { RoomsMap } from "./RoomsMap";
 
 const koa = new Koa();
 const server = http.createServer(koa.callback());
 const io = socketio(server);
 const rooms = new RoomsMap();
 
-const createRoomUpdateData = (room: ServerRoom) => ({
-    people: Array.from(room.people.values()),
-    roomName: room.name,
-});
+io.on(RoomEvent.Connection, (socket) => {
+    const personId = socket.id as PersonId;
 
-io.on('connect', (socket) => {
-    const id = socket.id as PersonId;
-    log.connection(`User '${id}' connected.`);
+    socket.on(RoomEvent.JoinRoom, ({ room: roomName }: JoinRoomData) => {
+        log.connection(`Person '${personId}' joined room '${roomName}'.`);
 
-    socket.on(RoomEvent.Join, ({ roomName, person }: RoomJoinData) => {
+        const person = {
+            id: personId,
+            joinedTime: Date.now(),
+        };
         const room = rooms.join(roomName, person);
-        const data = createRoomUpdateData(room);
 
-        socket.emit(RoomEvent.Update, data);
         socket.join(roomName);
-        socket.to(room.name).emit(RoomEvent.Update, data);
-    });
+        socket.emit(RoomEvent.ConnectSuccess, person);
 
-    socket.on('disconnect', () => {
-        const room = rooms.leave(id);
-        if (room instanceof Error) {
-            log.connection(rooms.leave(id));
-            return;
-        }
+        io.in(roomName).emit(RoomEvent.OccupantsChanged, { occupants: Object.fromEntries(room.occupants) });
 
-        log.connection(`User '${id}' disconnected from room '${room.name}.`);
-        socket.to(room.name).emit(RoomEvent.Update, createRoomUpdateData(room));
+        socket.on(RoomEvent.UsernameSet, ({ username }: SetUsernameData) => {
+            const pair = rooms.get(personId);
+            if (pair instanceof Error) {
+                log.connection(pair);
+                return;
+            }
+
+            const { person, room } = pair;
+
+            log.connection(`Person '${personId}' in room '${room.name}' setting username to '${username}'.`)
+            person.username = username;
+            io.in(room.name).emit(RoomEvent.OccupantsUpdated, { occupants: Array.from(room.occupants.values()) });
+        })
+
+        socket.on(RoomEvent.Send, (data: SendData) => {
+            io.to(data.to).emit(RoomEvent.Send, data);
+        });
+
+        socket.on(RoomEvent.Broadcast, (data: BroadcastData) => {
+            const pair = rooms.get(personId);
+            if (pair instanceof Error) {
+                log.connection(pair);
+                return;
+            }
+
+            socket.to(pair.room.name).broadcast.emit(RoomEvent.Broadcast, data);
+        });
+
+        socket.on(RoomEvent.Disconnect, () => {
+            const room = rooms.leave(personId);
+            if (room instanceof Error) {
+                log.connection(room);
+                return;
+            }
+
+            log.connection(`Person '${personId}' left room '${room.name}'.`)
+
+            socket
+                .to(room.name)
+                .broadcast.emit(RoomEvent.OccupantsChanged, { occupants: Object.fromEntries(room.occupants) });
+        });
     });
 });
-
 
 server.listen(socketPort);
-
-log.connection(`Listening on port ${socketPort}...`)
+log.connection(`Listening on port ${socketPort}...`);

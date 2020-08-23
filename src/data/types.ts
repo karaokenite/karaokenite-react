@@ -7,20 +7,40 @@ export type SongData = {
 }
 
 export type RoomPerson = {
-    host?: boolean;
     id: PersonId;
+
+    joinedTime?: number;
+
+    username?: string;
+}
+
+// NAF native
+
+export type BroadcastData = {
+    broadcasting: true;
+    data: unknown;
+    from: string;
+    type: string;
+}
+
+export type JoinRoomData = {
+    room: RoomName;
+}
+
+export type SendData = {
+    to: string;
+    [i: string]: unknown;
+}
+
+// my stuff
+
+export type SetUsernameData = {
     username: string;
-};
+}
 
-export type RoomJoinData = {
-    roomName: RoomName;
-    person: RoomPerson;
-};
-
-export type RoomUpdateData = {
-    roomName: RoomName;
-    people: RoomPerson[];
-};
+export type UpdateOccupantsData = {
+    occupants: RoomPerson[];
+}
 
 // Nominal types let us use primitives without accidentally switching them.
 // For example, something that takes a room ID string shouldn't allow passing a person ID.

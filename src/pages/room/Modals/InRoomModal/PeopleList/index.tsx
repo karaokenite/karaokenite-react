@@ -10,18 +10,12 @@ export type PeopleListProps = {
 };
 
 export const PeopleList: React.FC<PeopleListProps> = ({ className }) => {
-  const { host, otherPeople } = useRoomContext();
+  const { occupants } = useRoomContext();
 
   return (
     <ul className={cx(styles.peopleList, className)}>
-      <Person host={host.get()} index={0} username="you" />
-      {otherPeople.get().map((person, index) => (
-        <Person
-          host={person.host}
-          index={index}
-          key={person.id}
-          username={person.username}
-        />
+      {Array.from(occupants.get().values()).map((person, index) => (
+        <Person index={index} key={person.id} username={person.username} />
       ))}
     </ul>
   );

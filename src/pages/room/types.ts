@@ -1,28 +1,33 @@
-import { RoomPerson } from "@data/types";
+import { PersonId, RoomPerson } from "@data/types";
 
-export type RoomContextValueTypes = {
-    connected: boolean;
+export type RoomContextValueTypes = Readonly<{
+    /**
+     * Known values of the local person.
+     */
+    client: ClientPerson;
+
     currentSongIndex: number;
     environment: string;
-    host: boolean;
-    otherPeople: RoomPerson[];
-    person: ClientRoomPerson;
+
+    /**
+     * All people, including the local person, in the same room.
+     */
+    occupants: ReadonlyMap<PersonId, RoomPerson>;
+
     playing: boolean;
     roomName: string;
-    songs: number[];
+    songs: readonly number[];
     volume: number;
-}
+}>;
 
-/**
- * Client equivalent of the RoomPerson type.
- * 
- * @remarks
- * id isn't assigned until the server sends one down. 
- */
-export type ClientRoomPerson = {
+export type ClientPerson = Readonly<{
+    /**
+     * @remarks Only set after the networked scene is set up from the server.
+     */
     id?: string;
+
     username: string;
-}
+}>;
 
 export type GetterAndSetter<Value> = {
     get: () => Value;

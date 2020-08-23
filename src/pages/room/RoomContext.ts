@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 
 import { environments } from '@data/environments';
 import { defaultSongIndex } from '@data/songs';
-import { RoomPerson } from '@data/types';
+import { RoomPerson, PersonId } from '@data/types';
 
 import { RoomContextValue } from './types';
 
@@ -15,25 +15,22 @@ const useGetterAndSetter = <Value>(value: Value) => {
         get: () => stateValue,
         set,
     }
-}
+};
 
 export type RoomContextSettings = {
-    host?: boolean;
     username: string;
     room: string;
-}
+};
 
-export const useRoomContextValue = ({ host, room, username }: RoomContextSettings): RoomContextValue => {
+export const useRoomContextValue = ({ room, username }: RoomContextSettings): RoomContextValue => {
     return {
-        connected: useGetterAndSetter<boolean>(false),
         currentSongIndex: useGetterAndSetter(0),
         environment: useGetterAndSetter(environments[0]),
-        host: useGetterAndSetter(!!host),
-        otherPeople: useGetterAndSetter<RoomPerson[]>([]),
-        person: useGetterAndSetter({ username }),
+        occupants: useGetterAndSetter<ReadonlyMap<PersonId, RoomPerson>>(new Map()),
+        client: useGetterAndSetter({ username }),
         playing: useGetterAndSetter<boolean>(false),
         roomName: useGetterAndSetter(room),
-        songs: useGetterAndSetter([
+        songs: useGetterAndSetter<readonly number[]>([
             defaultSongIndex,
         ]),
         volume: useGetterAndSetter(1),

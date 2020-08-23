@@ -17,6 +17,10 @@
   opacity: $opacity-dimmed;
 }
 
+.count {
+  margin-right: 28px;
+}
+
 .smileys {
   display: flex;
   flex-direction: row-reverse;
@@ -26,6 +30,6 @@
   min-width: 42px;
 }
 
-.laterSmiley {
+.smiley {
   margin-left: -28px;
 }

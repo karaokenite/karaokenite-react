@@ -1,40 +1,25 @@
-import socketio from 'socket.io-client';
-import { useEffect } from 'react';
-
-import { RoomEvent } from '@data/events';
-import { socketPort } from '@data/ports';
-import { RoomUpdateData } from '@data/types';
+import { RoomEvent } from "@data/events";
+import { PersonId, UpdateOccupantsData } from "@data/types";
 
 import { RoomContextValue } from "../types";
 
-export const useRoomConnection = (roomContextValue: RoomContextValue) => {
-    useEffect(() => {
-        const io = socketio(`:${socketPort}`);
+export const roomConnection = (context: RoomContextValue, personId: PersonId, socket: SocketIOClient.Socket) => {
+    const { client, occupants } = context;
 
-        io.on('connect', () => {
-            const person = {
-                ...roomContextValue.person.get(),
-                id: io.id,
-            };
+    socket.emit(RoomEvent.UsernameSet, {
+        username: client.get().username,
+    });
 
-            roomContextValue.connected.set(true);
-            roomContextValue.person.set(person);
-
-            io.emit(RoomEvent.Join, {
-                person,
-                roomName: roomContextValue.roomName.get(),
-            });
-
-            io.on(RoomEvent.Update, (data: RoomUpdateData) => {
-                roomContextValue.otherPeople.set(
-                    data.people.filter(person => person.id !== io.id)
-                )
-            });
+    socket.on(RoomEvent.OccupantsUpdated, (data: UpdateOccupantsData) => {
+        client.set({
+            ...client.get(),
+            id: personId,
         });
 
-        return () => {
-            roomContextValue.connected.set(false);
-            io.disconnect();
-        }
-    }, [])
-}
+        occupants.set(
+            new Map(
+                data.occupants.map((otherPerson) => [otherPerson.id, otherPerson])
+            )
+        );
+    });
+};

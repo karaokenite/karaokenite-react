@@ -16,33 +16,28 @@ export const PeopleIndicator: React.FC<PeopleIndicatorProps> = ({
   className,
   onClick,
 }) => {
-  const { connected, otherPeople } = useRoomContext();
-  const count = otherPeople.get().length + 1;
+  const { client, occupants } = useRoomContext();
+  const connected = !!client.get().id;
+  const ordered = Array.from(occupants.get().values()).reverse();
+  const count = ordered.length;
 
   return (
     <button
       className={cx(
         styles.peopleIndicator,
-        !connected.get() && styles.unconnected,
+        !connected && styles.unconnected,
         className
       )}
+      disabled={!connected}
       onClick={onClick}
     >
-      <Text as="span" fontSize="md">
-        {connected.get() ? count : "•••"}
+      <Text as="span" className={styles.count} fontSize="md">
+        {connected ? count : "•••"}
       </Text>
       <div className={styles.smileys}>
-        {otherPeople
-          .get()
-          .reverse()
-          .map((_, index) => (
-            <Smiley
-              className={styles.laterSmiley}
-              key={index}
-              index={index + 1}
-            />
-          ))}
-        <Smiley index={0} />
+        {ordered.map((_, index) => (
+          <Smiley className={styles.smiley} key={index} index={index} />
+        ))}
       </div>
     </button>
   );

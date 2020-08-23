@@ -6,21 +6,30 @@ export type ServerRoom = {
     /**
      * People in the room, keyed by id.
      */
-    people: Map<string, RoomPerson>;
+    occupants: Map<PersonId, RoomPerson>;
 };
+
+export type PersonAndRoom = {
+    person: RoomPerson;
+    room: ServerRoom;
+}
 
 export class RoomsMap {
     /**
      * IDs of people in the rooms mapped to their room names.
      */
-    readonly #people = new Map<PersonId, ServerRoom>();
+    readonly #people = new Map<PersonId, PersonAndRoom>();
 
     /**
      * Names of rooms mapped to their storage.
      */
     readonly #rooms = new Map<RoomName, ServerRoom>();
 
-    public join(roomName: RoomName, person: RoomPerson) {
+    get(personId: PersonId) {
+        return this.#people.get(personId) || new Error(`'${personId}' is not in a room.`);
+    }
+
+    join(roomName: RoomName, person: RoomPerson) {
         const previousRoom = this.#people.get(person.id);
         if (previousRoom) {
             this.leave(person.id);
@@ -29,38 +38,39 @@ export class RoomsMap {
         const existingRoom = this.#rooms.get(roomName);
 
         if (existingRoom) {
-            this.#people.set(person.id, existingRoom);
-            existingRoom.people.set(person.id, person);
+            this.#people.set(person.id, { person, room: existingRoom });
+            existingRoom.occupants.set(person.id, person);
             return existingRoom;
         }
 
         const newRoom = {
             name: roomName,
-            people: new Map([
+            occupants: new Map([
                 [person.id, person]
             ]),
         }
 
-        this.#people.set(person.id, newRoom);
+        this.#people.set(person.id, { person, room: newRoom });
         this.#rooms.set(roomName, newRoom);
 
         return newRoom;
     }
 
-    public leave(id: PersonId) {
-        const room = this.#people.get(id);
-        if (!room) {
-            return new Error(`Person '${id}' does not have a room to leave.`);
+    leave(personId: PersonId) {
+        const pair = this.#people.get(personId);
+        if (!pair) {
+            return new Error(`Person '${personId}' does not have a room to leave.`);
         }
 
-        if (!room.people.has(id)) {
-            return new Error(`Room '${room.name}' does not contain person '${id}'.`);
+        const { room } = pair;
+        if (!room.occupants.has(personId)) {
+            return new Error(`Room '${room.name}' does not contain person '${personId}'.`);
         }
 
-        room.people.delete(id);
-        this.#people.delete(id);
+        room.occupants.delete(personId);
+        this.#people.delete(personId);
 
-        if (room.people.size === 0) {
+        if (room.occupants.size === 0) {
             this.#rooms.delete(room.name);
         }
 

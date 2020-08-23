@@ -20,7 +20,7 @@ export const ControlsNotice: React.FC<ControlsNoticeProps> = ({
         <Key>a</Key>
         <Key>s</Key>
         <Key>d</Key> to move. <Key>space</Key> to change the scenery. Drag the
-        mouse to look around. Currently, only host can control the buttons.
+        mouse to look around.
       </Text>
     </div>
   );
