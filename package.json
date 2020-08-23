@@ -32,16 +32,31 @@
     "@types/react-modal": "^3.10.6",
     "@types/socket.io": "^2.1.11",
     "@types/uuid": "^8.3.0",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.11",
+    "prettier": "^2.0.5",
     "ts-node-dev": "^1.0.0-pre.60",
     "typescript": "^3.9.7",
     "url-loader": "^4.1.0"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
   "license": "UNLICENSED",
+  "lint-staged": {
+    "**/*.{css,js,json,md,scss,ts,xml,yaml}": [
+      "prettier --write"
+    ]
+  },
   "name": "karaokenite-react",
   "scripts": {
     "build": "next build",
     "dev:site": "next dev",
     "dev:server": "ts-node-dev -r tsconfig-paths/register --project ./tsconfig.server.json ./src/server/index.ts",
+    "format": "prettier \"./src/*.{css,js,json,md,scss,ts,xml,yaml}\" \"./src/**/*.{css,js,json,md,scss,ts,xml,yaml}\"",
+    "format:write": "yarn format --write",
     "start": "next start",
     "tsc": "tsc"
   },

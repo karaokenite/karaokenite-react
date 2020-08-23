@@ -1,13 +1,13 @@
 declare namespace NAF {
-    export type Schemas = {
-        add: (schema: any) => void;
-    }
+  export type Schemas = {
+    add: (schema: any) => void;
+  };
 
-    export const schemas: Schemas
+  export const schemas: Schemas;
 
-    export const connection: {
-        adapter: {
-            socket: SocketIOClient.Socket;
-        }
+  export const connection: {
+    adapter: {
+      socket: SocketIOClient.Socket;
     };
+  };
 }

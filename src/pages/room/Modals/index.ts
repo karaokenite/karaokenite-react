@@ -5,13 +5,13 @@ import { InRoomModal } from "./InRoomModal";
 import { UseModalComponentProps } from "@components/Modals/types";
 
 export const roomModals = {
-    addSong: AddSongModal,
-    feedback: FeedbackModal,
-    inRoom: InRoomModal,
-    inviteFriends: InviteFriendsModal,
+  addSong: AddSongModal,
+  feedback: FeedbackModal,
+  inRoom: InRoomModal,
+  inviteFriends: InviteFriendsModal,
 };
 
-export type RoomModal = 'addSong' | 'feedback' | 'inRoom' | 'inviteFriends';
+export type RoomModal = "addSong" | "feedback" | "inRoom" | "inviteFriends";
 
 export type RoomModalProps = UseModalComponentProps<RoomModal>;
 

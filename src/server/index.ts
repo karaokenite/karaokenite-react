@@ -1,6 +1,6 @@
 import http from "http";
 import Koa from "koa";
-import socketio from 'socket.io';
+import socketio from "socket.io";
 
 import { AframeEvent, KaraokeEvent } from "@data/events";
 import { socketPort } from "@data/ports";
@@ -18,38 +18,38 @@ const io = socketio(server);
 const roomsStore = new RoomsStore();
 
 io.on("connection", (socket) => {
-    const personId = socket.id as PersonId;
+  const personId = socket.id as PersonId;
 
-    socket.on(AframeEvent.JoinRoom, ({ room: roomName }: JoinRoomData) => {
-        const person: RoomPerson = {
-            id: personId,
-            joinedTime: Date.now(),
-        };
-        const room = roomsStore.join(roomName, person);
-        const log = logConnection.within(["room", roomName], ["person", person.id]);
-        const registration = { io, log, person, room, socket };
+  socket.on(AframeEvent.JoinRoom, ({ room: roomName }: JoinRoomData) => {
+    const person: RoomPerson = {
+      id: personId,
+      joinedTime: Date.now(),
+    };
+    const room = roomsStore.join(roomName, person);
+    const log = logConnection.within(["room", roomName], ["person", person.id]);
+    const registration = { io, log, person, room, socket };
 
-        socket.join(roomName);
+    socket.join(roomName);
 
-        aframeEvents(registration);
-        karaokeEvents(registration);
+    aframeEvents(registration);
+    karaokeEvents(registration);
 
-        socket.on('disconnect', () => {
-            roomsStore.leave(person.id, room);
+    socket.on("disconnect", () => {
+      roomsStore.leave(person.id, room);
 
-            socket
-                .to(room.name)
-                .emit(AframeEvent.OccupantsChanged, { occupants: Object.fromEntries(room.occupants) });
+      socket.to(room.name).emit(AframeEvent.OccupantsChanged, {
+        occupants: Object.fromEntries(room.occupants),
+      });
 
-            socket
-                .to(room.name)
-                .emit(KaraokeEvent.OccupantsUpdated, { occupants: Array.from(room.occupants.values()) });
-        });
-
-        log("Connected.");
+      socket.to(room.name).emit(KaraokeEvent.OccupantsUpdated, {
+        occupants: Array.from(room.occupants.values()),
+      });
     });
+
+    log("Connected.");
+  });
 });
 
 server.listen(socketPort, () => {
-    logConnection(`Listening on port ${socketPort}...`);
+  logConnection(`Listening on port ${socketPort}...`);
 });
