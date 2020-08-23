@@ -3,17 +3,25 @@ import React from "react";
 
 import { Assets } from "./Assets";
 import styles from "./styles.module.scss";
-import { VideoArea } from "./VideoArea";
 import { Environment } from "./Environment";
+import { VideoArea } from "./VideoArea";
 
 export const Scene: React.FC = () => {
   return (
     <>
       <div className={styles.scene}>
-        <ARScene dynamic-room>
+        <ARScene networked-scene dynamic-room>
           <Assets />
           <Environment />
           <VideoArea />
+
+          <AREntity
+            camera
+            id="player"
+            look-controls
+            networked="template:#avatar-template;attachTemplateToLocal:false;"
+            wasd-controls
+          ></AREntity>
 
           <AREntity id="mouseCursor" cursor="rayOrigin: mouse"></AREntity>
         </ARScene>

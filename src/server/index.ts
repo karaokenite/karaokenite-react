@@ -39,7 +39,7 @@ io.on('connect', (socket) => {
             return;
         }
 
-        log.connection(`User '${id}' disconnected from room '${room}.`);
+        log.connection(`User '${id}' disconnected from room '${room.name}.`);
         socket.to(room.name).emit(RoomEvent.Update, createRoomUpdateData(room));
     });
 });

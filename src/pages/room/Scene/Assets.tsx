@@ -1,8 +1,13 @@
+import { Entity as AREntity } from "aframe-react";
 import React from "react";
 
 export const Assets: React.FC = () => {
   return (
     <a-assets>
+      <template id="avatar-template">
+        <AREntity primitive="a-sphere" />
+      </template>
+
       <img
         crossOrigin="anonymous"
         id="play"

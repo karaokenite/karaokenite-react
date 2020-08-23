@@ -9,11 +9,12 @@
   display: flex;
   font-weight: $font-weight-bold;
   opacity: 1;
-  transition: 350ms opacity;
+  transition: $time-medium opacity;
+  user-select: none;
 }
 
 .unconnected {
-  opacity: 0.7;
+  opacity: $opacity-dimmed;
 }
 
 .smileys {
