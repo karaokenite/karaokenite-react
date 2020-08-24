@@ -412,4 +412,5 @@ export const allSongsByTitle = new Map(
 
 export const defaultSongTitle = "Let's Get it On";
 
+// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 export const defaultSongIndex = allSongsByTitle.get(defaultSongTitle)!.index;

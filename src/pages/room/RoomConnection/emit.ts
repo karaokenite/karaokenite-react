@@ -8,6 +8,7 @@ export type EmitUpdate = <EventType extends KaraokeEvent>(
   data: Partial<DataForEventType<EventType>>
 ) => void;
 
+// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 export const EmitContext = React.createContext<EmitUpdate>(null!);
 
 export const useEmitContext = () => useContext(EmitContext);

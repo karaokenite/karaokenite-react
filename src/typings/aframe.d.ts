@@ -1,7 +1,7 @@
 // https://github.com/microsoft/TypeScript/issues/4648
 // ...but with all sorts of elements allowed. 😬
 
-declare module JSX {
+declare namespace JSX {
   interface IntrinsicElements {
     "a-assets": any;
     "a-entity": any;

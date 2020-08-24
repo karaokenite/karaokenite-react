@@ -7,6 +7,7 @@ import { RoomPerson, PersonId } from "@data/types";
 
 import { RoomContextValue, RoomContextValueTypes } from "./types";
 
+// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 export const RoomContext = React.createContext<RoomContextValue>(null!);
 
 const useGetterAndSetter = <Value>(value: Value) => {

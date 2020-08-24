@@ -12,8 +12,9 @@ import { createLogger } from "./logging";
 import { RoomsStore } from "./RoomsStore";
 
 const logConnection = createLogger("connection");
-const koa = new Koa();
-const server = http.createServer(koa.callback());
+const app = new Koa();
+// eslint-disable-next-line @typescript-eslint/no-misused-promises
+const server = http.createServer(app.callback());
 const io = socketio(server);
 const roomsStore = new RoomsStore();
 
