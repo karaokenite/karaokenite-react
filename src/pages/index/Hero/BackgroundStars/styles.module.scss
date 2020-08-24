@@ -13,7 +13,7 @@
 }
 
 .mic {
-  bottom: 9rem;
+  bottom: 4rem;
   left: 12rem;
 }
 
@@ -45,7 +45,6 @@
 
 @include viewport-medium {
   .mic {
-    bottom: 9rem;
     left: 36.5%;
   }
 
@@ -60,7 +59,7 @@
   }
 
   .star3 {
-    bottom: 4rem;
+    bottom: -1rem;
     left: 45%;
   }
 

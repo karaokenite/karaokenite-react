@@ -1,5 +1,5 @@
-import { defaultRoomData } from "@data/rooms";
-import { PersonId, RoomData, RoomName, RoomPerson } from "@data/types";
+import { defaultRoomData } from "@shared/rooms";
+import { PersonId, RoomData, RoomName, RoomPerson } from "@shared/types";
 
 export type ServerRoom = {
   /**

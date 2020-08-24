@@ -1,11 +1,11 @@
 import { useCallback } from "react";
 import { useEvent } from "react-use";
 
-import { environments } from "@data/rooms";
+import { KaraokeEvent } from "@shared/events";
+import { environments } from "@shared/rooms";
 
 import { Setter } from "../types";
 import { useEmitContext } from "../RoomConnection/emit";
-import { KaraokeEvent } from "@data/events";
 
 export const useEnvironmentSwitchOnSpace = (
   environment: string,
@@ -27,7 +27,7 @@ export const useEnvironmentSwitchOnSpace = (
         environment: newEnvironment,
       });
     },
-    [environment]
+    [emit, environment, setEnvironment]
   );
 
   useEvent("keydown", onKeyDown);

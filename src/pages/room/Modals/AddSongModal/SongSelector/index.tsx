@@ -1,9 +1,10 @@
 import cx from "classnames";
 import React from "react";
 
-import styles from "./styles.module.scss";
-import { SongData } from "@data/types";
 import { Text } from "@components/typography/Text";
+import { SongData } from "@shared/types";
+
+import styles from "./styles.module.scss";
 
 export type SongSelectorProps = {
   className?: string;

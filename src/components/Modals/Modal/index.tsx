@@ -30,7 +30,7 @@ export const Modal: React.FC<ModalProps> = ({
       }}
       onRequestClose={onClose}
       overlayClassName={styles.overlay}
-      parentSelector={() => document.getElementById(modalsElementId)!}
+      parentSelector={() => document.querySelector(`#${modalsElementId}`)}
     >
       <ModalCloseButton
         className={styles.closeButton}

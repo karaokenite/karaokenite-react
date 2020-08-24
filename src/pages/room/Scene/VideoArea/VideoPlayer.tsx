@@ -1,7 +1,7 @@
 import { Entity as AREntity } from "aframe-react";
 import React, { useEffect } from "react";
 
-import { allSongs } from "@data/songs";
+import { allSongs } from "@shared/songs";
 
 import { useRoomContext } from "../../RoomContext";
 

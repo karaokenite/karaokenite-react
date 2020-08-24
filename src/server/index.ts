@@ -2,9 +2,9 @@ import http from "http";
 import Koa from "koa";
 import socketio from "socket.io";
 
-import { AframeEvent, KaraokeEvent } from "@data/events";
-import { socketPort } from "@data/ports";
-import { JoinRoomData, PersonId, RoomPerson } from "@data/types";
+import { AframeEvent, KaraokeEvent } from "@shared/events";
+import { socketPort } from "@shared/ports";
+import { JoinRoomData, PersonId, RoomPerson } from "@shared/types";
 
 import { aframeEvents } from "./events/aframe";
 import { karaokeEvents } from "./events/karaoke";

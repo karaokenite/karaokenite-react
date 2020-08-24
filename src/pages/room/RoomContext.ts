@@ -1,9 +1,9 @@
 import { mapValues } from "lodash";
 import React, { useContext, useState } from "react";
 
-import { defaultRoomData } from "@data/rooms";
-import { defaultSongIndex } from "@data/songs";
-import { RoomPerson, PersonId } from "@data/types";
+import { defaultRoomData } from "@shared/rooms";
+import { defaultSongIndex } from "@shared/songs";
+import { RoomPerson, PersonId } from "@shared/types";
 
 import { RoomContextValue, RoomContextValueTypes } from "./types";
 
@@ -24,7 +24,7 @@ export type RoomContextSettings = {
   room: string;
 };
 
-export const createRoomContextValue = ({
+export const useRoomContextValue = ({
   room,
   username,
 }: RoomContextSettings): RoomContextValue => {

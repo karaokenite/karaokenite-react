@@ -1,5 +1,5 @@
-import { KaraokeEvent } from "@data/events";
-import { RoomDataUpdatedData, SetUsernameData } from "@data/types";
+import { KaraokeEvent } from "@shared/events";
+import { RoomDataUpdatedData, SetUsernameData } from "@shared/types";
 
 import { ServerRegistration } from "../types";
 
@@ -13,9 +13,11 @@ export const karaokeEvents = ({
   socket.on(KaraokeEvent.UsernameSet, ({ username }: SetUsernameData) => {
     log(`Setting username to '${username}'.`);
     person.username = username;
+
     io.in(room.name).emit(KaraokeEvent.OccupantsUpdated, {
       occupants: Array.from(room.occupants.values()),
     });
+
     io.in(room.name).emit(KaraokeEvent.RoomDataUpdated, room.data);
   });
 

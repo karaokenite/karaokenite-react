@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import { Modal } from "@components/Modals/Modal";
 import { Button } from "@components/Button";
-import { allSongs } from "@data/songs";
+import { allSongs } from "@shared/songs";
 
 import { useRoomContext } from "../../RoomContext";
 import { RoomModalProps } from "..";

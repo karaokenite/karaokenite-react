@@ -1,6 +1,6 @@
 import socketio from "socket.io";
 
-import { RoomPerson } from "@data/types";
+import { RoomPerson } from "@shared/types";
 
 import { Logger } from "./logging";
 import { ServerRoom } from "./RoomsStore";

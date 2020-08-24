@@ -1,5 +1,5 @@
-import { AframeEvent } from "@data/events";
-import { SendData, BroadcastData } from "@data/types";
+import { AframeEvent } from "@shared/events";
+import { SendData, BroadcastData } from "@shared/types";
 
 import { ServerRegistration } from "../types";
 
@@ -15,11 +15,11 @@ export const aframeEvents = ({
     occupants: Object.fromEntries(room.occupants),
   });
 
-  socket.on(AframeEvent.Send, (data: SendData) => {
-    io.to(data.to).emit(AframeEvent.Send, data);
-  });
-
   socket.on(AframeEvent.Broadcast, (data: BroadcastData) => {
     socket.to(room.name).emit(AframeEvent.Broadcast, data);
+  });
+
+  socket.on(AframeEvent.Send, (data: SendData) => {
+    io.to(data.to).emit(AframeEvent.Send, data);
   });
 };

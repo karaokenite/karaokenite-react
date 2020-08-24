@@ -1,11 +1,11 @@
 import React from "react";
 
-import { KaraokeEvent } from "@data/events";
+import { KaraokeEvent } from "@shared/events";
+import { RoomData } from "@shared/types";
 
 import { useEmitContext } from "../../RoomConnection/emit";
 import { useRoomContext } from "../../RoomContext";
 import { VideoButton } from "./VideoButton";
-import { RoomData } from "@data/types";
 
 export const VideoButtons: React.FC = () => {
   const emit = useEmitContext();

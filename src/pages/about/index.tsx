@@ -54,14 +54,15 @@ export default function About() {
           We are Karaoke Nite
         </Heading>
         <Text as="p" className={styles.p} fontSize="xs">
-          2020 has been one hell of a year already for our planet home; we were 
-          dealt a devastating one-two combo from a global pandemic and an unforgettable incident
-          that resulted in mourning and unrest around all corners of the world.
+          2020 has been one hell of a year already for our planet home; we were
+          dealt a devastating one-two combo from a global pandemic and an
+          unforgettable incident that resulted in mourning and unrest around all
+          corners of the world.
         </Text>
         <Text as="p" className={styles.p} fontSize="xs">
           It was during this time when we set out to build something that will
           connect old friends and new, family from afar, and bring a little
-          laughter and joy back to everyone's homes.
+          laughter and joy back to everyone&apos;s homes.
         </Text>
         <Text as="p" className={styles.p} fontSize="xs">
           Welcome to Karaoke Nite and we hope you enjoy using it as much as we
@@ -112,9 +113,9 @@ export default function About() {
           Record Labels &amp; Artists
         </Heading>
         <Text as="p" className={styles.p} fontSize="xs">
-          If you are a independent record label or band/artist that's interested
-          in having your music videos or lyric videos be featured in the app,
-          please let us know via{" "}
+          If you are a independent record label or band/artist that&apos;s
+          interested in having your music videos or lyric videos be featured in
+          the app, please let us know via{" "}
           <Anchor fontSize="xs" href="mailto:sonnynomnom@gmail.com">
             email
           </Anchor>

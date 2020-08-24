@@ -21,6 +21,7 @@ export const ShareLinks: React.FC<ShareLinksProps> = ({ roomName, url }) => {
       <a
         className={cx(styles.share, styles.twitter)}
         href={twitterHref}
+        rel="noreferrer"
         target="_blank"
       >
         Tweet

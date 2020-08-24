@@ -3,7 +3,7 @@
  */
 export enum AframeEvent {
   /**
-   * Generic data sharing event for a person updating themselves.
+   * General data sharing event for a person updating themselves.
    */
   Broadcast = "broadcast",
 

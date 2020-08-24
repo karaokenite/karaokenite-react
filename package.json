@@ -36,6 +36,8 @@
     "@typescript-eslint/parser": "^3.9.1",
     "eslint": "^7.7.0",
     "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-react": "^7.20.6",
+    "eslint-plugin-react-hooks": "^4.1.0",
     "husky": "^4.2.5",
     "lint-staged": "^10.2.11",
     "prettier": "^2.0.5",
@@ -61,7 +63,7 @@
     "dev:server": "ts-node-dev -r tsconfig-paths/register --project ./tsconfig.server.json ./src/server/index.ts",
     "format": "prettier \"./src/*.{css,js,json,md,scss,ts,xml,yaml}\" \"./src/**/*.{css,js,json,md,scss,ts,xml,yaml}\"",
     "format:write": "yarn format --write",
-    "lint": "eslint \"./src/**/*.ts\" --report-unused-disable-directives",
+    "lint": "eslint \"./src/**/*.ts\" \"./src/**/*.tsx\" --report-unused-disable-directives",
     "start": "next start",
     "tsc": "tsc"
   },

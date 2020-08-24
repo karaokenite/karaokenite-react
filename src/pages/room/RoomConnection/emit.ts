@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 
-import { KaraokeEvent } from "@data/events";
-import { DataForEventType } from "@data/types";
+import { KaraokeEvent } from "@shared/events";
+import { DataForEventType } from "@shared/types";
 
 export type EmitUpdate = <EventType extends KaraokeEvent>(
   event: EventType,

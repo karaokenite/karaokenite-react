@@ -15,7 +15,7 @@
     "noUnusedParameters": true,
     "paths": {
       "@components/*": ["components/*"],
-      "@data/*": ["data/*"]
+      "@shared/*": ["shared/*"]
     },
     "resolveJsonModule": true,
     "skipLibCheck": true,

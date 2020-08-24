@@ -1,9 +1,9 @@
-import { KaraokeEvent } from "@data/events";
+import { KaraokeEvent } from "@shared/events";
 import {
   PersonId,
   OccupantsUpdatedData,
   RoomDataUpdatedData,
-} from "@data/types";
+} from "@shared/types";
 
 import { RoomContextValue } from "../types";
 
@@ -14,8 +14,21 @@ export const createRoomConnection = (
 ) => {
   const { client, occupants, roomData } = context;
 
+  client.set({
+    ...client.get(),
+    id: personId,
+  });
+
   socket.emit(KaraokeEvent.UsernameSet, {
     username: client.get().username,
+  });
+
+  socket.on(KaraokeEvent.OccupantsUpdated, (data: OccupantsUpdatedData) => {
+    occupants.set(
+      new Map(
+        data.occupants.map((otherPerson) => [otherPerson.id, otherPerson])
+      )
+    );
   });
 
   socket.on(KaraokeEvent.RoomDataUpdated, (data: RoomDataUpdatedData) => {
@@ -23,18 +36,5 @@ export const createRoomConnection = (
       ...roomData.get(),
       ...data,
     });
-  });
-
-  socket.on(KaraokeEvent.OccupantsUpdated, (data: OccupantsUpdatedData) => {
-    client.set({
-      ...client.get(),
-      id: personId,
-    });
-
-    occupants.set(
-      new Map(
-        data.occupants.map((otherPerson) => [otherPerson.id, otherPerson])
-      )
-    );
   });
 };

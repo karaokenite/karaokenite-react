@@ -1,4 +1,4 @@
-import { PersonId, RoomData, RoomPerson } from "@data/types";
+import { PersonId, RoomData, RoomPerson } from "@shared/types";
 
 export type RoomContextValueTypes = Readonly<{
   /**

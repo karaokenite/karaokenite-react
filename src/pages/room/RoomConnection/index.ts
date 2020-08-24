@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState, useRef } from "react";
 
-import { PersonId } from "@data/types";
+import { PersonId } from "@shared/types";
 
 import { useRoomContext } from "../RoomContext";
 import { createRoomConnection } from "./create";
@@ -22,12 +22,14 @@ export const useRoomConnection = () => {
       const newSocket = NAF.connection.adapter.socket;
 
       createRoomConnection(roomContext, clientId as PersonId, newSocket);
+      setSocket(newSocket);
       stopListening();
-      setSocket(NAF.connection.adapter.socket);
 
       for (const [event, data] of pendingEvents.current) {
         newSocket.emit(event, data);
       }
+
+      pendingEvents.current = [];
     };
 
     return stopListening;

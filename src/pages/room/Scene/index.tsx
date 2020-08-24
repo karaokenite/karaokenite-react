@@ -1,7 +1,7 @@
 import { Scene as ARScene } from "aframe-react";
 import React from "react";
 
-import { socketPort } from "@data/ports";
+import { socketPort } from "@shared/ports";
 
 import { globalOnConnectHook, useRoomConnection } from "../RoomConnection";
 import { EmitContext } from "../RoomConnection/emit";
