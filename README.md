@@ -46,12 +46,12 @@ These are the major tech things used to create Karaoke Nite:
 #### Backend
 
 - **[Koa](https://koajs.com)**: Simple web server; successor to express.js designed by the same team.
-- **[Networked Aframe](https://github.com/networked-aframe/networked-aframe)** ("NAF"): Syncs together Aframe entities along with audio streaming.
+- **[Networked-Aframe](https://github.com/networked-aframe/networked-aframe)** ("NAF"): Syncs together A-Frame entities along with audio streaming.
 - **[TS-Node](https://www.npmjs.com/package/ts-node)**: Compiles TypeScript code to JavaScript in real-time to run it as a Node application.
 
 #### Frontend
 
-- **[Aframe](https://aframe.io)**: Set up 3D WebVR spaces using plain HTML and a touch of JavaScript.
+- **[A-Frame](https://aframe.io)**: Set up 3D WebVR spaces using plain HTML and a touch of JavaScript.
 - **[CSS Modules](https://github.com/css-modules/css-modules)**: Write your CSS in a (S)CSS file; import its class names in your JS/TS files.
 - **[React](https://reactjs.org)**: JavaScript library to create dynamic components that render to the DOM.
 - **[React Context](https://reactjs.org/docs/context.html)**: Lets you make objects in a parent available to any of its children without using props.
