@@ -1,10 +1,14 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
+import React from "react";
+
+import { RoomBody } from "./room/RoomBody";
 
 class MyDocument extends Document {
   render() {
     return (
       <Html>
         <Head>
+          {/* Todo: asynchronously load these if in the room page */}
           <script src="https://aframe.io/releases/1.0.4/aframe.js"></script>
           <script src="https://unpkg.com/networked-aframe@^0.7.0/dist/networked-aframe.js"></script>
           <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.slim.js"></script>
@@ -14,6 +18,11 @@ class MyDocument extends Document {
           <script src="https://unpkg.com/aframe-slice9-component/dist/aframe-slice9-component.min.js"></script>
         </Head>
         <body>
+          {/* Todo: only load all this stuff if in the room page */}
+          <script src="/js/dynamic-room.js"></script>
+          <RoomBody />
+          <script src="/js/schemas.js"></script>
+
           <Main />
           <NextScript />
         </body>

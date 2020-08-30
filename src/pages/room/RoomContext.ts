@@ -13,10 +13,15 @@ export const RoomContext = React.createContext<RoomContextValue>(null!);
 const useGetterAndSetter = <Value>(value: Value) => {
   const [stateValue, set] = useState(value);
 
-  return {
-    get: () => stateValue,
-    set,
-  };
+  const values = React.useMemo(
+    () => ({
+      get: () => stateValue,
+      set,
+    }),
+    [stateValue]
+  );
+
+  return values;
 };
 
 export type RoomContextSettings = {

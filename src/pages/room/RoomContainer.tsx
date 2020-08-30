@@ -5,6 +5,7 @@ import { rootElementId, modalsElementId } from "@components/constants";
 import { BaseHead } from "@components/meta/BaseHead";
 import { useModals } from "@components/Modals/useModals";
 
+import { DynamicScene } from "./DynamicScene";
 import { roomModals } from "./Modals";
 import { RoomBottom } from "./RoomBottom";
 import {
@@ -13,7 +14,6 @@ import {
   RoomContextSettings,
 } from "./RoomContext";
 import { RoomHead } from "./RoomHead";
-import { Scene } from "./Scene";
 
 export type RoomContainerProps = {
   settings: RoomContextSettings;
@@ -29,9 +29,9 @@ export const RoomContainer: React.FC<RoomContainerProps> = ({ settings }) => {
 
   return (
     <RoomContext.Provider value={roomContextValue}>
+      <DynamicScene />
       <div id={rootElementId}>
         <BaseHead title={`${settings.room} |`} />
-        <Scene />
       </div>
       <div id={modalsElementId} />
       <RoomHead setModal={setModal} />

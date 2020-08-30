@@ -13,6 +13,14 @@ module.exports = {
       use: ["@svgr/webpack", "url-loader"],
     });
 
+    config.module.rules.push({
+      issuer: {
+        test: /\.(js|ts)x?$/,
+      },
+      test: /\.html$/,
+      use: ["html-loader"],
+    });
+
     return config;
   },
 };

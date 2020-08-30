@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState, useRef } from "react";
 
 import { PersonId } from "@shared/types";
 
-import { useRoomContext } from "../RoomContext";
+import { useRoomContext } from "../../RoomContext";
 import { createRoomConnection } from "./create";
 import { EmitUpdate } from "./emit";
 
@@ -33,7 +33,7 @@ export const useRoomConnection = () => {
     };
 
     return stopListening;
-  }, []);
+  }, [roomContext]);
 
   const emit = useCallback<EmitUpdate>(
     (event, data) => {
