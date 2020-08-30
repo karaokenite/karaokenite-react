@@ -1,35 +1,21 @@
-import { useCallback, useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 
 import { globalOnConnectHook } from "@components/constants";
 import { sceneElement } from "@components/elements";
-import { PersonId } from "@shared/types";
 
-import { createRoomConnection } from "./createRoomConnection";
-import { EmitUpdate } from "./EmitContext";
-import { RoomContextValue } from "./types";
-
-export const useRoomConnection = (roomContext: RoomContextValue) => {
-  const roomName = roomContext.roomName.get();
+export const useRoomConnection = (roomName: string) => {
   const [socket, setSocket] = useState<SocketIOClient.Socket>();
-  const pendingEvents = useRef<Parameters<EmitUpdate>[]>([]);
 
   useEffect(() => {
     const stopListening = () => {
       delete window[globalOnConnectHook];
     };
 
-    window[globalOnConnectHook] = ({ detail: { clientId } }) => {
+    window[globalOnConnectHook] = () => {
       const newSocket = NAF.connection.adapter.socket;
 
-      createRoomConnection(roomContext, clientId as PersonId, newSocket);
       setSocket(newSocket);
       stopListening();
-
-      for (const [event, data] of pendingEvents.current) {
-        newSocket.emit(event, data);
-      }
-
-      pendingEvents.current = [];
     };
 
     sceneElement.setAttribute("networked-scene", {
@@ -42,18 +28,7 @@ export const useRoomConnection = (roomContext: RoomContextValue) => {
     });
 
     return stopListening;
-  }, [roomContext, roomName]);
+  }, [roomName]);
 
-  const emit = useCallback<EmitUpdate>(
-    (event, data) => {
-      if (socket) {
-        socket.emit(event, data);
-      } else {
-        pendingEvents.current.push([event, data]);
-      }
-    },
-    [socket]
-  );
-
-  return emit;
+  return socket;
 };

@@ -12,12 +12,5 @@ export default function Room() {
     return <RoomGate />;
   }
 
-  return (
-    <RoomContainer
-      settings={{
-        username,
-        room,
-      }}
-    />
-  );
+  return <RoomContainer settings={{ username, room }} />;
 }

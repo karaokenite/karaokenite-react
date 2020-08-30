@@ -33,14 +33,19 @@ export enum AframeEvent {
  */
 export enum KaraokeEvent {
   /**
-   * Some portion of room data has been updated.
-   */
-  RoomDataUpdated = "roomDataUpdated",
-
-  /**
    * The context value for occupants has changed, such as for a rename or leave.
    */
   OccupantsUpdated = "occupantsUpdated",
+
+  /**
+   * A new client is requesting a summary of room data.
+   */
+  RoomDataHydration = "RoomDataHydration",
+
+  /**
+   * Some portion of room data has been updated.
+   */
+  RoomDataUpdated = "roomDataUpdated",
 
   /**
    * A person has set their username.

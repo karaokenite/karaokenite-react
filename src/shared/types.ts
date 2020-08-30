@@ -3,7 +3,7 @@ import type { KaraokeEvent } from "./events";
 /**
  * Query parameters required to launch a room.
  */
-export type RoomQuery = {
+export type RoomSettings = {
   room: string;
   username: string;
 };

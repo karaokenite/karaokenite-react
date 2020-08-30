@@ -10,6 +10,11 @@ export const karaokeEvents = ({
   room,
   socket,
 }: ServerRegistration) => {
+  socket.on(KaraokeEvent.RoomDataHydration, () => {
+    log(`Hydrating room data: ${JSON.stringify(room.data)}`);
+    socket.emit(KaraokeEvent.RoomDataHydration, room.data);
+  });
+
   socket.on(KaraokeEvent.UsernameSet, ({ username }: SetUsernameData) => {
     log(`Setting username to '${username}'.`);
     person.username = username;
