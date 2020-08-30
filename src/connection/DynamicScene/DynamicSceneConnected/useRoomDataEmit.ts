@@ -27,7 +27,6 @@ export const useRoomDataEmit = (
     },
     [emit, roomData]
   );
-  console.log("Created roomDataEmit");
 
   return roomDataEmit;
 };
