@@ -34,7 +34,11 @@ export const DynamicSceneConnected: React.FC<DynamicSceneConnectedProps> = ({
   );
 
   const emitRoomData = useRoomDataEmit(emit, roomContextData.roomData);
-  const roomContextValue = { ...roomContextData, emitRoomData };
+  const roomContextValue = {
+    ...roomContextData,
+    emitRoomData,
+    originalRoomData: roomData,
+  };
 
   useRoomDataSyncing(roomContextValue, socket);
 
