@@ -15,3 +15,8 @@ export const controlIds = {
   volumeHighButton: "volume-high-button",
   volumeLowButton: "volume-low-button",
 };
+
+/**
+ * How often to emit currentTime updates.
+ */
+export const videoSyncInterval = 500;

@@ -4,10 +4,11 @@ import { controls, videoElement } from "@components/elements";
 import { useRoomContext } from "@connection/RoomContext";
 
 import { useEmitOnClick } from "../useEmitOnClick";
+import { videoSyncInterval } from "@components/constants";
 
 export const usePlayPauseControl = () => {
   const { originalRoomData, roomData } = useRoomContext();
-  const { currentTime, playing } = roomData.get();
+  const { playing } = roomData.get();
 
   useEmitOnClick(controls.playPauseButton, (oldRoomData) => ({
     currentTime: videoElement.currentTime,
@@ -22,10 +23,13 @@ export const usePlayPauseControl = () => {
     } else {
       videoElement.pause();
     }
-  }, [currentTime, playing]);
+  }, [playing]);
 
   useEffect(() => {
-    videoElement.currentTime = originalRoomData.currentTime;
+    // Video timing is, on average, behind by half of the sync interval.
+    // currentTime is also measured in seconds instead of milliseconds for some reason.
+    videoElement.currentTime =
+      originalRoomData.currentTime + videoSyncInterval / 2000;
 
     if (originalRoomData.playing) {
       videoElement.play();

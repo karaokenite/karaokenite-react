@@ -1,3 +1,5 @@
+import { isEqual } from "lodash";
+
 import { KaraokeEvent } from "@shared/events";
 import { RoomDataUpdatedData, SetUsernameData } from "@shared/types";
 
@@ -29,7 +31,29 @@ export const karaokeEvents = ({
   socket.on(KaraokeEvent.RoomDataUpdated, (data: RoomDataUpdatedData) => {
     log(`Updated jukebox: ${JSON.stringify(data)}`);
 
-    room.data = { ...room.data, ...data };
-    io.in(room.name).emit(KaraokeEvent.RoomDataUpdated, room.data);
+    // We declare a new "player" for the room if they're saying to play while paused.
+    const newPlayer =
+      data.playing && !room.data.playing ? person.id : room.data.player;
+
+    const newData = {
+      ...room.data,
+      ...data,
+
+      // Ignore currentTime updates from any client who didn't click the play button.
+      // This is a somewhat arbitrary measure to stop "currentTime battles", wherein
+      // two clients go back and forth sending vastly different times to each other.
+      currentTime:
+        newPlayer === person.id
+          ? data.currentTime ?? room.data.currentTime
+          : room.data.currentTime,
+      player: newPlayer,
+    };
+
+    if (isEqual(room.data, newData)) {
+      return;
+    }
+
+    room.data = newData;
+    io.in(room.name).emit(KaraokeEvent.RoomDataUpdated, newData);
   });
 };

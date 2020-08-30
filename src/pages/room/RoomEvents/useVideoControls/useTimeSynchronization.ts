@@ -3,22 +3,20 @@ import { useInterval } from "react-use";
 
 import { videoElement } from "@components/elements";
 import { useRoomContext } from "@connection/RoomContext";
-
-/**
- * How often to emit currentTime updates.
- */
-const videoElementSyncInterval = 1000;
+import { videoSyncInterval } from "@components/constants";
 
 export const useTimeSynchronization = () => {
   const { emitRoomData, roomData } = useRoomContext();
   const { currentTime, playing } = roomData.get();
 
-  // Constantly update the server on the current time of the video
+  // Constantly update the server on the current time of the video if playing
   useInterval(() => {
-    emitRoomData({
-      currentTime: videoElement.currentTime,
-    });
-  }, videoElementSyncInterval);
+    if (playing) {
+      emitRoomData({
+        currentTime: videoElement.currentTime,
+      });
+    }
+  }, videoSyncInterval);
 
   // If the video is paused, we can safely match its time to currentTime
   useEffect(() => {
