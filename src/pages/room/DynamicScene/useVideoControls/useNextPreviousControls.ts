@@ -7,11 +7,11 @@ import { useRoomContext } from "../../RoomContext";
 import { useOnClick } from "../useOnClick";
 
 export const useNextPreviousControls = () => {
-  const { roomData, songs } = useRoomContext();
-  const { playing, songIndex } = roomData.get();
+  const { roomData } = useRoomContext();
+  const { playing, songIndex, songs } = roomData.get();
 
   useOnClick(controls.nextButton, (oldRoomData) => ({
-    songIndex: (oldRoomData.songIndex + 1) % songs.get().length,
+    songIndex: (oldRoomData.songIndex + 1) % songs.length,
   }));
 
   useOnClick(controls.previousButton, (oldRoomData) => ({
@@ -19,7 +19,7 @@ export const useNextPreviousControls = () => {
   }));
 
   useEffect(() => {
-    const newSrc = allSongs[songs.get()[songIndex]].audio;
+    const newSrc = allSongs[songs[songIndex]].audio;
     if (videoElement.getAttribute("src") === newSrc) {
       return;
     }

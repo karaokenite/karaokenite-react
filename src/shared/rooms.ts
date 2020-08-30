@@ -1,4 +1,5 @@
 import { RoomData } from "./types";
+import { defaultSongIndex } from "./songs";
 
 export const environments = [
   "osiris",
@@ -13,5 +14,6 @@ export const defaultRoomData: RoomData = {
   environment: environments[0],
   playing: false,
   songIndex: 0,
+  songs: [defaultSongIndex],
   volume: 1,
 };

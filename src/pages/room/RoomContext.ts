@@ -2,7 +2,6 @@ import { mapValues } from "lodash";
 import React, { useContext, useState } from "react";
 
 import { defaultRoomData } from "@shared/rooms";
-import { defaultSongIndex } from "@shared/songs";
 import { RoomPerson, PersonId } from "@shared/types";
 
 import { RoomContextValue, RoomContextValueTypes } from "./types";
@@ -13,15 +12,10 @@ export const RoomContext = React.createContext<RoomContextValue>(null!);
 const useGetterAndSetter = <Value>(value: Value) => {
   const [stateValue, set] = useState(value);
 
-  const values = React.useMemo(
-    () => ({
-      get: () => stateValue,
-      set,
-    }),
-    [stateValue]
-  );
-
-  return values;
+  return {
+    get: () => stateValue,
+    set,
+  };
 };
 
 export type RoomContextSettings = {
@@ -38,7 +32,6 @@ export const useRoomContextValue = ({
     occupants: useGetterAndSetter<ReadonlyMap<PersonId, RoomPerson>>(new Map()),
     roomData: useGetterAndSetter(defaultRoomData),
     roomName: useGetterAndSetter(room),
-    songs: useGetterAndSetter<readonly number[]>([defaultSongIndex]),
   };
 };
 

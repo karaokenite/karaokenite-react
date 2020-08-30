@@ -4,6 +4,7 @@ import { Modal } from "@components/Modals/Modal";
 import { Button } from "@components/Button";
 import { allSongs } from "@shared/songs";
 
+import { useEmitRoomData } from "../../DynamicScene/RoomConnection/data";
 import { useRoomContext } from "../../RoomContext";
 import { RoomModalProps } from "..";
 import { SongSelector } from "./SongSelector";
@@ -11,13 +12,16 @@ import styles from "./styles.module.scss";
 
 export const AddSongModal: React.FC<RoomModalProps> = ({ isOpen, onClose }) => {
   const [selected, setSelected] = useState<number>();
-  const { songs } = useRoomContext();
+  const emitRoomData = useEmitRoomData();
+  const { roomData } = useRoomContext();
   const chooseSong = () => {
     if (!selected) {
       return;
     }
 
-    songs.set([...songs.get(), selected]);
+    emitRoomData({
+      songs: [...roomData.get().songs, selected],
+    });
     setSelected(undefined);
   };
 

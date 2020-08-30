@@ -14,8 +14,6 @@ export type RoomContextValueTypes = Readonly<{
   roomData: RoomData;
 
   roomName: string;
-
-  songs: readonly number[];
 }>;
 
 export type ClientPerson = Readonly<{

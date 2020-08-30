@@ -41,6 +41,11 @@ export type RoomData = {
   songIndex: number;
 
   /**
+   * Songs queued up in the jukebox.
+   */
+  songs: number[];
+
+  /**
    * How loud the song's audio is.
    */
   volume: number;

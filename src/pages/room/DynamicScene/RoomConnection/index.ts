@@ -4,12 +4,11 @@ import { globalOnConnectHook } from "@components/constants";
 import { sceneElement } from "@components/elements";
 import { PersonId } from "@shared/types";
 
-import { useRoomContext } from "../../RoomContext";
 import { createRoomConnection } from "./create";
 import { EmitUpdate } from "./emit";
+import { RoomContextValue } from "pages/room/types";
 
-export const useRoomConnection = () => {
-  const roomContext = useRoomContext();
+export const useRoomConnection = (roomContext: RoomContextValue) => {
   const roomName = roomContext.roomName.get();
   const [socket, setSocket] = useState<SocketIOClient.Socket>();
   const pendingEvents = useRef<Parameters<EmitUpdate>[]>([]);
