@@ -1,9 +1,13 @@
 import { useEffect } from "react";
 import { useInterval } from "react-use";
 
-import { videoElementSyncInterval } from "@components/constants";
 import { videoElement } from "@components/elements";
 import { useRoomContext } from "@connection/RoomContext";
+
+/**
+ * How often to emit currentTime updates.
+ */
+const videoElementSyncInterval = 1000;
 
 export const useTimeSynchronization = () => {
   const { emitRoomData, roomData } = useRoomContext();

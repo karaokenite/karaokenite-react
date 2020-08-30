@@ -6,20 +6,20 @@ export const useRoomDataConnection = (socket: SocketIOClient.Socket) => {
   const [roomData, setRoomData] = useState<RoomData>();
 
   useEffect(() => {
-    const disconnect = () => {
+    const stopListening = () => {
       socket.off(KaraokeEvent.RoomDataHydration, receiveRoomData);
     };
 
     const receiveRoomData = (data: RoomData) => {
       setRoomData(data);
-      disconnect();
+      stopListening();
     };
 
     setRoomData(undefined);
     socket.emit(KaraokeEvent.RoomDataHydration);
     socket.on(KaraokeEvent.RoomDataHydration, receiveRoomData);
 
-    return disconnect;
+    return stopListening;
   }, [socket]);
 
   return roomData;

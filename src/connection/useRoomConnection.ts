@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 
-import { globalOnConnectHook } from "@components/constants";
 import { sceneElement } from "@components/elements";
+
+const globalOnConnectHook = "KaraokeNiteListenToConnection";
 
 export const useRoomConnection = (roomName: string) => {
   const [socket, setSocket] = useState<SocketIOClient.Socket>();

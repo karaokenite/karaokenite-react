@@ -3,6 +3,7 @@
 Application code for Karaoke Nite lives entirely within a few folders inside the `src/` directory:
 
 - `components`
+- `connection`
 - `pages`
 - `shared`
 - `server`
@@ -18,6 +19,13 @@ These form a sort of fledgling component library that fills out our basic button
 - 👎 **Don't** place components here that rely on any sort of complex cross-component logic, such as server connection contexts.
 
 > 💡 Sticking to our fledgling design system makes it easier to keep pieces of the UI looking consistent and reduces work recreating similar components.
+
+## `connection`
+
+Room-specific logic for initialization a Socket.IO connection to the server and communicating over it.
+
+- 👍 **Do** keep all code around initializing server connections here, to abstract those details away from other folders.
+- 👎 **Don't** update UI based on the results of those connections here; prefer doing that in page-specific React components.
 
 ## `pages`
 

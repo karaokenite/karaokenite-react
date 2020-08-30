@@ -29,9 +29,9 @@ The site will now be available on http://localhost:3000.
 ### Documentation
 
 - [Folders](./docs/Folders.md)
+- [Room DOM](./docs/Room%20DOM.md)
 - [Server Rooms](./docs/Server%20Rooms.md)
 - [Client Room Context](./docs/Client%20Room%20Context.md)
-- [Client Socket Messaging](./docs/Client%20Socket%20Messaging.md)
 
 ### Tech Stack
 

@@ -57,11 +57,13 @@ We define our own events on top of the required NAF ones.
 
 Clients may send these events to the server:
 
+- `KaraokeEvent.RoomDataHydration`: One-time event requesting room data upon joining a room.
 - `KaraokeEvent.RoomDataUpdated`: General update for some portion of a room's "jukebox" data, such as song index or volume.
 - `KaraokeEvent.UsernameSet`: Adds a `username` alias for a person by id.
 
 In response, the server may send these events back to the entire room:
 
+- `KaraokeEvent.RoomDataHydration`: Provides a one-time full summary of room data upon joining a room.
 - `KaraokeEvent.OccupantsUpdated`: Provides the full list of all occupants in the room.
 - `KaraokeEvent.RoomDataUpdated`: Matching event to send the entire room's jukebox data.
 

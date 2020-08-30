@@ -1,5 +1,5 @@
-import { RoomData } from "./types";
 import { defaultSongIndex } from "./songs";
+import { RoomData } from "./types";
 
 export const environments = [
   "osiris",

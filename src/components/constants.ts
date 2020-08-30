@@ -1,3 +1,5 @@
+export const environmentSelector = "[environment]";
+
 export const modalsElementId = "modals";
 
 export const rootElementId = "root";
@@ -13,10 +15,3 @@ export const controlIds = {
   volumeHighButton: "volume-high-button",
   volumeLowButton: "volume-low-button",
 };
-
-export const globalOnConnectHook = "KaraokeNiteListenToConnection";
-
-/**
- * How often to send currentTime updates for videos.
- */
-export const videoElementSyncInterval = 1000;
