@@ -36,7 +36,7 @@ export const useRoomConnection = () => {
     sceneElement.setAttribute("networked-scene", {
       adapter: "webrtc",
       audio: "true",
-      debug: process.env.NODE_ENV !== "production",
+      debug: process.env.NODE_ENV === "development",
       onConnect: globalOnConnectHook,
       room: roomName,
       serverURL: `:3001`,
