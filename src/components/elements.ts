@@ -6,6 +6,8 @@ import { Entity } from "aframe";
 
 export const sceneElement = querySelector<Entity>(sceneSelector);
 
-export const videoElement = getElementById<Entity>(videoElementId);
+export const videoElement = getElementById<Entity & HTMLVideoElement>(
+  videoElementId
+);
 
 export const controls = mapValues(controlIds, getElementById);

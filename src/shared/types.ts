@@ -21,6 +21,11 @@ export type RoomPerson = {
  */
 export type RoomData = {
   /**
+   * Last known video playback time.
+   */
+  currentTime: number;
+
+  /**
    * Which environment scene is being shown in the background.
    */
   environment: string;

@@ -34,8 +34,8 @@ export const useRoomContextValue = ({
   username,
 }: RoomContextSettings): RoomContextValue => {
   return {
-    occupants: useGetterAndSetter<ReadonlyMap<PersonId, RoomPerson>>(new Map()),
     client: useGetterAndSetter({ username }),
+    occupants: useGetterAndSetter<ReadonlyMap<PersonId, RoomPerson>>(new Map()),
     roomData: useGetterAndSetter(defaultRoomData),
     roomName: useGetterAndSetter(room),
     songs: useGetterAndSetter<readonly number[]>([defaultSongIndex]),

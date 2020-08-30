@@ -17,3 +17,8 @@ export const controlIds = {
 };
 
 export const globalOnConnectHook = "KaraokeNiteListenToConnection";
+
+/**
+ * How often to send currentTime updates for videos.
+ */
+export const videoElementSyncInterval = 1000;

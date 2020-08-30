@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 
-import { videoSyncAttribute } from "@components/constants";
 import { controls, videoElement } from "@components/elements";
 
 import { useRoomContext } from "../../RoomContext";
@@ -8,20 +7,20 @@ import { useOnClick } from "../useOnClick";
 
 export const usePlayPauseControl = () => {
   const { roomData } = useRoomContext();
-  const { playing } = roomData.get();
+  const { currentTime, playing } = roomData.get();
 
   useOnClick(controls.playPauseButton, (oldRoomData) => ({
+    currentTime: videoElement.currentTime,
     playing: !oldRoomData.playing,
   }));
 
   useEffect(() => {
     controls.playPauseButton.setAttribute("src", playing ? "#pause" : "#play");
-    videoElement.setAttribute(videoSyncAttribute, "paused", !playing);
 
     if (playing) {
       videoElement.play();
     } else {
       videoElement.pause();
     }
-  }, [playing]);
+  }, [currentTime, playing]);
 };
