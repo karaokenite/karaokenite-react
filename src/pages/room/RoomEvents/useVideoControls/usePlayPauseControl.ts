@@ -18,6 +18,7 @@ export const usePlayPauseControl = () => {
     controls.playPauseButton.setAttribute("src", playing ? "#pause" : "#play");
 
     if (playing) {
+      videoElement.currentTime = currentTime;
       videoElement.play();
     } else {
       videoElement.pause();
