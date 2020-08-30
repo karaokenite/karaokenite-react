@@ -1,7 +1,8 @@
 import cx from "classnames";
 import React from "react";
 
-import { useRoomContext } from "../../../RoomContext";
+import { useRoomContext } from "@connection/RoomContext";
+
 import { Person } from "./Person";
 import styles from "./styles.module.scss";
 

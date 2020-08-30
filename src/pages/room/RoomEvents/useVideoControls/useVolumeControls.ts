@@ -1,19 +1,19 @@
 import { useEffect } from "react";
 
 import { videoElement, controls } from "@components/elements";
+import { useRoomContext } from "@connection/RoomContext";
 
-import { useRoomContext } from "../../RoomContext";
-import { useOnClick } from "../useOnClick";
+import { useEmitOnClick } from "../useEmitOnClick";
 
 export const useVolumeControls = () => {
   const { roomData } = useRoomContext();
   const { volume } = roomData.get();
 
-  useOnClick(controls.volumeHighButton, (oldRoomData) => ({
+  useEmitOnClick(controls.volumeHighButton, (oldRoomData) => ({
     volume: Math.min(oldRoomData.volume + 0.25, 1),
   }));
 
-  useOnClick(controls.volumeLowButton, (oldRoomData) => ({
+  useEmitOnClick(controls.volumeLowButton, (oldRoomData) => ({
     volume: Math.max(oldRoomData.volume - 0.25, 0),
   }));
 

@@ -6,7 +6,7 @@ import { Button } from "@components/Button";
 import feedback from "./assets/feedback.svg";
 import { ControlsNotice } from "./ControlsNotice";
 import styles from "./styles.module.scss";
-import { SetRoomModal } from "../Modals";
+import { SetRoomModal } from "../Modals/types";
 
 export type RoomBottomProps = {
   setModal: SetRoomModal;

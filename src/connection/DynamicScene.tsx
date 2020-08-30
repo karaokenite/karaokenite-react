@@ -1,16 +1,13 @@
 import React from "react";
 
-import {
-  RoomContext,
-  RoomContextSettings,
-  useRoomContextValue,
-} from "../RoomContext";
-import { useRoomConnection } from "./RoomConnection";
-import { EmitContext } from "./RoomConnection/emit";
-import { DynamicSceneEvents } from "./DynamicSceneEvents";
+import { RoomQuery } from "@shared/types";
+
+import { EmitContext } from "./EmitContext";
+import { RoomContext, useRoomContextValue } from "./RoomContext";
+import { useRoomConnection } from "./useRoomConnection";
 
 export type DynamicSceneProps = {
-  settings: RoomContextSettings;
+  settings: RoomQuery;
 };
 
 export const DynamicScene: React.FC<DynamicSceneProps> = ({
@@ -23,7 +20,6 @@ export const DynamicScene: React.FC<DynamicSceneProps> = ({
   return (
     <EmitContext.Provider value={emit}>
       <RoomContext.Provider value={roomContextValue}>
-        <DynamicSceneEvents />
         {children}
       </RoomContext.Provider>
     </EmitContext.Provider>

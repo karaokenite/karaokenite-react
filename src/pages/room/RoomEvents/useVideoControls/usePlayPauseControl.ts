@@ -1,15 +1,15 @@
 import { useEffect } from "react";
 
 import { controls, videoElement } from "@components/elements";
+import { useRoomContext } from "@connection/RoomContext";
 
-import { useRoomContext } from "../../RoomContext";
-import { useOnClick } from "../useOnClick";
+import { useEmitOnClick } from "../useEmitOnClick";
 
 export const usePlayPauseControl = () => {
   const { roomData } = useRoomContext();
   const { currentTime, playing } = roomData.get();
 
-  useOnClick(controls.playPauseButton, (oldRoomData) => ({
+  useEmitOnClick(controls.playPauseButton, (oldRoomData) => ({
     currentTime: videoElement.currentTime,
     playing: !oldRoomData.playing,
   }));

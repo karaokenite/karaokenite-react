@@ -1,20 +1,20 @@
 import { useEffect } from "react";
 
 import { controls, videoElement } from "@components/elements";
+import { useRoomContext } from "@connection/RoomContext";
 import { allSongs } from "@shared/songs";
 
-import { useRoomContext } from "../../RoomContext";
-import { useOnClick } from "../useOnClick";
+import { useEmitOnClick } from "../useEmitOnClick";
 
 export const useNextPreviousControls = () => {
   const { roomData } = useRoomContext();
   const { playing, songIndex, songs } = roomData.get();
 
-  useOnClick(controls.nextButton, (oldRoomData) => ({
+  useEmitOnClick(controls.nextButton, (oldRoomData) => ({
     songIndex: (oldRoomData.songIndex + 1) % songs.length,
   }));
 
-  useOnClick(controls.previousButton, (oldRoomData) => ({
+  useEmitOnClick(controls.previousButton, (oldRoomData) => ({
     songIndex: Math.max(oldRoomData.songIndex - 1, 0),
   }));
 

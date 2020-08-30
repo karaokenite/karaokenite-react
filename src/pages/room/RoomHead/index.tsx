@@ -4,7 +4,7 @@ import { Button } from "@components/Button";
 import { Header } from "@components/Header";
 import { HeaderLogo } from "@components/HeaderLogo";
 
-import { SetRoomModal } from "../Modals";
+import { SetRoomModal } from "../Modals/types";
 import { PeopleIndicator } from "./PeopleIndicator";
 import styles from "./styles.module.scss";
 

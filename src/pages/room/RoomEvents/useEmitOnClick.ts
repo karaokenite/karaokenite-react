@@ -1,11 +1,10 @@
 import { useEvent } from "react-use";
 
+import { useEmitRoomData } from "@connection/EmitContext";
+import { useRoomContext } from "@connection/RoomContext";
 import { RoomData } from "@shared/types";
 
-import { useRoomContext } from "../RoomContext";
-import { useEmitRoomData } from "./RoomConnection/data";
-
-export const useOnClick = (
+export const useEmitOnClick = (
   element: HTMLElement,
   getNewData: (oldRoomData: RoomData) => Partial<RoomData>
 ) => {

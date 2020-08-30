@@ -1,10 +1,9 @@
 import { useCallback } from "react";
 import { useEvent } from "react-use";
 
+import { useEmitRoomData } from "@connection/EmitContext";
+import { useRoomContext } from "@connection/RoomContext";
 import { environments } from "@shared/rooms";
-
-import { useRoomContext } from "../RoomContext";
-import { useEmitRoomData } from "./RoomConnection/data";
 
 export const useEnvironmentSwitchOnSpace = () => {
   const emitRoomData = useEmitRoomData();

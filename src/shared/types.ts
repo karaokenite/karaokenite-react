@@ -1,11 +1,11 @@
 import type { KaraokeEvent } from "./events";
 
-export type SongData = {
-  audio: string;
-  artist: string;
-  index: number;
-  title: string;
-  visual: string;
+/**
+ * Query parameters required to launch a room.
+ */
+export type RoomQuery = {
+  room: string;
+  username: string;
 };
 
 export type RoomPerson = {
@@ -14,6 +14,14 @@ export type RoomPerson = {
   joinedTime?: number;
 
   username?: string;
+};
+
+export type SongData = {
+  audio: string;
+  artist: string;
+  index: number;
+  title: string;
+  visual: string;
 };
 
 /**

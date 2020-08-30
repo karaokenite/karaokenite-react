@@ -2,7 +2,7 @@ import { mapValues } from "lodash";
 import React, { useContext, useState } from "react";
 
 import { defaultRoomData } from "@shared/rooms";
-import { RoomPerson, PersonId } from "@shared/types";
+import { RoomPerson, PersonId, RoomQuery } from "@shared/types";
 
 import { RoomContextValue, RoomContextValueTypes } from "./types";
 
@@ -18,15 +18,10 @@ const useGetterAndSetter = <Value>(value: Value) => {
   };
 };
 
-export type RoomContextSettings = {
-  username: string;
-  room: string;
-};
-
 export const useRoomContextValue = ({
   room,
   username,
-}: RoomContextSettings): RoomContextValue => {
+}: RoomQuery): RoomContextValue => {
   return {
     client: useGetterAndSetter({ username }),
     occupants: useGetterAndSetter<ReadonlyMap<PersonId, RoomPerson>>(new Map()),

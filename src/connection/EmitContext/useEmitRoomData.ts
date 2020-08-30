@@ -1,8 +1,8 @@
 import { KaraokeEvent } from "@shared/events";
 import { RoomData } from "@shared/types";
 
-import { useRoomContext } from "../../RoomContext";
-import { useEmitContext } from "./emit";
+import { useRoomContext } from "../RoomContext";
+import { useEmitContext } from "./EmitContext";
 
 export const useEmitRoomData = () => {
   const emit = useEmitContext();

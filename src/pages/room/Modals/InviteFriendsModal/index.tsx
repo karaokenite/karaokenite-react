@@ -5,9 +5,9 @@ import { Modal } from "@components/Modals/Modal";
 import { ShareLinks } from "@components/ShareLinks";
 import { Heading } from "@components/typography/Heading";
 import { Text } from "@components/typography/Text";
+import { useRoomContext } from "@connection/RoomContext";
 
-import { useRoomContext } from "../../RoomContext";
-import { RoomModalProps } from "..";
+import { RoomModalProps } from "../types";
 import styles from "./styles.module.scss";
 
 export const InviteFriendsModal: React.FC<RoomModalProps> = ({

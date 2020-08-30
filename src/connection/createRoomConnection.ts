@@ -5,7 +5,7 @@ import {
   RoomDataUpdatedData,
 } from "@shared/types";
 
-import { RoomContextValue } from "../../types";
+import { RoomContextValue } from "./types";
 
 export const createRoomConnection = (
   context: RoomContextValue,

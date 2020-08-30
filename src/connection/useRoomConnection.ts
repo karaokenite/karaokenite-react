@@ -4,9 +4,9 @@ import { globalOnConnectHook } from "@components/constants";
 import { sceneElement } from "@components/elements";
 import { PersonId } from "@shared/types";
 
-import { createRoomConnection } from "./create";
-import { EmitUpdate } from "./emit";
-import { RoomContextValue } from "pages/room/types";
+import { createRoomConnection } from "./createRoomConnection";
+import { EmitUpdate } from "./EmitContext";
+import { RoomContextValue } from "./types";
 
 export const useRoomConnection = (roomContext: RoomContextValue) => {
   const roomName = roomContext.roomName.get();
