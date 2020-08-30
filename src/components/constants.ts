@@ -1,6 +1,8 @@
+export const modalsElementId = "modals";
+
 export const rootElementId = "root";
 
-export const modalsElementId = "modals";
+export const sceneSelector = "a-scene[dynamic-room]";
 
 export const videoElementId = "html-video";
 
@@ -13,3 +15,5 @@ export const controlIds = {
   volumeHighButton: "volume-high-button",
   volumeLowButton: "volume-low-button",
 };
+
+export const globalOnConnectHook = "KaraokeNiteListenToConnection";

@@ -1,15 +1,16 @@
 import { useCallback, useEffect, useState, useRef } from "react";
 
+import { globalOnConnectHook } from "@components/constants";
+import { sceneElement } from "@components/elements";
 import { PersonId } from "@shared/types";
 
 import { useRoomContext } from "../../RoomContext";
 import { createRoomConnection } from "./create";
 import { EmitUpdate } from "./emit";
 
-export const globalOnConnectHook = "KaraokeNiteListenToConnection";
-
 export const useRoomConnection = () => {
   const roomContext = useRoomContext();
+  const roomName = roomContext.roomName.get();
   const [socket, setSocket] = useState<SocketIOClient.Socket>();
   const pendingEvents = useRef<Parameters<EmitUpdate>[]>([]);
 
@@ -32,8 +33,16 @@ export const useRoomConnection = () => {
       pendingEvents.current = [];
     };
 
+    sceneElement.setAttribute("networked-scene", {
+      adapter: "webrtc",
+      audio: "true",
+      onConnect: globalOnConnectHook,
+      room: roomName,
+      serverURL: `:3001`,
+    });
+
     return stopListening;
-  }, [roomContext]);
+  }, [roomContext, roomName]);
 
   const emit = useCallback<EmitUpdate>(
     (event, data) => {

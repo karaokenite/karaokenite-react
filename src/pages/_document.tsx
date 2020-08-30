@@ -19,7 +19,6 @@ class MyDocument extends Document {
         </Head>
         <body>
           {/* Todo: only load all this stuff if in the room page */}
-          <script src="/js/dynamic-room.js"></script>
           <RoomBody />
           <script src="/js/schemas.js"></script>
 
