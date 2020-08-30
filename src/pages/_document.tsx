@@ -38,7 +38,7 @@ export default class KaraokeNiteDocument extends Document<
         <Head>
           {[
             "https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.slim.js",
-            "https://unpkg.com/aframe@1.0.4/dist/aframe-master.js",
+            "https://cdnjs.cloudflare.com/ajax/libs/aframe/1.0.4/aframe.min.js",
             "https://unpkg.com/networked-aframe@^0.7.0/dist/networked-aframe.js",
             "https://unpkg.com/aframe-randomizer-components@3.0.1/dist/aframe-randomizer-components.min.js",
             "https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js",
