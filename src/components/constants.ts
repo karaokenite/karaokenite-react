@@ -6,8 +6,6 @@ export const sceneSelector = "a-scene[dynamic-room]";
 
 export const videoElementId = "html-video";
 
-export const videoSyncAttribute = "video-sync";
-
 export const controlIds = {
   nextButton: "next-button",
   playPauseButton: "play-pause-button",
