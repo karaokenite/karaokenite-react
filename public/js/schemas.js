@@ -1,3 +1,4 @@
+// TODO: In #5, we'll investigate moving this into src/.
 NAF.schemas.add({
   template: "#avatar-template",
   components: [

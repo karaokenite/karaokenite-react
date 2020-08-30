@@ -45,8 +45,12 @@ export default class KaraokeNiteDocument extends Document<
           ].map(script)}
         </Head>
         <body>
-          {room && <RoomBody />}
-          {script("/js/schemas.js")}
+          {room && (
+            <>
+              <RoomBody />
+              <script src="/js/schemas.js" />
+            </>
+          )}
           <Main />
           <NextScript />
         </body>
