@@ -14,15 +14,13 @@ export type RoomContextValueTypes = Readonly<{
   roomData: RoomData;
 
   roomName: string;
-
-  songs: readonly number[];
 }>;
 
 export type ClientPerson = Readonly<{
   /**
-   * @remarks Only set after the networked scene is set up from the server.
+   * Socket ID of this client instance.
    */
-  id?: string;
+  id: PersonId;
 
   username: string;
 }>;
@@ -40,4 +38,8 @@ export type AsGettersAndSetters<Values> = {
   [Key in keyof Values]: GetterAndSetter<Values[Key]>;
 };
 
-export type RoomContextValue = AsGettersAndSetters<RoomContextValueTypes>;
+export type RoomContextData = AsGettersAndSetters<RoomContextValueTypes>;
+
+export type RoomContextValue = RoomContextData & {
+  emitRoomData: (newRoomData: Partial<RoomData>) => void;
+};

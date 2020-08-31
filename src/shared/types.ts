@@ -1,11 +1,11 @@
 import type { KaraokeEvent } from "./events";
 
-export type SongData = {
-  audio: string;
-  artist: string;
-  index: number;
-  title: string;
-  visual: string;
+/**
+ * Query parameters required to launch a room.
+ */
+export type RoomSettings = {
+  room: string;
+  username: string;
 };
 
 export type RoomPerson = {
@@ -16,10 +16,23 @@ export type RoomPerson = {
   username?: string;
 };
 
+export type SongData = {
+  audio: string;
+  artist: string;
+  index: number;
+  title: string;
+  visual: string;
+};
+
 /**
  * General "jukebox" data about a room's karaoke experience.
  */
 export type RoomData = {
+  /**
+   * Last known video playback time.
+   */
+  currentTime: number;
+
   /**
    * Which environment scene is being shown in the background.
    */
@@ -34,6 +47,11 @@ export type RoomData = {
    * Which song is shown/played.
    */
   songIndex: number;
+
+  /**
+   * Songs queued up in the jukebox.
+   */
+  songs: number[];
 
   /**
    * How loud the song's audio is.

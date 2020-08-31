@@ -5,7 +5,7 @@ import { Modal } from "@components/Modals/Modal";
 import { Heading } from "@components/typography/Heading";
 import { Text } from "@components/typography/Text";
 
-import { RoomModalProps } from "..";
+import { RoomModalProps } from "../types";
 import { PeopleList } from "./PeopleList";
 import styles from "./styles.module.scss";
 

@@ -1,17 +1,13 @@
 import { useCallback } from "react";
 import { useEvent } from "react-use";
 
-import { KaraokeEvent } from "@shared/events";
+import { useRoomContext } from "@connection/RoomContext";
 import { environments } from "@shared/rooms";
 
-import { Setter } from "../types";
-import { useEmitContext } from "../RoomConnection/emit";
+export const useEnvironmentSwitchOnSpace = () => {
+  const { emitRoomData, roomData } = useRoomContext();
+  const { environment } = roomData.get();
 
-export const useEnvironmentSwitchOnSpace = (
-  environment: string,
-  setEnvironment: Setter<string>
-) => {
-  const emit = useEmitContext();
   const onKeyDown = useCallback(
     (event: KeyboardEvent) => {
       if (event.keyCode !== 32 /* spacebar */) {
@@ -22,12 +18,15 @@ export const useEnvironmentSwitchOnSpace = (
       const newEnvironment =
         environments[(currentIndex + 1) % environments.length];
 
-      setEnvironment(newEnvironment);
-      emit(KaraokeEvent.RoomDataUpdated, {
+      emitRoomData({
         environment: newEnvironment,
       });
+
+      document
+        .querySelector("[environment]")
+        .setAttribute("environment", { preset: newEnvironment });
     },
-    [emit, environment, setEnvironment]
+    [emitRoomData, environment]
   );
 
   useEvent("keydown", onKeyDown);

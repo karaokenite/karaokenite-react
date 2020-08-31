@@ -5,7 +5,7 @@ import { Modal } from "@components/Modals/Modal";
 import { Heading } from "@components/typography/Heading";
 import { Text } from "@components/typography/Text";
 
-import { RoomModalProps } from "..";
+import { RoomModalProps } from "../types";
 import styles from "./styles.module.scss";
 
 export const FeedbackModal: React.FC<RoomModalProps> = ({

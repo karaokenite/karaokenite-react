@@ -2,8 +2,8 @@ import cx from "classnames";
 import React from "react";
 
 import { Text } from "@components/typography/Text";
+import { useRoomContext } from "@connection/RoomContext";
 
-import { useRoomContext } from "../../RoomContext";
 import { Smiley } from "../../../../components/Smiley";
 import styles from "./styles.module.scss";
 
