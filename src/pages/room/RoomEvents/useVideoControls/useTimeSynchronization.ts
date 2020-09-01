@@ -2,8 +2,8 @@ import { useEffect } from "react";
 import { useInterval } from "react-use";
 
 import { videoElement } from "@components/elements";
-import { useRoomContext } from "@connection/RoomContext";
 import { videoSyncInterval } from "@components/constants";
+import { useRoomContext } from "@connection/RoomContext";
 
 export const useTimeSynchronization = () => {
   const { emitRoomData, roomData } = useRoomContext();

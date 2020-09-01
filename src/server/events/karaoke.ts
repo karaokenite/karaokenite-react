@@ -56,4 +56,6 @@ export const karaokeEvents = ({
     room.data = newData;
     io.in(room.name).emit(KaraokeEvent.RoomDataUpdated, newData);
   });
+
+  // todo: when a player leaves, they should no longer be the player on the server
 };
