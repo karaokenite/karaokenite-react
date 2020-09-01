@@ -12,6 +12,7 @@ export const useRoomDataSyncing = (
   const { client, occupants, roomData } = roomContext;
   const { username } = client.get();
 
+  // mention probably todo be moved to the step 2
   useEffect(() => {
     socket.emit(KaraokeEvent.UsernameSet, { username });
   }, [socket, username]);

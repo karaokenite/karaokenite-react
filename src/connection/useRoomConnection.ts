@@ -7,15 +7,14 @@ const globalOnConnectHook = "KaraokeNiteListenToConnection";
 export const useRoomConnection = (roomName: string) => {
   const [socket, setSocket] = useState<SocketIOClient.Socket>();
 
+  // todo document this / link back to .md
   useEffect(() => {
     const stopListening = () => {
       delete window[globalOnConnectHook];
     };
 
     window[globalOnConnectHook] = () => {
-      const newSocket = NAF.connection.adapter.socket;
-
-      setSocket(newSocket);
+      setSocket(NAF.connection.adapter.socket);
       stopListening();
     };
 

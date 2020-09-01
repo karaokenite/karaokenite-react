@@ -20,6 +20,7 @@ export const DynamicSceneConnected: React.FC<DynamicSceneConnectedProps> = ({
   settings,
   socket,
 }) => {
+  // ima document this lol
   const emit = useCallback<EmitUpdate>(
     (event, data) => {
       socket.emit(event, data);
@@ -33,6 +34,7 @@ export const DynamicSceneConnected: React.FC<DynamicSceneConnectedProps> = ({
     settings
   );
 
+  // ...and definitely this
   const emitRoomData = useRoomDataEmit(emit, roomContextData.roomData);
   const roomContextValue = {
     ...roomContextData,

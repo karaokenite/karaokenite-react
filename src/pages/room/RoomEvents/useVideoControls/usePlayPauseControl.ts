@@ -10,11 +10,14 @@ export const usePlayPauseControl = () => {
   const { originalRoomData, roomData } = useRoomContext();
   const { playing } = roomData.get();
 
+  // ...
   useEmitOnClick(controls.playPauseButton, (oldRoomData) => ({
     currentTime: videoElement.currentTime,
     playing: !oldRoomData.playing,
   }));
 
+  // ...
+  // TODO document these bigger groups of things all over da place
   useEffect(() => {
     controls.playPauseButton.setAttribute("src", playing ? "#pause" : "#play");
 
@@ -25,6 +28,7 @@ export const usePlayPauseControl = () => {
     }
   }, [playing]);
 
+  // Called when the room is first initialized
   useEffect(() => {
     // Video timing is, on average, behind by half of the sync interval.
     // currentTime is also measured in seconds instead of milliseconds for some reason.
