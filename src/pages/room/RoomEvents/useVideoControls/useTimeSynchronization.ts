@@ -5,12 +5,16 @@ import { videoElement } from "@components/elements";
 import { videoSyncInterval } from "@components/constants";
 import { useRoomContext } from "@connection/RoomContext";
 
+/**
+ * Synchronizes our view on the three places of video currentTime.
+ */
 export const useTimeSynchronization = () => {
   const { emitRoomData, roomData } = useRoomContext();
   const { currentTime, playing } = roomData.get();
 
-  // Constantly update the server on the current time of the video if playing
-  // Sending data from _DOM_ to _React_ and _Node_
+  // While we're playing, periodically update the server on the current vdeo time.
+  // This is sending data from **DOM** to **React** and **Node**.
+  // Todo (#14): only the player should do this.
   useInterval(() => {
     if (playing) {
       emitRoomData({
@@ -19,12 +23,11 @@ export const useTimeSynchronization = () => {
     }
   }, videoSyncInterval);
 
-  // If the video is paused, we can safely match its time to currentTime
-  // Sending data from _React_ to _DOM_
+  // While we're paused, we can constantly safely match its time to currentTime.
+  // This is sending data from **React** to the **DOM**.
   useEffect(() => {
     if (!playing) {
-      // todo: make a shared thingy for this? idk
-      videoElement.currentTime = currentTime + videoSyncInterval / 2000;
+      videoElement.currentTime = currentTime;
     }
   }, [currentTime, playing]);
 };

@@ -11,6 +11,10 @@ const useGetterAndSetter = <Value>(value: Value) => {
   };
 };
 
+/**
+ * Given the initial starting "room data" for a room, creates React state for each piece.
+ * Each piece is stored as a .get() to update its value and a .set() to write a new one.
+ */
 export const useRoomContextData = (
   id: PersonId,
   roomData: RoomData,

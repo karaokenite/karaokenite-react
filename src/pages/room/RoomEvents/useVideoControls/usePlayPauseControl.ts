@@ -4,20 +4,24 @@ import { controls, videoElement } from "@components/elements";
 import { useRoomContext } from "@connection/RoomContext";
 
 import { useEmitOnClick } from "../useEmitOnClick";
-import { videoSyncInterval } from "@components/constants";
 
+/**
+ * Hooks up events for the play/pause button.
+ */
 export const usePlayPauseControl = () => {
-  const { originalRoomData, roomData } = useRoomContext();
+  const { roomData } = useRoomContext();
   const { playing } = roomData.get();
 
-  // ...
+  // When the play/pause button is clicked, we always update server time -- regardless of player:
+  // * If the video is paused, we are now becoming a player and decide current time.
+  // * If the video is playing, everyone else needs to know the exact pause time.
   useEmitOnClick(controls.playPauseButton, (oldRoomData) => ({
     currentTime: videoElement.currentTime,
     playing: !oldRoomData.playing,
   }));
 
-  // ...
-  // TODO document these bigger groups of things all over da place
+  // Whenever the "playing" data changes -sourced locally or from the server-,
+  // the button updates and we call the appropriate method on the <video> element.
   useEffect(() => {
     controls.playPauseButton.setAttribute("src", playing ? "#pause" : "#play");
 
@@ -27,17 +31,4 @@ export const usePlayPauseControl = () => {
       videoElement.pause();
     }
   }, [playing]);
-
-  // Called when the room is first initialized
-  // Todo move to its own hook
-  useEffect(() => {
-    // Video timing is, on average, behind by half of the sync interval.
-    // currentTime is also measured in seconds instead of milliseconds for some reason.
-    videoElement.currentTime =
-      originalRoomData.currentTime + videoSyncInterval / 2000;
-
-    if (originalRoomData.playing) {
-      videoElement.play();
-    }
-  }, [originalRoomData]);
 };
