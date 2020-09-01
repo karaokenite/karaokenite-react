@@ -79,28 +79,3 @@ emitRoomData({
   songs: [...roomData.get().songs, newSong],
 });
 ```
-
-## TODO MAYBE MOVE SOMEWHERE
-
-### `currentTime`
-
-There are roughly three kinds of "current time" states in play for each room and there is no time in which the video is playing and _all three_ could possibly be the same. lol
-
-- DOM: The literal `<video>` element's `.currentTime` property
-- React: That is, every 500ms or so, read from and then written to the React state that stores the local copy of room data
-- Node: Stored on the server (which is continuously updated by whoever clicked play most recently)
-
-> in theory we could have each of the player and the server figure out their relative times, but that's actually super hard. aybe there are libraries for it?
-> if we get that, then we could have the server tell each client what client-relative timestamp the video starts at...
-
-whenever we the player write to React, we the player then also send a message to the server (node) to update the currentTime.
-The server then sends a socket message to everyone else, and everyone else writes the new currentTime to React, which causes a write to the DOM _if_ the video isn't playing.
-
-we never write currentTime to the video if it's playing. because that would be a jank experience.
-
-if the "player" leaves, they will no longer be sending currentTime updates to the server...
-...and if someone then joins the room, they'll get an out of date currentTime
-
-so to resolve this, we'll need to let the "player" be delegated to someone
-
-there are probably bugs around skipping to a next stong

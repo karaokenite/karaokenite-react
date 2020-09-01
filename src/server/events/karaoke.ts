@@ -42,6 +42,7 @@ export const karaokeEvents = ({
       // Ignore currentTime updates from any client who didn't click the play button.
       // This is a somewhat arbitrary measure to stop "currentTime battles", wherein
       // two clients go back and forth sending vastly different times to each other.
+      // todo: don't include this currentTime member on newData; we don't want to redundantly broadcast it
       currentTime:
         newPlayer === person.id
           ? data.currentTime ?? room.data.currentTime

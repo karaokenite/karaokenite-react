@@ -29,6 +29,7 @@ export const usePlayPauseControl = () => {
   }, [playing]);
 
   // Called when the room is first initialized
+  // Todo move to its own hook
   useEffect(() => {
     // Video timing is, on average, behind by half of the sync interval.
     // currentTime is also measured in seconds instead of milliseconds for some reason.
