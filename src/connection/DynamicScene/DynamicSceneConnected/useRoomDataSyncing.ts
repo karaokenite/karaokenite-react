@@ -12,17 +12,17 @@ export const useRoomDataSyncing = (
   const { client, occupants, roomData } = roomContext;
   const { username } = client.get();
 
-  // mention probably todo be moved to the step 2
+  // Todo (#16): this could probably move to step 2 of data conneciton.
   useEffect(() => {
     socket.emit(KaraokeEvent.UsernameSet, { username });
   }, [socket, username]);
 
+  // This sets up a listener for the OccupantsUpdated event.
+  // We update our local occupants list for the new list of people.
   useEffect(() => {
     const onOccupantsUpdated = (data: OccupantsUpdatedData) => {
       occupants.set(
-        new Map(
-          data.occupants.map((otherPerson) => [otherPerson.id, otherPerson])
-        )
+        new Map(data.occupants.map((person) => [person.id, person]))
       );
     };
 
@@ -33,6 +33,8 @@ export const useRoomDataSyncing = (
     };
   }, [occupants, socket]);
 
+  // This sets up a listener for the RoomDataUpdated event.
+  // We override keys on local room data for any new provided values.
   useEffect(() => {
     const onRoomDataUpdated = (data: RoomDataUpdatedData) => {
       roomData.set({
