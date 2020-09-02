@@ -6,7 +6,7 @@ import { EmitContext, EmitUpdate } from "../../EmitContext";
 import { RoomContext } from "../../RoomContext";
 import { useRoomContextData } from "./useRoomContextData";
 import { useRoomDataSyncing } from "./useRoomDataSyncing";
-import { useRoomDataEmit } from "./useRoomDataEmit";
+import { useEmitRoomData } from "./useEmitRoomData";
 
 export type DynamicSceneConnectedProps = {
   roomData: RoomData;
@@ -20,6 +20,8 @@ export const DynamicSceneConnected: React.FC<DynamicSceneConnectedProps> = ({
   settings,
   socket,
 }) => {
+  // This emit is a small, well-typed (via `EmitUpdate`) wrapper around `socket.emit`.
+  // It's passed to `EmitContext` consumers to let them send messages to the server.
   const emit = useCallback<EmitUpdate>(
     (event, data) => {
       socket.emit(event, data);
@@ -27,15 +29,25 @@ export const DynamicSceneConnected: React.FC<DynamicSceneConnectedProps> = ({
     [socket]
   );
 
+  // We next set up context data for the room by initializing React state for it.
+  // This sets up those pieces of granular state as members of an object.
   const roomContextData = useRoomContextData(
     socket.id as PersonId,
     roomData,
     settings
   );
 
-  const emitRoomData = useRoomDataEmit(emit, roomContextData.roomData);
-  const roomContextValue = { ...roomContextData, emitRoomData };
+  // Linking the two together, we now can make a general `emitRoomData` helper function.
+  // It'll emit room data updates to the server *and* update our React state.
+  const emitRoomData = useEmitRoomData(emit, roomContextData.roomData);
+  const roomContextValue = {
+    ...roomContextData,
+    emitRoomData,
+    originalRoomData: roomData,
+  };
 
+  // Finally, we use the socket to subscribe to any room data updates from the server.
+  // They'll be applied automatically for us to the room data stored as React state.
   useRoomDataSyncing(roomContextValue, socket);
 
   return (

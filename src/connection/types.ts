@@ -11,6 +11,9 @@ export type RoomContextValueTypes = Readonly<{
    */
   occupants: ReadonlyMap<PersonId, RoomPerson>;
 
+  /**
+   * Current (most recently updated) snapshot of the server state.
+   */
   roomData: RoomData;
 
   roomName: string;
@@ -41,5 +44,13 @@ export type AsGettersAndSetters<Values> = {
 export type RoomContextData = AsGettersAndSetters<RoomContextValueTypes>;
 
 export type RoomContextValue = RoomContextData & {
+  /**
+   * Updates local room data and emits any changes to the server.
+   */
   emitRoomData: (newRoomData: Partial<RoomData>) => void;
+
+  /**
+   * Snapshot of the room data as it was when first joined.
+   */
+  originalRoomData: RoomData;
 };

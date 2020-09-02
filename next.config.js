@@ -9,16 +9,16 @@ module.exports = {
       issuer: {
         test: /\.(js|ts)x?$/,
       },
-      test: /\.svg$/,
-      use: ["@svgr/webpack", "url-loader"],
+      test: /\.html$/,
+      use: ["html-loader"],
     });
 
     config.module.rules.push({
       issuer: {
         test: /\.(js|ts)x?$/,
       },
-      test: /\.html$/,
-      use: ["html-loader"],
+      test: /\.svg$/,
+      use: ["@svgr/webpack", "url-loader"],
     });
 
     return config;

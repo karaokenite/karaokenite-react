@@ -39,6 +39,11 @@ export type RoomData = {
   environment: string;
 
   /**
+   * Client ID of the last person to trigger the play button.
+   */
+  player?: PersonId;
+
+  /**
    * Whether the current song is playing.
    */
   playing: boolean;

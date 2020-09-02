@@ -15,3 +15,13 @@ export const controlIds = {
   volumeHighButton: "volume-high-button",
   volumeLowButton: "volume-low-button",
 };
+
+/**
+ * How much, out of 1, to change volume on each button press.
+ */
+export const volumeChangeRate = 0.25;
+
+/**
+ * How often to emit currentTime updates.
+ */
+export const videoSyncInterval = 500;
