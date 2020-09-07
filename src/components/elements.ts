@@ -8,10 +8,6 @@ export const environmentElement = querySelector<Entity>(
   constants.environmentSelector
 );
 
-export const nametagElement = querySelector<Entity>(
-  constants.nametagElementSelector
-);
-
 export const sceneElement = querySelector<Entity>(constants.sceneSelector);
 
 export const videoElement = getElementById<Entity & HTMLVideoElement>(
