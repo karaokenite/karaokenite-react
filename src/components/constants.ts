@@ -4,9 +4,7 @@ export const modalsElementId = "modals";
 
 export const rootElementId = "root";
 
-export const nametagElementSelector = ".nametag";
-
-export const sceneSelector = "a-scene";
+export const sceneSelector = "a-scene[dynamic-room]";
 
 export const videoElementId = "html-video";
 
