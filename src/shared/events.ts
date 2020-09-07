@@ -23,7 +23,7 @@ export enum AframeEvent {
   OccupantsChanged = "occupantsChanged",
 
   /**
-   * ...what does this actually do?
+   * Updates a specific client on connection details of another client.
    */
   Send = "send",
 }
