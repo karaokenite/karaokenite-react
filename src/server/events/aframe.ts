@@ -1,3 +1,5 @@
+import { mapValues } from "lodash";
+
 import { AframeEvent } from "@shared/events";
 import { SendData, BroadcastData } from "@shared/types";
 
@@ -11,12 +13,17 @@ export const aframeEvents = ({
 }: ServerRegistration) => {
   socket.emit(AframeEvent.ConnectSuccess, person);
 
+  // NAF stores room occupancy as an object from person ID to their joinedTime.
+  // Joining a room requires telling all other clients the new occupancy list.
   io.in(room.name).emit(AframeEvent.OccupantsChanged, {
-    occupants: Object.fromEntries(room.occupants),
+    occupants: mapValues(
+      Object.fromEntries(room.occupants),
+      (person) => person.joinedTime
+    ),
   });
 
   socket.on(AframeEvent.Broadcast, (data: BroadcastData) => {
-    socket.to(room.name).emit(AframeEvent.Broadcast, data);
+    socket.to(room.name).broadcast.emit(AframeEvent.Broadcast, data);
   });
 
   socket.on(AframeEvent.Send, (data: SendData) => {

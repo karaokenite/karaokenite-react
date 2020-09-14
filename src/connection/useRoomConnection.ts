@@ -33,7 +33,6 @@ export const useRoomConnection = (roomName: string) => {
     // The `onConnect` setting tells it to call the global function under that name when ready.
     sceneElement.setAttribute("networked-scene", {
       adapter: "webrtc",
-      audio: "true",
       debug: process.env.NODE_ENV === "development",
       onConnect: globalOnConnectHook,
       room: roomName,

@@ -11,7 +11,7 @@ export type RoomSettings = {
 export type RoomPerson = {
   id: PersonId;
 
-  joinedTime?: number;
+  joinedTime: number;
 
   username?: string;
 };
