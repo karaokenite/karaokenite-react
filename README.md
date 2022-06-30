@@ -1,8 +1,10 @@
 # Karaoke Nite (React)
 
-Experimental Next.js + React + TypeScript version of Karaoke Nite. 🚀
+Experimental Next.js + React + TypeScript version of Karaoke Nite. 🎙🎶
 
 ## Local Development
+
+> Requires Node 16.
 
 First, install everything once using [yarn](https://yarnpkg.com):
 

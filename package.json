@@ -45,6 +45,9 @@
     "typescript": "^3.9.7",
     "url-loader": "^4.1.0"
   },
+  "engines": {
+    "node": 16
+  },
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"
