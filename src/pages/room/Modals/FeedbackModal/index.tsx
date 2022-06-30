@@ -18,8 +18,8 @@ export const FeedbackModal: React.FC<RoomModalProps> = ({
         Give us feedback!
       </Heading>
       <Text as="p" fontSize="xs">
-        Karaoke Nite is an ongoing project. We're looking to hear your thoughts
-        on how to make it even better!
+        Karaoke Nite is an ongoing project. We&apos;re looking to hear your
+        thoughts on how to make it even better!
       </Text>
       <LinkButton
         className={styles.link}

@@ -23,9 +23,10 @@ module.exports = {
   },
   plugins: ["react", "@typescript-eslint"],
   rules: {
+    // These on-by-default (via plugins) rules are irksome and we don't want them
     "@typescript-eslint/explicit-module-boundary-types": "off",
-    "@typescript-eslint/no-unused-vars": "off",
     "@typescript-eslint/restrict-template-expressions": "off",
+    "react/display-name": "off",
     "react/prop-types": "off",
   },
   settings: {

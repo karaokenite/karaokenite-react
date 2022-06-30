@@ -17,7 +17,6 @@ export type RadioGroupProps = React.HTMLAttributes<HTMLElement> & {
 export const RadioGroup: React.FC<RadioGroupProps> = ({
   className,
   initialValue,
-  children,
   name,
   options,
   ...props

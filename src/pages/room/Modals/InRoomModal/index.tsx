@@ -21,7 +21,7 @@ export const InRoomModal: React.FC<RoomModalProps> = ({
       onClose={onClose}
     >
       <Heading as="h2" className={styles.heading} fontSize="xl">
-        Who's in this room:
+        Who&apos;s in this room:
       </Heading>
       <PeopleList className={styles.peopleList} />
       <Text as="p" className={styles.explanation} fontSize="xs">
