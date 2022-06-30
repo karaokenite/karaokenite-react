@@ -1,5 +1,5 @@
 import cx from "classnames";
-import React from "react";
+import React, { useState } from "react";
 
 import { Button } from "@components/Button";
 
@@ -13,9 +13,15 @@ export interface RoomBottomProps {
 }
 
 export const RoomBottom = ({ setModal }: RoomBottomProps) => {
+  const [controlsDismissed, setControlsDismissed] = useState(false);
   return (
-    <div className={styles.roomBottom}>
-      <ControlsNotice className={styles.controls} />
+    <div className={cx(styles.roomBottom, !controlsDismissed && styles.full)}>
+      {controlsDismissed || (
+        <ControlsNotice
+          className={styles.controls}
+          onDismiss={() => setControlsDismissed(true)}
+        />
+      )}
       <div className={styles.buttons}>
         <Button
           aria-label="Provide feedback"

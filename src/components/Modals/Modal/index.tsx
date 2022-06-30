@@ -2,10 +2,10 @@ import cx from "classnames";
 import React, { useRef } from "react";
 import ReactModal from "react-modal";
 
-import { ModalCloseButton } from "../ModalCloseButton";
+import { CloseButton } from "@components/CloseButton";
+import { modalsElementId } from "@components/constants";
 
 import styles from "./styles.module.scss";
-import { modalsElementId } from "@components/constants";
 
 export interface ModalProps {
   children: React.ReactNode;
@@ -28,10 +28,12 @@ export const Modal = ({ children, className, isOpen, onClose }: ModalProps) => {
       overlayClassName={styles.overlay}
       parentSelector={() => document.querySelector(`#${modalsElementId}`)}
     >
-      <ModalCloseButton
+      <CloseButton
         className={styles.closeButton}
+        label="Close modal"
         onClick={onClose}
         ref={closeButton}
+        size="large"
       />
       {children}
     </ReactModal>

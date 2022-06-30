@@ -1,6 +1,6 @@
 @import "base.scss";
 
-.modalCloseButton {
+.closeButton {
   align-items: center;
   background: $color-dark;
   border-radius: 100%;
@@ -8,13 +8,24 @@
   color: $color-white;
   cursor: pointer;
   display: flex;
-  font-size: $font-size-md;
   font-weight: $font-weight-bolder;
-  height: $gap-lg;
   justify-content: center;
   position: absolute;
-  right: -#{$gap-lg / 2.5};
-  top: -#{$gap-lg / 2.5};
   user-select: none;
-  width: $gap-lg;
+
+  &.small {
+    height: $gap-md;
+    font-size: $font-size-sm;
+    right: -#{$gap-md / 2.5};
+    top: -#{$gap-md / 2.5};
+    width: $gap-md;
+  }
+
+  &.large {
+    height: $gap-lg;
+    font-size: $font-size-lg;
+    right: -#{$gap-lg / 2.5};
+    top: -#{$gap-lg / 2.5};
+    width: $gap-lg;
+  }
 }

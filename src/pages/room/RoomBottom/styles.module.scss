@@ -4,7 +4,11 @@
   display: flex;
   position: absolute;
   bottom: $gap-md;
-  width: 100%;
+  right: 0;
+
+  &.full {
+    width: 100%;
+  }
 }
 
 .controls {
@@ -21,7 +25,6 @@
   display: flex;
   flex-direction: column;
   margin-right: $gap-md;
-  padding-bottom: 2.1rem;
 }
 
 .feedbackButton {
