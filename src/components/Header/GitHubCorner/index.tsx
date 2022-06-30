@@ -4,14 +4,14 @@ import React from "react";
 import { HeaderTheme } from "../types";
 import styles from "./styles.module.scss";
 
-export type GitHubCornerProps = {
+export interface GitHubCornerProps {
   href: string;
   theme: HeaderTheme;
-};
+}
 
 // https://tholman.com/github-corners/
 // https://github.com/tholman/github-corners
-export const GitHubCorner: React.FC<GitHubCornerProps> = ({ href, theme }) => {
+export const GitHubCorner = ({ href, theme }: GitHubCornerProps) => {
   return (
     <a
       aria-label="View source on GitHub"

@@ -6,17 +6,17 @@ module.exports = {
   },
   webpack(config) {
     config.module.rules.push({
-      issuer: {
-        test: /\.(js|ts)x?$/,
-      },
+      // issuer: {
+      //   test: /\.(js|ts)x?$/,
+      // },
       test: /\.html$/,
       use: ["html-loader"],
     });
 
     config.module.rules.push({
-      issuer: {
-        test: /\.(js|ts)x?$/,
-      },
+      // issuer: {
+      //   test: /\.(js|ts)x?$/,
+      // },
       test: /\.svg$/,
       use: ["@svgr/webpack", "url-loader"],
     });

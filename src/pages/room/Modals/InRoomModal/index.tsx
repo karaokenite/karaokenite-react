@@ -9,11 +9,7 @@ import { RoomModalProps } from "../types";
 import { PeopleList } from "./PeopleList";
 import styles from "./styles.module.scss";
 
-export const InRoomModal: React.FC<RoomModalProps> = ({
-  isOpen,
-  onClose,
-  setModal,
-}) => {
+export const InRoomModal = ({ isOpen, onClose, setModal }: RoomModalProps) => {
   return (
     <Modal
       className={styles.inviteFriendsModal}

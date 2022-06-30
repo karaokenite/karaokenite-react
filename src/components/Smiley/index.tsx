@@ -11,12 +11,12 @@ import smileyOrange from "./assets/smiley-orange.svg";
 
 const assets = [smileyPink, smileyPurple, smileyLime, smileyCyan, smileyOrange];
 
-export type SmileyProps = {
+export interface SmileyProps {
   className?: string;
   index: number;
-};
+}
 
-export const Smiley: React.FC<SmileyProps> = ({ className, index }) => {
+export const Smiley = ({ className, index }: SmileyProps) => {
   return (
     <img
       className={cx(styles.smiley, className)}

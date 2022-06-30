@@ -23,7 +23,7 @@ export const aframeEvents = ({
   });
 
   socket.on(AframeEvent.Broadcast, (data: BroadcastData) => {
-    socket.to(room.name).broadcast.emit(AframeEvent.Broadcast, data);
+    socket.broadcast.emit(AframeEvent.Broadcast, data);
   });
 
   socket.on(AframeEvent.Send, (data: SendData) => {

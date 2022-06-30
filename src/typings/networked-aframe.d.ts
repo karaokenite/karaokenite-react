@@ -1,7 +1,7 @@
 declare namespace NAF {
-  export type Schemas = {
+  export interface Schemas {
     add: (schema: any) => void;
-  };
+  }
 
   export const schemas: Schemas;
 

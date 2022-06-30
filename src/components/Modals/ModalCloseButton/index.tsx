@@ -3,10 +3,10 @@ import React from "react";
 
 import styles from "./styles.module.scss";
 
-export type ModalCloseButtonProps = {
+export interface ModalCloseButtonProps {
   className?: string;
   onClick: () => void;
-};
+}
 
 export const ModalCloseButton = React.forwardRef<
   HTMLButtonElement,

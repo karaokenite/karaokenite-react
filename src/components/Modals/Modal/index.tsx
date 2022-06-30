@@ -7,18 +7,14 @@ import { ModalCloseButton } from "../ModalCloseButton";
 import styles from "./styles.module.scss";
 import { modalsElementId } from "@components/constants";
 
-export type ModalProps = {
+export interface ModalProps {
+  children: React.ReactNode;
   className?: string;
   isOpen: boolean;
   onClose: () => void;
-};
+}
 
-export const Modal: React.FC<ModalProps> = ({
-  children,
-  className,
-  isOpen,
-  onClose,
-}) => {
+export const Modal = ({ children, className, isOpen, onClose }: ModalProps) => {
   const closeButton = useRef<HTMLButtonElement>(null);
 
   return (

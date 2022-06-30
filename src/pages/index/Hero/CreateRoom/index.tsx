@@ -7,9 +7,11 @@ import { Heading } from "@components/typography/Heading";
 
 import styles from "./styles.module.scss";
 
-export type CreateRoomProps = { className?: string };
+export interface CreateRoomProps {
+  className?: string;
+}
 
-export const CreateRoom: React.FC<CreateRoomProps> = ({ className }) => {
+export const CreateRoom = ({ className }: CreateRoomProps) => {
   return (
     <form action="/room" className={cx(styles.createRoom, className)}>
       <Heading as="h2" className={styles.roomHeading} fontSize="lg">

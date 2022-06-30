@@ -9,7 +9,7 @@ import { RoomModalProps } from "../types";
 import { SongSelector } from "./SongSelector";
 import styles from "./styles.module.scss";
 
-export const AddSongModal: React.FC<RoomModalProps> = ({ isOpen, onClose }) => {
+export const AddSongModal = ({ isOpen, onClose }: RoomModalProps) => {
   const { emitRoomData, roomData } = useRoomContext();
   const [selected, setSelected] = useState<number>();
 

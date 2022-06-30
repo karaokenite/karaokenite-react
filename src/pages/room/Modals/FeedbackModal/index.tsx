@@ -8,10 +8,7 @@ import { Text } from "@components/typography/Text";
 import { RoomModalProps } from "../types";
 import styles from "./styles.module.scss";
 
-export const FeedbackModal: React.FC<RoomModalProps> = ({
-  isOpen,
-  onClose,
-}) => {
+export const FeedbackModal = ({ isOpen, onClose }: RoomModalProps) => {
   return (
     <Modal className={styles.feedbackModal} isOpen={isOpen} onClose={onClose}>
       <Heading as="h2" className={styles.heading} fontSize="xl">

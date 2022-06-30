@@ -7,6 +7,6 @@ import styles from "./styles.module.scss";
 
 export type AnchorProps = BasicTextProps<"a">;
 
-export const Anchor: React.FC<AnchorProps> = ({ className, ...props }) => {
+export const Anchor = ({ className, ...props }: AnchorProps) => {
   return <Text as="a" className={cx(className, styles.anchor)} {...props} />;
 };

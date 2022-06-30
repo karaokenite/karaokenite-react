@@ -6,19 +6,19 @@ import { SongData } from "@shared/types";
 
 import styles from "./styles.module.scss";
 
-export type SongSelectorProps = {
+export interface SongSelectorProps {
   className?: string;
   data: SongData;
   onSelect: () => void;
   selected?: boolean;
-};
+}
 
-export const SongSelector: React.FC<SongSelectorProps> = ({
+export const SongSelector = ({
   className,
   data,
   onSelect,
   selected,
-}) => {
+}: SongSelectorProps) => {
   return (
     <div className={className}>
       <button

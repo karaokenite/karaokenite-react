@@ -7,6 +7,6 @@ import styles from "./styles.module.scss";
 
 export type HeadingProps = TextPropsAs<"h1" | "h2" | "h3" | "h4" | "h5" | "h6">;
 
-export const Heading: React.FC<HeadingProps> = ({ className, ...props }) => {
+export const Heading = ({ className, ...props }: HeadingProps) => {
   return <Text className={cx(styles.heading, className)} {...props} />;
 };

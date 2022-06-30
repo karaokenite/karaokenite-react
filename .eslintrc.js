@@ -5,8 +5,8 @@ module.exports = {
     "plugin:react-hooks/recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:@typescript-eslint/recommended-requiring-type-checking",
+    "plugin:@typescript-eslint/strict",
     "prettier",
-    "prettier/@typescript-eslint",
   ],
   overrides: [
     {
@@ -25,6 +25,7 @@ module.exports = {
   rules: {
     // These on-by-default (via plugins) rules are irksome and we don't want them
     "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/no-dynamic-delete": "off",
     "@typescript-eslint/restrict-template-expressions": "off",
     "react/display-name": "off",
     "react/prop-types": "off",

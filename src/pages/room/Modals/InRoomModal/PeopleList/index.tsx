@@ -6,11 +6,11 @@ import { useRoomContext } from "@connection/RoomContext";
 import { Person } from "./Person";
 import styles from "./styles.module.scss";
 
-export type PeopleListProps = {
+export interface PeopleListProps {
   className?: string;
-};
+}
 
-export const PeopleList: React.FC<PeopleListProps> = ({ className }) => {
+export const PeopleList = ({ className }: PeopleListProps) => {
   const { occupants } = useRoomContext();
 
   return (

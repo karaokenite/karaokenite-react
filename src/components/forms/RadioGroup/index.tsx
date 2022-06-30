@@ -3,24 +3,24 @@ import React from "react";
 import styles from "./styles.module.scss";
 import { RadioButton } from "../RadioButton";
 
-export type RadioOption = {
+export interface RadioOption {
   id: string;
   label: React.ReactNode;
-};
+}
 
-export type RadioGroupProps = React.HTMLAttributes<HTMLElement> & {
+export interface RadioGroupProps extends React.HTMLAttributes<HTMLElement> {
   initialValue?: string;
   options: RadioOption[];
   name: string;
-};
+}
 
-export const RadioGroup: React.FC<RadioGroupProps> = ({
+export const RadioGroup = ({
   className,
   initialValue,
   name,
   options,
   ...props
-}) => {
+}: RadioGroupProps) => {
   return (
     <div className={cx(className, styles.radioGroup)} {...props}>
       {options.map(({ id, label }) => (

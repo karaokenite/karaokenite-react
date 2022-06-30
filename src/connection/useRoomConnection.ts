@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import { sceneElement } from "@components/elements";
+import { getSceneElement } from "@components/elements";
 import { socketPort } from "@shared/ports";
 
 const globalOnConnectHook = "KaraokeNiteListenToConnection";
@@ -31,7 +31,7 @@ export const useRoomConnection = (roomName: string) => {
     // Per NAF's documentation (https://github.com/networked-aframe/networked-aframe),
     // we set the scene element to be a "networked-scene" to initialize NAF.
     // The `onConnect` setting tells it to call the global function under that name when ready.
-    sceneElement.setAttribute("networked-scene", {
+    getSceneElement().setAttribute("networked-scene", {
       adapter: "webrtc",
       debug: process.env.NODE_ENV === "development",
       onConnect: globalOnConnectHook,

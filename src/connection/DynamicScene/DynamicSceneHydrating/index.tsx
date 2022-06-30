@@ -5,16 +5,17 @@ import { RoomSettings } from "@shared/types";
 import { DynamicSceneConnected } from "../DynamicSceneConnected";
 import { useRoomDataConnection } from "./useRoomDataConnection";
 
-export type DynamicSceneHydratingProps = {
+export interface DynamicSceneHydratingProps {
+  children: React.ReactNode;
   settings: RoomSettings;
   socket: SocketIOClient.Socket;
-};
+}
 
-export const DynamicSceneHydrating: React.FC<DynamicSceneHydratingProps> = ({
+export const DynamicSceneHydrating = ({
   children,
   settings,
   socket,
-}) => {
+}: DynamicSceneHydratingProps) => {
   const roomData = useRoomDataConnection(socket);
 
   if (!roomData) {

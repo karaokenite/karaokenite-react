@@ -28,10 +28,10 @@ export type ClientPerson = Readonly<{
   username: string;
 }>;
 
-export type GetterAndSetter<Value> = {
+export interface GetterAndSetter<Value> {
   get: Getter<Value>;
   set: Setter<Value>;
-};
+}
 
 export type Getter<Value> = () => Value;
 

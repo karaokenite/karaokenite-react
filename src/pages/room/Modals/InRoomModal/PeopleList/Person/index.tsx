@@ -5,17 +5,13 @@ import styles from "./styles.module.scss";
 import { Smiley } from "@components/Smiley";
 import { Text } from "@components/typography/Text";
 
-export type PersonProps = {
+export interface PersonProps {
   className?: string;
   index: number;
   username?: string;
-};
+}
 
-export const Person: React.FC<PersonProps> = ({
-  className,
-  index,
-  username,
-}) => {
+export const Person = ({ className, index, username }: PersonProps) => {
   return (
     <li className={cx(styles.person, className)}>
       <Smiley index={index} />

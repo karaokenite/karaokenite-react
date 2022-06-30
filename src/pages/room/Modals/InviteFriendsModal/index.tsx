@@ -10,10 +10,7 @@ import { useRoomContext } from "@connection/RoomContext";
 import { RoomModalProps } from "../types";
 import styles from "./styles.module.scss";
 
-export const InviteFriendsModal: React.FC<RoomModalProps> = ({
-  isOpen,
-  onClose,
-}) => {
+export const InviteFriendsModal = ({ isOpen, onClose }: RoomModalProps) => {
   const { roomName } = useRoomContext();
   const url = `https://karaokenite.co?room=${roomName.get()}`;
 

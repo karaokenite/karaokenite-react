@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-import { controls, videoElement } from "@components/elements";
+import { getControls, getVideoElement } from "@components/elements";
 import { useRoomContext } from "@connection/RoomContext";
 import { allSongs } from "@shared/songs";
 
@@ -14,12 +14,12 @@ export const useNextPreviousControls = () => {
   const { playing, songIndex, songs } = roomData.get();
 
   // When the next button is clicked, move to the next song.
-  useEmitOnClick(controls.nextButton, (oldRoomData) => ({
+  useEmitOnClick(getControls().nextButton, (oldRoomData) => ({
     songIndex: (oldRoomData.songIndex + 1) % songs.length,
   }));
 
   // When the next button is clicked, move to the previous song.
-  useEmitOnClick(controls.previousButton, (oldRoomData) => ({
+  useEmitOnClick(getControls().previousButton, (oldRoomData) => ({
     songIndex: Math.max(oldRoomData.songIndex - 1, 0),
   }));
 
@@ -27,14 +27,14 @@ export const useNextPreviousControls = () => {
   // If the video needs a new src, set it, and play the video if it should be.
   useEffect(() => {
     const newSrc = allSongs[songs[songIndex]].audio;
-    if (videoElement.getAttribute("src") === newSrc) {
+    if (getVideoElement().getAttribute("src") === newSrc) {
       return;
     }
 
-    videoElement.setAttribute("src", newSrc);
+    getVideoElement().setAttribute("src", newSrc);
 
     if (playing) {
-      videoElement.play();
+      getVideoElement().play();
     }
   }, [playing, songIndex, songs]);
 };

@@ -2,6 +2,10 @@ import React from "react";
 
 import styles from "./styles.module.scss";
 
-export const Key: React.FC = ({ children }) => {
+export interface KeyProps {
+  children: React.ReactNode;
+}
+
+export const Key = ({ children }: KeyProps) => {
   return <kbd className={styles.key}>{children}</kbd>;
 };

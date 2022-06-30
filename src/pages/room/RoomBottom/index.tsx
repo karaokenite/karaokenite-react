@@ -8,11 +8,11 @@ import { ControlsNotice } from "./ControlsNotice";
 import styles from "./styles.module.scss";
 import { SetRoomModal } from "../Modals/types";
 
-export type RoomBottomProps = {
+export interface RoomBottomProps {
   setModal: SetRoomModal;
-};
+}
 
-export const RoomBottom: React.FC<RoomBottomProps> = ({ setModal }) => {
+export const RoomBottom = ({ setModal }: RoomBottomProps) => {
   return (
     <div className={styles.roomBottom}>
       <ControlsNotice className={styles.controls} />

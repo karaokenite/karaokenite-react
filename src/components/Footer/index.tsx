@@ -3,11 +3,11 @@ import React from "react";
 
 import styles from "./styles.module.scss";
 
-export type FooterProps = {
+export interface FooterProps {
   className?: string;
-};
+}
 
-export const Footer: React.FC<FooterProps> = ({ className }) => {
+export const Footer = ({ className }: FooterProps) => {
   return (
     <footer className={cx(styles.footer, className)}>
       Made with{" "}

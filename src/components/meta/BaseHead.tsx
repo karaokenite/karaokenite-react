@@ -1,11 +1,11 @@
 import Head from "next/head";
 import React from "react";
 
-export type BaseHeadProps = {
+export interface BaseHeadProps {
   title?: string;
-};
+}
 
-export const BaseHead: React.FC<BaseHeadProps> = ({ title }) => {
+export const BaseHead = ({ title }: BaseHeadProps) => {
   return (
     <Head>
       <title>{title ? `${title} ` : ""}Karaoke Nite (Beta)</title>

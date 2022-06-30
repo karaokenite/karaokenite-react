@@ -8,19 +8,19 @@ import { Text } from "@components/typography/Text";
 
 import styles from "./styles.module.scss";
 
-export type WorkingStepProps = {
+export interface WorkingStepProps {
   className?: string;
   heading: string;
   image: string;
   text: string;
-};
+}
 
-export const WorkingStep: React.FC<WorkingStepProps> = ({
+export const WorkingStep = ({
   className,
   heading,
   image,
   text,
-}) => {
+}: WorkingStepProps) => {
   return (
     <Grid className={cx(styles.workingStep, className)}>
       <Cell size={3}>

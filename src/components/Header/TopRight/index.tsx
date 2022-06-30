@@ -7,12 +7,12 @@ import { GitHubCorner } from "../GitHubCorner";
 import { HeaderTheme } from "../types";
 import styles from "./styles.module.scss";
 
-export type TopRightProps = {
+export interface TopRightProps {
   className?: string;
   theme: HeaderTheme;
-};
+}
 
-export const TopRight: React.FC<TopRightProps> = ({ className, theme }) => {
+export const TopRight = ({ className, theme }: TopRightProps) => {
   return (
     <div className={cx(styles.topRight, className)}>
       <Link href="/about" passHref>

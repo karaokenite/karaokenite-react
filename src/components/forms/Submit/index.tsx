@@ -6,11 +6,7 @@ import styles from "./styles.module.scss";
 
 export type SubmitProps = React.InputHTMLAttributes<HTMLInputElement>;
 
-export const Submit: React.FC<SubmitProps> = ({
-  children,
-  className,
-  ...props
-}) => {
+export const Submit = ({ children, className, ...props }: SubmitProps) => {
   return (
     <Input className={cx(className, styles.submit)} type="submit" {...props}>
       {children}

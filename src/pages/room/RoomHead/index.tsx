@@ -8,11 +8,11 @@ import { SetRoomModal } from "../Modals/types";
 import { PeopleIndicator } from "./PeopleIndicator";
 import styles from "./styles.module.scss";
 
-export type RoomHeadProps = {
+export interface RoomHeadProps {
   setModal: SetRoomModal;
-};
+}
 
-export const RoomHead: React.FC<RoomHeadProps> = ({ setModal }) => {
+export const RoomHead = ({ setModal }: RoomHeadProps) => {
   return (
     <Header className={styles.header}>
       <HeaderLogo theme="light" />

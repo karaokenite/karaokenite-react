@@ -10,7 +10,7 @@ import styles from "./styles.module.scss";
 import { Text } from "@components/typography/Text";
 import { OptionSlant } from "./OptionSlant";
 
-export const Options: React.FC = () => {
+export const Options = () => {
   return (
     <section className={styles.options}>
       <OptionSlant className={styles.slantTop} />

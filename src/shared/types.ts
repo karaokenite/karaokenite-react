@@ -3,31 +3,31 @@ import type { KaraokeEvent } from "./events";
 /**
  * Query parameters required to launch a room.
  */
-export type RoomSettings = {
+export interface RoomSettings {
   room: string;
   username: string;
-};
+}
 
-export type RoomPerson = {
+export interface RoomPerson {
   id: PersonId;
 
   joinedTime: number;
 
   username?: string;
-};
+}
 
-export type SongData = {
+export interface SongData {
   audio: string;
   artist: string;
   index: number;
   title: string;
   visual: string;
-};
+}
 
 /**
  * General "jukebox" data about a room's karaoke experience.
  */
-export type RoomData = {
+export interface RoomData {
   /**
    * Last known video playback time.
    */
@@ -62,45 +62,45 @@ export type RoomData = {
    * How loud the song's audio is.
    */
   volume: number;
-};
+}
 
 // NAF native events
 
-export type BroadcastData = {
+export interface BroadcastData {
   broadcasting: true;
   data: unknown;
   from: string;
   type: string;
-};
+}
 
-export type JoinRoomData = {
+export interface JoinRoomData {
   room: RoomName;
-};
+}
 
-export type SendData = {
+export interface SendData {
   to: string;
   [i: string]: unknown;
-};
+}
 
 // Karaoke Nite events
 
 export type RoomDataUpdatedData = Partial<RoomData>;
 
-export type OccupantsUpdatedData = {
+export interface OccupantsUpdatedData {
   occupants: RoomPerson[];
-};
+}
 
-export type SetUsernameData = {
+export interface SetUsernameData {
   username: string;
-};
+}
 
 // Fancy event-to-event-type mappings
 
-export type EventDataTypes = {
+export interface EventDataTypes {
   [KaraokeEvent.RoomDataUpdated]: RoomDataUpdatedData;
   [KaraokeEvent.OccupantsUpdated]: OccupantsUpdatedData;
   [KaraokeEvent.UsernameSet]: SetUsernameData;
-};
+}
 
 export type DataForEventType<EventType> = EventType extends keyof EventDataTypes
   ? EventDataTypes[EventType]

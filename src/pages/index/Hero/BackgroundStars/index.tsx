@@ -3,7 +3,7 @@ import React from "react";
 
 import styles from "./styles.module.scss";
 
-export const BackgroundStars: React.FC = () => {
+export const BackgroundStars = () => {
   return (
     <div aria-hidden className={styles.backgroundStars}>
       <img className={cx(styles.image, styles.mic)} src="/index/mic.png" />

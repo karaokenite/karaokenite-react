@@ -6,13 +6,11 @@ import { Text } from "@components/typography/Text";
 
 import styles from "./styles.module.scss";
 
-export type ControlsNoticeProps = {
+export interface ControlsNoticeProps {
   className?: string;
-};
+}
 
-export const ControlsNotice: React.FC<ControlsNoticeProps> = ({
-  className,
-}) => {
+export const ControlsNotice = ({ className }: ControlsNoticeProps) => {
   return (
     <div className={cx(styles.controlsNotice, className)}>
       <Text as="div" className={styles.text} fontSize="xs">

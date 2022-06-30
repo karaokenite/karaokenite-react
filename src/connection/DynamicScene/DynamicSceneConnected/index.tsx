@@ -8,18 +8,19 @@ import { useRoomContextData } from "./useRoomContextData";
 import { useRoomDataSyncing } from "./useRoomDataSyncing";
 import { useEmitRoomData } from "./useEmitRoomData";
 
-export type DynamicSceneConnectedProps = {
+export interface DynamicSceneConnectedProps {
+  children: React.ReactNode;
   roomData: RoomData;
   settings: RoomSettings;
   socket: SocketIOClient.Socket;
-};
+}
 
-export const DynamicSceneConnected: React.FC<DynamicSceneConnectedProps> = ({
+export const DynamicSceneConnected = ({
   children,
   roomData,
   settings,
   socket,
-}) => {
+}: DynamicSceneConnectedProps) => {
   // This emit is a small, well-typed (via `EmitUpdate`) wrapper around `socket.emit`.
   // It's passed to `EmitContext` consumers to let them send messages to the server.
   const emit = useCallback<EmitUpdate>(

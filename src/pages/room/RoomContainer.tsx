@@ -12,11 +12,11 @@ import { RoomBottom } from "./RoomBottom";
 import { RoomEvents } from "./RoomEvents";
 import { RoomHead } from "./RoomHead";
 
-export type RoomContainerProps = {
+export interface RoomContainerProps {
   settings: RoomSettings;
-};
+}
 
-export const RoomContainer: React.FC<RoomContainerProps> = ({ settings }) => {
+export const RoomContainer = ({ settings }: RoomContainerProps) => {
   const [modalNodes, setModal] = useModals(roomModals);
 
   useEffect(() => {

@@ -1,7 +1,7 @@
 import { defaultRoomData } from "@shared/rooms";
 import { PersonId, RoomData, RoomName, RoomPerson } from "@shared/types";
 
-export type ServerRoom = {
+export interface ServerRoom {
   /**
    * General "jukebox" data for the karaoke experience.
    */
@@ -16,7 +16,7 @@ export type ServerRoom = {
    * People in the room, keyed by id.
    */
   occupants: Map<PersonId, RoomPerson>;
-};
+}
 
 export class RoomsStore {
   /**

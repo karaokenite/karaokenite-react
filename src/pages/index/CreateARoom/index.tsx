@@ -6,7 +6,7 @@ import { Text } from "@components/typography/Text";
 
 import styles from "./styles.module.scss";
 
-export const CreateARoom: React.FC = () => {
+export const CreateARoom = () => {
   return (
     <section className={styles.createARoom}>
       <div className={styles.sign}>

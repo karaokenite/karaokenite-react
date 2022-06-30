@@ -3,13 +3,14 @@ import React from "react";
 
 import styles from "./styles.module.scss";
 
-export type SectionContentProps = {
+export interface SectionContentProps {
+  children: React.ReactNode;
   className?: string;
-};
+}
 
-export const SectionContent: React.FC<SectionContentProps> = ({
+export const SectionContent = ({
   children,
   className,
-}) => {
+}: SectionContentProps) => {
   return <div className={cx(styles.sectionContent, className)}>{children}</div>;
 };

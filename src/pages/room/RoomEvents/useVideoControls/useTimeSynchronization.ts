@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useInterval } from "react-use";
 
-import { videoElement } from "@components/elements";
+import { getVideoElement } from "@components/elements";
 import { videoSyncInterval } from "@components/constants";
 import { useRoomContext } from "@connection/RoomContext";
 
@@ -18,7 +18,7 @@ export const useTimeSynchronization = () => {
   useInterval(() => {
     if (playing) {
       emitRoomData({
-        currentTime: videoElement.currentTime,
+        currentTime: getVideoElement().currentTime,
       });
     }
   }, videoSyncInterval);
@@ -27,7 +27,7 @@ export const useTimeSynchronization = () => {
   // This is sending data from **React** to the **DOM**.
   useEffect(() => {
     if (!playing) {
-      videoElement.currentTime = currentTime;
+      getVideoElement().currentTime = currentTime;
     }
   }, [currentTime, playing]);
 };

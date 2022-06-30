@@ -13,9 +13,16 @@ import { RoomsStore } from "./RoomsStore";
 
 const logConnection = createLogger("connection");
 const app = new Koa();
-// eslint-disable-next-line @typescript-eslint/no-misused-promises
+
 const server = http.createServer(app.callback());
-const io = socketio(server);
+const io = new socketio.Server(server, {
+  allowEIO3: true,
+  cors: {
+    origin: "http://localhost:3000",
+    methods: ["GET", "POST"],
+    credentials: true,
+  },
+});
 const roomsStore = new RoomsStore();
 
 io.on("connection", (socket) => {

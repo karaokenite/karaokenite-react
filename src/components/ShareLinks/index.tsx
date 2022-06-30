@@ -3,12 +3,12 @@ import React from "react";
 
 import styles from "./styles.module.scss";
 
-export type ShareLinksProps = {
+export interface ShareLinksProps {
   roomName: string;
   url: string;
-};
+}
 
-export const ShareLinks: React.FC<ShareLinksProps> = ({ roomName, url }) => {
+export const ShareLinks = ({ roomName, url }: ShareLinksProps) => {
   const encodedUrl = encodeURIComponent(url);
   const twitterBody = `Come hang in my karaoke room! The room name is ${roomName}. 🎤🎶`;
   const facebookHref = `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`;

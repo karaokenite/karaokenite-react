@@ -7,15 +7,15 @@ import { useRoomContext } from "@connection/RoomContext";
 import { Smiley } from "../../../../components/Smiley";
 import styles from "./styles.module.scss";
 
-export type PeopleIndicatorProps = {
+export interface PeopleIndicatorProps {
   className?: string;
   onClick: () => void;
-};
+}
 
-export const PeopleIndicator: React.FC<PeopleIndicatorProps> = ({
+export const PeopleIndicator = ({
   className,
   onClick,
-}) => {
+}: PeopleIndicatorProps) => {
   const { client, occupants } = useRoomContext();
   const connected = !!client.get().id;
   const ordered = Array.from(occupants.get().values()).reverse();

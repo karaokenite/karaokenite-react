@@ -6,7 +6,7 @@ import { SectionContent } from "../SectionContent";
 import styles from "./styles.module.scss";
 import { WorkingStep } from "./WorkingStep";
 
-export const HowItWorks: React.FC = () => {
+export const HowItWorks = () => {
   return (
     <section className={styles.howItWorks}>
       <SectionContent>

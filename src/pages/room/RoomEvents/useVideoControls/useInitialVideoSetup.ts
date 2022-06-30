@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-import { videoElement } from "@components/elements";
+import { getVideoElement } from "@components/elements";
 import { videoSyncInterval } from "@components/constants";
 import { useRoomContext } from "@connection/RoomContext";
 
@@ -15,11 +15,17 @@ export const useInitialVideoSetup = () => {
   useEffect(() => {
     // Video timing is, on average, behind by half of the sync interval.
     // currentTime is also measured in seconds instead of milliseconds for some reason.
-    videoElement.currentTime =
+    getVideoElement().currentTime =
       originalRoomData.currentTime + videoSyncInterval / 2000;
 
     if (originalRoomData.playing) {
-      videoElement.play();
+      try {
+        getVideoElement().play();
+      } catch {
+        // .play() may throw if the user hasn't already interacted with the document
+        // We'll try again in a few seconds just in case...
+        setTimeout(() => getVideoElement().play(), 3000);
+      }
     }
   }, [originalRoomData]);
 };

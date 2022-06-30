@@ -11,7 +11,7 @@ import { BackgroundStars } from "./BackgroundStars";
 import { CreateRoom } from "./CreateRoom";
 import styles from "./styles.module.scss";
 
-export const Hero: React.FC = () => {
+export const Hero = () => {
   return (
     <section className={styles.hero} id="top">
       <BackgroundStars />
