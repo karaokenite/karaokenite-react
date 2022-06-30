@@ -1,5 +1,5 @@
 interface Window {
-  KaraokeNiteListenToConnection: (event: {
+  KaraokeNiteListenToConnection?: (event: {
     detail: { clientId: string };
   }) => void;
 }

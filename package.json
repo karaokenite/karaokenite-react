@@ -46,7 +46,7 @@
     "url-loader": "^4.1.0"
   },
   "engines": {
-    "node": 16
+    "node": "16"
   },
   "husky": {
     "hooks": {
