@@ -1,5 +1,5 @@
 import cx from "classnames";
-import React, { useState } from "react";
+import React from "react";
 
 import { Key } from "@components/typography/Key";
 import { Text } from "@components/typography/Text";
